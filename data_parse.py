@@ -234,6 +234,8 @@ print(placowka_df)
 print(placowka_wyniki_df)
 
 '''
-zrevertowac te zmiany, nie trzymac gminy, powiatu, wojewodztwa w oddzielnych tabelkach, tylko okrag niech bedzie w innej tabelce,
-mozna okrag zupdateowac o to co jest dostepne w og danych, jak np. ten opis granic czemu nie.
+zrevertowac, wrocic zeby w placowce byly plain text nazwy dla: miasto, gmina, powiat, wojewodztwo
+okrag zostaje w innej tabelce.
+
+zrobic to i done and ready?
 '''
