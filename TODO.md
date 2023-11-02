@@ -11,3 +11,5 @@ i nazwac to placowka?
 
 bundlowac po siedzibie, i wtedy suma na mieszkancach, wyborcach, typ,teryt,gmina,powiat,wojewodztwo,typobszaru sie nie zmieni wiadomo, opis granic
 problematyczny bardzo.
+
+zmienic election na app
