@@ -2,8 +2,8 @@
 -- Table: Komitet
 CREATE TABLE Komitet (
     id int  NOT NULL,
-    nazwa varchar(128)  CHARACTER SET utf8mb4 COLLATE utf8mb4_polish_ci NOT NULL,
-    skrot varchar(16)  CHARACTER SET utf8mb4 COLLATE utf8mb4_polish_ci NOT NULL,
+    nazwa varchar(128) NOT NULL,
+    skrot varchar(16)  NOT NULL,
     CONSTRAINT Komitet_pk PRIMARY KEY (id)
 );
 
@@ -13,18 +13,18 @@ CREATE TABLE Okrag (
     liczba_mandatow int  NOT NULL,
     liczba_mieszkancow int  NOT NULL,
     liczba_wyborcow int  NOT NULL,
-    siedziba_OKW varchar(32)  CHARACTER SET utf8mb4 COLLATE utf8mb4_polish_ci NOT NULL,
+    siedziba_OKW varchar(32) NOT NULL,
     CONSTRAINT Okrag_pk PRIMARY KEY (id)
 );
 
 -- Table: Placowka
 CREATE TABLE Placowka (
     id int  NOT NULL,
-    nazwa_adres varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_polish_ci NOT NULL,
-    miasto varchar(32)  CHARACTER SET utf8mb4 COLLATE utf8mb4_polish_ci NOT NULL,
-    gmina varchar(32)  CHARACTER SET utf8mb4 COLLATE utf8mb4_polish_ci NOT NULL,
-    powiat varchar(32)  CHARACTER SET utf8mb4 COLLATE utf8mb4_polish_ci NOT NULL,
-    wojewodztwo varchar(32)  CHARACTER SET utf8mb4 COLLATE utf8mb4_polish_ci NOT NULL,
+    nazwa_adres varchar(256) NOT NULL,
+    miasto varchar(32) NOT NULL,
+    gmina varchar(32) NOT NULL,
+    powiat varchar(32) NOT NULL,
+    wojewodztwo varchar(32) NOT NULL,
     okrag_id int  NOT NULL,
     CONSTRAINT Placowka_pk PRIMARY KEY (id)
 );
