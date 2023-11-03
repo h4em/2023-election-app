@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Search App</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</head>
+<body>
+    <header>
+        <h1>Search App</h1>
+        <form id="search-form">
+            <input type="text" id="searchInput" placeholder="Search..." oninput="hintInstitution()">
+            <button type="submit">Search</button>
+        </form>
+        <div id="hints">
+            
+        </div>
+    </header>
+    <main>
+        <div id="results-container">
+            <!-- Search results will be displayed here -->
+        </div>
+    </main>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
