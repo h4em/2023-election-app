@@ -4,24 +4,22 @@
     <meta charset="UTF-8">
     <title>Search App</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link href="https://fonts.cdnfonts.com/css/mona-sans" rel="stylesheet">
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <header>
-        <h1>Search App</h1>
-        <form id="search-form">
-            <input type="text" id="searchInput" placeholder="Search..." oninput="hintInstitution()">
-            <button type="submit">Search</button>
-        </form>
-        <div id="hints">
-            
-        </div>
-    </header>
     <main>
-        <div id="results-container">
-            <!-- Search results will be displayed here -->
+        <h1 style="font-family: 'Mona-Sans', sans-serif; font-weight:700;">Title</h1>
+        <div class = "main-div">
+            <form id="search-form">
+                <input type="text" class="search-bar" id="institution_search_bar" placeholder="Search...">
+            </form>
+            <div id="search-hints-div" class="search-hints-div">
+                <!--hintsy searchu-->
+            </div>
+            <canvas id="chart" class="bar-chart"></canvas>
         </div>
     </main>
-    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>

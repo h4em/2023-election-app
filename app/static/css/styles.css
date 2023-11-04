@@ -1,0 +1,92 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    outline: 2px solid green;
+    width: 120vh;
+    height: 100vh;
+    position: static;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin: 0;
+    padding: 0;
+}
+
+.main-div {
+    outline: 2px solid pink;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 80%;
+    max-width: 80%;
+    top: 80px;
+}
+
+.search-bar {
+    font-family: 'Consolas', monospace;
+    width: 100%; /* Set the width as a percentage of the parent container */
+    max-width: 100%; /* Set a maximum width for the search bar, adjust as needed */
+    background: #f5f5f5;
+    border: none;
+    border-radius: 20px;
+    padding: 10px;
+    font-size: 12px;
+    color: #333;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.4);
+
+    box-sizing: border-box;
+
+    &:focus {
+        outline: none;
+    }
+}
+
+.search-bar::placeholder {
+    color: #777;
+}
+
+.hint-div {
+    font-family: 'Consolas', monospace;
+    color: #333;
+    background: #fafafa;
+    font-size: 12px;
+    
+    cursor: pointer;
+
+    padding-left: 10px;
+    padding-right: 10px;
+
+    margin-top: 1px;
+    margin-bottom: 1px;
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.highlight {
+    background-color: rgba(179, 28, 28, 0.8);
+    font-weight: bold;
+}
+
+
+/*to sie nie wyswietla, czemu??*/
+.search-hints-div {
+    background: #fafafa;
+    outline: 1px solid blue;
+    width: 100%; /* Match the width of the search bar */
+    margin-top: -16px;
+    padding-top: 16px;
+}
+
+.bar-chart {
+    width: 100%;
+    height: 100%;
+}

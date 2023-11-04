@@ -1,5 +1,5 @@
-import json
 import mysql.connector
+from decimal import Decimal
 from app.db_config import config
 
 connection_pool = mysql.connector.pooling.MySQLConnectionPool(
@@ -25,4 +25,31 @@ def get_institutions(institution_name):
         cursor.close()
         connection.close()
 
-    return json.dumps(institutions)
+    return institutions
+
+#tu format zwracany jest zly bardzo
+
+def get_institution_results(institution):
+    connection = connection_pool.get_connection()
+    cursor = connection.cursor()
+
+    try:
+        query = '''
+            SELECT komitet.skrot, sum(liczba_glosow) 
+            FROM komitet 
+            INNER JOIN placowka_wyniki ON placowka_wyniki.komitet_id = komitet.id
+            INNER JOIN placowka ON placowka.id = placowka_wyniki.placowka_id
+            WHERE placowka.nazwa_adres = %s
+            GROUP BY komitet.skrot
+            ORDER BY sum(liczba_glosow) DESC;
+        '''    
+        cursor.execute(query, (institution,))
+        results = cursor.fetchall()
+
+        results = [(name, int(votes)) for name, votes in results if votes != Decimal('0')]
+    except mysql.connector.Error as e:
+        print(f"Database Error: {e}")
+    finally:
+        cursor.close()
+        connection.close()
+    return results
