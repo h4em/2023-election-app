@@ -124,8 +124,11 @@ async function fetchInstitutionResults(institution_name) {
 */
 
 function setChartData(data) {
-    var canvas = document.getElementById('chart');
-    var chart = Chart.getChart(canvas);
+    var bar_chart_canvas = document.getElementById('bar-chart');
+    var bar_chart = Chart.getChart(bar_chart_canvas);
+
+    var doughnut_chart_canvas = document.getElementById('doughnut-chart');
+    var doughnut_chart = Chart.getChart(doughnut_chart_canvas);
 
     var labels = data.map(function(item) {
         return item.name;
@@ -135,17 +138,37 @@ function setChartData(data) {
         return item.num_of_votes;
     });
 
-    chart.data.labels = labels;
-    chart.data.datasets[0].data = values;
+    bar_chart.data.labels = labels;
+    bar_chart.data.datasets[0].data = values;
 
-    chart.update();
+    doughnut_chart.data.labels = labels;
+    doughnut_chart.data.datasets[0].data = values;
+
+    doughnut_chart.update();
+    bar_chart.update();
 }
 
 
 function chartSetup() {
-    const canvas = document.getElementById('chart')
+    const bar_chart_canvas = document.getElementById('bar-chart');
+    const doughnut_chart_canvas = document.getElementById('doughnut-chart');
+    
+    const makoColors = [
+        "#00819D",
+        "#3E6990",
+        "#C17900",
+        "#C88D00",
+        "#00A08A",
+        "#00B7A2",
+        "#5A2D46",
+        "#AFBFB2",
+        "#FFE227",
+        "#FFD74A",
+        "#F05A28",
+        "#F27D46"
+      ];
 
-    new Chart(canvas, {
+    new Chart(bar_chart_canvas, {
         type: 'bar',
         data: {
             labels: [],  // Initially empty labels
@@ -157,6 +180,31 @@ function chartSetup() {
             }]
         },
         options: {
+            responsive: true,
+            plugins: {
+                tooltip: {
+                    enabled: false // Disable tooltips
+                },
+                legend: {
+                    display: false // Hide the legend
+                }
+            },
+        }
+    });
+
+    new Chart(doughnut_chart_canvas, {
+        type: 'doughnut',
+        data: {
+            labels: [],  // Initially empty labels
+            datasets: [{
+                data: [],   // Initially empty data
+                //backgroundcolor: lightcol
+                backgroundColor: makoColors,
+                borderWidth: 1,
+            }]
+        },
+        options: {
+            responsive: true,
             plugins: {
                 tooltip: {
                     enabled: false // Disable tooltips
@@ -168,6 +216,24 @@ function chartSetup() {
         }
     });
 }
+
+/*
+    var lightColors = [
+        "#FFD1DC", // Light Pink
+        "#A0CED9", // Light Blue
+        "#FFDD94", // Light Yellow
+        "#B5E7A0", // Light Green
+        "#FFABAB", // Light Coral
+        "#A3D2E2", // Light Sky Blue
+        "#FFD8B1", // Light Apricot
+        "#C6F8E2", // Light Mint
+        "#FFC3A0", // Light Salmon
+        "#D1EAA3", // Light Pistachio
+        "#FFC3A0", // Light Peach
+        "#E2F0CB", // Light Lime
+    ];
+*/
+
 
 /*
     czyscic searchbar kiedy nawigowal po hintsach i wrocil do poczatku

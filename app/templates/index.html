@@ -10,15 +10,18 @@
 </head>
 <body>
     <main>
-        <h1 style="font-family: 'Mona-Sans', sans-serif; font-weight:700;">Title</h1>
         <div class = "main-div">
+            <h1 style="font-family: 'Mona-Sans', sans-serif; font-weight:700; align-self: flex-start;">Title</h1>
             <form id="search-form">
                 <input type="text" class="search-bar" id="institution_search_bar" placeholder="Search...">
             </form>
             <div id="search-hints-div" class="search-hints-div">
                 <!--hintsy searchu-->
             </div>
-            <canvas id="chart" class="bar-chart"></canvas>
+            <div style="display: flex; flex-direction: column; width: 100%; position: relative;">
+                <canvas id="bar-chart" class="bar-chart" style="flex: 1"></canvas>
+                <canvas id="doughnut-chart" class="doughnut-chart" style="flex: 1"></canvas>
+            </div>
         </div>
     </main>
 </body>

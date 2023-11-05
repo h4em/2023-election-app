@@ -2,3 +2,4 @@ app/db_config.py
 app/__pycache__
 data/__pycache__/
 data/db_config.py
+TODO.md
