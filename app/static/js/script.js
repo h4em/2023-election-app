@@ -24,6 +24,7 @@ document.addEventListener('keydown', function (event) {
 
 function hintContainerSetup() {
     const hintsContainer = document.getElementById('search-hints-div');
+    const hints = document.querySelectorAll('hint-div');
 
     function handleArrowKeys(event) {
         if (event.key === 'ArrowUp' && hintIndex >= 0) {
@@ -48,6 +49,7 @@ function hintContainerSetup() {
 function searchbarSetup() {
     const searchbar = document.getElementById('institution_search_bar');
     searchbar.addEventListener('input', hintInstitutions);
+    searchbar.addEventListener('submit', fetchInstitutionResults(searchbar.value));
 }
 
 function updateSearchBarValue(newValue) {
@@ -88,14 +90,13 @@ async function hintInstitutions() {
 
         hintElement.addEventListener('click', () => {
             document.getElementById('institution_search_bar').value = result;
-            // fetchInstitutionResults(result);
+            fetchInstitutionResults(result);
         });
 
         hintElement.addEventListener('mouseover', () => {
             updateSearchBarValue(hintElement.textContent);
             hintIndex = Array.from(hintsContainer.querySelectorAll('.hint-div')).indexOf(hintElement);
             updateHintHighlight();
-
         });
 
         hintElement.addEventListener('mouseout', () => {
@@ -107,39 +108,64 @@ async function hintInstitutions() {
     });
 }
 
+async function fetchInstitutionResults(institution_name) {
+    const response = await fetch(`/institution_results?q=${institution_name}`);
+    const data = await response.json();
+
+    data.forEach(element => {
+        console.log(element);
+    });
+
+    setChartData(data);
+}
+
 /*
-
-chartsy do innego pliku?
-
+    chartsy do innego pliku?
 */
+
+function setChartData(data) {
+    var canvas = document.getElementById('chart');
+    var chart = Chart.getChart(canvas);
+
+    var labels = data.map(function(item) {
+        return item.name;
+    });
+
+    var values = data.map(function(item) {
+        return item.num_of_votes;
+    });
+
+    chart.data.labels = labels;
+    chart.data.datasets[0].data = values;
+
+    chart.update();
+}
 
 
 function chartSetup() {
-    const ctx = document.getElementById('chart').getContext('2d');
-    const data = {
-        labels: ['January', 'February', 'March', 'April', 'May', 'June'],
-        datasets: [
-            {
-                data: [1200, 1500, 1700, 1300, 1600, 1800],
-                backgroundColor: 'rgba(75, 192, 192, 0.2)', // Bar color
-                borderColor: 'rgba(75, 192, 192, 1)',     // Border color
-                borderWidth: 1
-            }
-        ]
-    };
+    const canvas = document.getElementById('chart')
 
-    const options = {
-        scales: {
-            y: {
-                beginAtZero: true
-            }
-        }
-    };
-
-    new Chart(ctx, {
+    new Chart(canvas, {
         type: 'bar',
-        data: data,
-        options: options
+        data: {
+            labels: [],  // Initially empty labels
+            datasets: [{
+                data: [],   // Initially empty data
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            plugins: {
+                tooltip: {
+                    enabled: false // Disable tooltips
+                },
+                legend: {
+                    display: false // Hide the legend
+                }
+            },
+        }
     });
 }
 

@@ -46,7 +46,7 @@ def get_institution_results(institution):
         cursor.execute(query, (institution,))
         results = cursor.fetchall()
 
-        results = [(name, int(votes)) for name, votes in results if votes != Decimal('0')]
+        results = [{'name': name, 'num_of_votes': str(value)} for name, value in results if value != 0]
     except mysql.connector.Error as e:
         print(f"Database Error: {e}")
     finally:
