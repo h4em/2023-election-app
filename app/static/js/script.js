@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 document.addEventListener('keydown', function (event) {
-    const hintsContainer = document.getElementById('search-hints-div');
+    const hintsContainer = document.getElementById('searchbar-hints-div');
     const hints = hintsContainer.querySelectorAll('.hint-div');
 
     if (event.key === 'ArrowUp' && hintIndex >= 0) {
@@ -23,7 +23,7 @@ document.addEventListener('keydown', function (event) {
 });
 
 function hintContainerSetup() {
-    const hintsContainer = document.getElementById('search-hints-div');
+    const hintsContainer = document.getElementById('searchbar-hints-div');
     const hints = document.querySelectorAll('hint-div');
 
     function handleArrowKeys(event) {
@@ -47,17 +47,17 @@ function hintContainerSetup() {
 }
 
 function searchbarSetup() {
-    const searchbar = document.getElementById('institution_search_bar');
+    const searchbar = document.getElementById('searchbar');
     searchbar.addEventListener('input', hintInstitutions);
     searchbar.addEventListener('submit', fetchInstitutionResults(searchbar.value));
 }
 
 function updateSearchBarValue(newValue) {
-    document.getElementById('institution_search_bar').value = newValue;
+    document.getElementById('searchbar').value = newValue;
 }
 
 function updateHintHighlight() {
-    const hintsContainer = document.getElementById('search-hints-div');
+    const hintsContainer = document.getElementById('searchbar-hints-div');
     const hints = hintsContainer.querySelectorAll('.hint-div');
 
     hints.forEach((hint, i) => {
@@ -70,8 +70,8 @@ function updateHintHighlight() {
 }
 
 async function hintInstitutions() {
-    const keyword = document.getElementById('institution_search_bar').value;
-    const hintsContainer = document.getElementById('search-hints-div');
+    const keyword = document.getElementById('searchbar').value;
+    const hintsContainer = document.getElementById('searchbar-hints-div');
 
     if (keyword.length === 0) {
         hintsContainer.innerHTML = '';
@@ -89,7 +89,7 @@ async function hintInstitutions() {
         hintElement.className = 'hint-div';
 
         hintElement.addEventListener('click', () => {
-            document.getElementById('institution_search_bar').value = result;
+            document.getElementById('searchbar').value = result;
             fetchInstitutionResults(result);
         });
 
@@ -234,12 +234,9 @@ function chartSetup() {
     ];
 */
 
-
 /*
     czyscic searchbar kiedy nawigowal po hintsach i wrocil do poczatku
 */
-
-
 
 /* zeby na poczatku bar byl pusty, przychodzi api call i sie wypelniaja barsy!
 <!DOCTYPE html>
@@ -299,6 +296,4 @@ function chartSetup() {
     </script>
 </body>
 </html>
-
-
 */

@@ -47,9 +47,6 @@ def get_institution_results(institution):
         results = cursor.fetchall()
 
         results = [{'name': name, 'num_of_votes': str(value)} for name, value in results if value != 0]
-
-        print(results)
-
     except mysql.connector.Error as e:
         print(f"Database Error: {e}")
     finally:
