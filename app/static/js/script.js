@@ -43,13 +43,27 @@ function hintContainerSetup() {
         }
     }
 
+    function emptyContainer() {
+        hintsContainer.innerHTML = '';
+    }
+
     hintsContainer.addEventListener('keydown', handleArrowKeys);
+    
+    //to jest glupie, niech wraca do tego co wpisal on mouseleave
+    hintsContainer.addEventListener('mouseleave', clearSearchbar);
+
+    //to jest git?
+    hintsContainer.addEventListener('mouseleave', emptyContainer);
 }
 
 function searchbarSetup() {
     const searchbar = document.getElementById('searchbar');
     searchbar.addEventListener('input', hintInstitutions);
     searchbar.addEventListener('submit', fetchInstitutionResults(searchbar.value));
+}
+
+function clearSearchbar() {
+    document.getElementById('searchbar').value = '';
 }
 
 function updateSearchBarValue(newValue) {
@@ -183,7 +197,7 @@ function chartSetup() {
             responsive: true,
             plugins: {
                 tooltip: {
-                    enabled: false // Disable tooltips
+                     // Disable tooltips
                 },
                 legend: {
                     display: false // Hide the legend
@@ -207,7 +221,6 @@ function chartSetup() {
             responsive: true,
             plugins: {
                 tooltip: {
-                    enabled: false // Disable tooltips
                 },
                 legend: {
                     display: false // Hide the legend
@@ -216,6 +229,11 @@ function chartSetup() {
         }
     });
 }
+
+/*
+    Best Practice: Using the DOMContentLoaded event is often considered a best practice for ensuring that your JavaScript runs at the right time, 
+    regardless of where your scripts are placed. It can help make your code more robust and maintainable, especially in larger and more complex projects.
+*/
 
 /*
     var lightColors = [

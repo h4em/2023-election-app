@@ -2,27 +2,30 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Search App</title>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
-    <link href="https://fonts.cdnfonts.com/css/mona-sans" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script type="module" src="{{ url_for('static', filename='js/script.js') }}" defer></script>
+    <title>2023 election app</title>
+    <link rel="stylesheet" href="../static/css/styles.css">
+    <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/mona-sans">
 </head>
 <body>
     <main>
         <div class = "main-div">
             <div class = "description-div">
-                <h1 style="font-family: 'Mona-Sans', sans-serif; font-weight:700; align-self: flex-start;">Title</h1>
+                <h1>Title</h1>
+                
                 <form id="search-form">
                     <input type="text" id="searchbar" class="searchbar" placeholder="Search...">
                 </form>
-                <div id="searchbar-hints-div" class="searchbar-hints-div"></div>
+                
+                <div id="searchbar-hints-div" class="searchbar-hints-div"></div> <!--to jest zle pewnie-->
             </div>
+            
             <div class = "charts-div">
                 <canvas id="bar-chart" class="bar-chart"></canvas>
                 <canvas id="doughnut-chart" class="doughnut-chart"></canvas>
             </div>
         </div>
     </main>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../static/js/script.js"></script>
 </body>
 </html>
