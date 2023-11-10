@@ -1,14 +1,57 @@
+const searchbar = document.querySelector('#searchbar');
+const hintContainer = document.querySelector('#searchbar-hints-div');
+let searchbarInput = '';
 let hintIndex = -1;
 
-document.addEventListener('DOMContentLoaded', function() {
-    searchbarSetup();
-    hintContainerSetup();
-    chartSetup();
-});
+/*
+    zrobic ze jak mouseout z hintContainera to w searchbarValue pokazuje sie 
+    to co zaczal wpisywac zanim zaczal jezdzic po hintsach
+*/
 
-document.addEventListener('keydown', function (event) {
-    const hintsContainer = document.getElementById('searchbar-hints-div');
-    const hints = hintsContainer.querySelectorAll('.hint-div');
+function resetHintIndex() {
+    hintIndex = -1;
+}
+
+function hintContainerEmpty() {
+    return hintContainer.childElementCount === 0;
+}
+
+function emptyHintsContainer() {
+    hintContainer.innerHTML = '';
+}
+
+function updateSearchBarValue(newValue) {
+    searchbar.value = newValue;
+}
+
+function clearSearchbar() {
+    searchbar.value = '';
+}
+
+//jeszcze chart setup
+function init() {
+    setListeners();
+    //initCharts();
+}
+
+function setListeners() {
+    setSearchbarListeners();
+    setHintContainerListeners();
+}
+
+
+window.addEventListener('load', init);
+
+function toggleHintHiglight(hintElement) {
+    hintElement.classList.toggle('highlight');
+}
+
+function hintContainerArrowKeyNav(event) {    
+    const hints = hintContainer.querySelectorAll('.hint-div');
+    
+    if(hintIndex !== -1) {
+        toggleHintHiglight(hints[hintIndex]);
+    }
 
     if (event.key === 'ArrowUp' && hintIndex >= 0) {
         hintIndex--;
@@ -16,86 +59,43 @@ document.addEventListener('keydown', function (event) {
         hintIndex++;
     }
 
-    updateHintHighlight();
-    const selectedHint = hints[hintIndex];
-    if(selectedHint)
-        updateSearchBarValue(selectedHint.textContent);
-});
-
-function hintContainerSetup() {
-    const hintsContainer = document.getElementById('searchbar-hints-div');
-    const hints = document.querySelectorAll('hint-div');
-
-    function handleArrowKeys(event) {
-        if (event.key === 'ArrowUp' && hintIndex >= 0) {
-            hintIndex--;
-        } else if (event.key === 'ArrowDown' && hintIndex < hints.length - 1) {
-            hintIndex++;
-        }
-
-        updateHintHighlight();
-        if (hintIndex !== -1) {
-            const selectedHint = hints[hintIndex];
-            updateSearchBarValue(selectedHint.textContent);
-        } else {
-            updateSearchBarValue('');
-            hintsContainer.innerHTML = ''
-        }
+    if(hintIndex !== hints.length - 1) {
+        toggleHintHiglight(hints[hintIndex]);
     }
-
-    function emptyContainer() {
-        hintsContainer.innerHTML = '';
-    }
-
-    hintsContainer.addEventListener('keydown', handleArrowKeys);
-    
-    //to jest glupie, niech wraca do tego co wpisal on mouseleave
-    hintsContainer.addEventListener('mouseleave', clearSearchbar);
-
-    //to jest git?
-    hintsContainer.addEventListener('mouseleave', emptyContainer);
 }
 
-function searchbarSetup() {
-    const searchbar = document.getElementById('searchbar');
+function setHintContainerListeners() {
+    hintContainer.addEventListener('keydown', hintContainerArrowKeyNav);
+    hintContainer.addEventListener('mouseleave', emptyHintsContainer);
+    hintContainer.addEventListener('mouseleave', restoreSearchbarValue);
+}
+
+function restoreSearchbarValue() {
+    searchbar.value = searchbarInput;
+}
+
+function saveSearchbarInput() {
+    searchbarInput = searchbar.value;
+}
+
+function setSearchbarListeners() {
+    searchbar.addEventListener('input', saveSearchbarInput);
     searchbar.addEventListener('input', hintInstitutions);
     searchbar.addEventListener('submit', fetchInstitutionResults(searchbar.value));
 }
 
-function clearSearchbar() {
-    document.getElementById('searchbar').value = '';
-}
-
-function updateSearchBarValue(newValue) {
-    document.getElementById('searchbar').value = newValue;
-}
-
-function updateHintHighlight() {
-    const hintsContainer = document.getElementById('searchbar-hints-div');
-    const hints = hintsContainer.querySelectorAll('.hint-div');
-
-    hints.forEach((hint, i) => {
-        if (i === hintIndex) {
-            hint.classList.add('highlight');
-        } else {
-            hint.classList.remove('highlight');
-        }
-    });
-}
-
+//tez do zmiany?
 async function hintInstitutions() {
-    const keyword = document.getElementById('searchbar').value;
-    const hintsContainer = document.getElementById('searchbar-hints-div');
+    const keyword = searchbar.value;
 
     if (keyword.length === 0) {
-        hintsContainer.innerHTML = '';
-        return;
+        emptyHintsContainer();
     }
 
     const response = await fetch(`/institution_search_bar?q=${keyword}`);
     const data = await response.json();
 
-    hintsContainer.innerHTML = '';
+    emptyHintsContainer();
 
     data.forEach(result => {
         const hintElement = document.createElement('div');
@@ -109,16 +109,16 @@ async function hintInstitutions() {
 
         hintElement.addEventListener('mouseover', () => {
             updateSearchBarValue(hintElement.textContent);
-            hintIndex = Array.from(hintsContainer.querySelectorAll('.hint-div')).indexOf(hintElement);
-            updateHintHighlight();
+            hintIndex = Array.from(hintContainer.querySelectorAll('.hint-div')).indexOf(hintElement);
+            toggleHintHiglight(hintElement);
         });
 
         hintElement.addEventListener('mouseout', () => {
-            hintIndex = -1;
-            updateHintHighlight();
+            toggleHintHiglight(hintElement);
+            resetHintIndex();
         });
 
-        hintsContainer.append(hintElement);
+        hintContainer.append(hintElement);
     });
 }
 
@@ -130,105 +130,105 @@ async function fetchInstitutionResults(institution_name) {
         console.log(element);
     });
 
-    setChartData(data);
+    //setChartData(data);
 }
 
 /*
     chartsy do innego pliku?
 */
 
-function setChartData(data) {
-    var bar_chart_canvas = document.getElementById('bar-chart');
-    var bar_chart = Chart.getChart(bar_chart_canvas);
+// function setChartData(data) {
+//     var bar_chart_canvas = document.getElementById('bar-chart');
+//     var bar_chart = Chart.getChart(bar_chart_canvas);
 
-    var doughnut_chart_canvas = document.getElementById('doughnut-chart');
-    var doughnut_chart = Chart.getChart(doughnut_chart_canvas);
+//     var doughnut_chart_canvas = document.getElementById('doughnut-chart');
+//     var doughnut_chart = Chart.getChart(doughnut_chart_canvas);
 
-    var labels = data.map(function(item) {
-        return item.name;
-    });
+//     var labels = data.map(function(item) {
+//         return item.name;
+//     });
 
-    var values = data.map(function(item) {
-        return item.num_of_votes;
-    });
+//     var values = data.map(function(item) {
+//         return item.num_of_votes;
+//     });
 
-    bar_chart.data.labels = labels;
-    bar_chart.data.datasets[0].data = values;
+//     bar_chart.data.labels = labels;
+//     bar_chart.data.datasets[0].data = values;
 
-    doughnut_chart.data.labels = labels;
-    doughnut_chart.data.datasets[0].data = values;
+//     doughnut_chart.data.labels = labels;
+//     doughnut_chart.data.datasets[0].data = values;
 
-    doughnut_chart.update();
-    bar_chart.update();
-}
+//     doughnut_chart.update();
+//     bar_chart.update();
+// }
 
 
-function chartSetup() {
-    const bar_chart_canvas = document.getElementById('bar-chart');
-    const doughnut_chart_canvas = document.getElementById('doughnut-chart');
+// function chartSetup() {
+//     const bar_chart_canvas = document.getElementById('bar-chart');
+//     const doughnut_chart_canvas = document.getElementById('doughnut-chart');
     
-    const makoColors = [
-        "#00819D",
-        "#3E6990",
-        "#C17900",
-        "#C88D00",
-        "#00A08A",
-        "#00B7A2",
-        "#5A2D46",
-        "#AFBFB2",
-        "#FFE227",
-        "#FFD74A",
-        "#F05A28",
-        "#F27D46"
-      ];
+//     const makoColors = [
+//         "#00819D",
+//         "#3E6990",
+//         "#C17900",
+//         "#C88D00",
+//         "#00A08A",
+//         "#00B7A2",
+//         "#5A2D46",
+//         "#AFBFB2",
+//         "#FFE227",
+//         "#FFD74A",
+//         "#F05A28",
+//         "#F27D46"
+//       ];
 
-    new Chart(bar_chart_canvas, {
-        type: 'bar',
-        data: {
-            labels: [],  // Initially empty labels
-            datasets: [{
-                data: [],   // Initially empty data
-                backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                borderColor: 'rgba(75, 192, 192, 1)',
-                borderWidth: 1
-            }]
-        },
-        options: {
-            responsive: true,
-            plugins: {
-                tooltip: {
-                     // Disable tooltips
-                },
-                legend: {
-                    display: false // Hide the legend
-                }
-            },
-        }
-    });
+//     new Chart(bar_chart_canvas, {
+//         type: 'bar',
+//         data: {
+//             labels: [],  // Initially empty labels
+//             datasets: [{
+//                 data: [],   // Initially empty data
+//                 backgroundColor: 'rgba(75, 192, 192, 0.2)',
+//                 borderColor: 'rgba(75, 192, 192, 1)',
+//                 borderWidth: 1
+//             }]
+//         },
+//         options: {
+//             responsive: true,
+//             plugins: {
+//                 tooltip: {
+//                      // Disable tooltips
+//                 },
+//                 legend: {
+//                     display: false // Hide the legend
+//                 }
+//             },
+//         }
+//     });
 
-    new Chart(doughnut_chart_canvas, {
-        type: 'doughnut',
-        data: {
-            labels: [],  // Initially empty labels
-            datasets: [{
-                data: [],   // Initially empty data
-                //backgroundcolor: lightcol
-                backgroundColor: makoColors,
-                borderWidth: 1,
-            }]
-        },
-        options: {
-            responsive: true,
-            plugins: {
-                tooltip: {
-                },
-                legend: {
-                    display: false // Hide the legend
-                }
-            },
-        }
-    });
-}
+//     new Chart(doughnut_chart_canvas, {
+//         type: 'doughnut',
+//         data: {
+//             labels: [],  // Initially empty labels
+//             datasets: [{
+//                 data: [],   // Initially empty data
+//                 //backgroundcolor: lightcol
+//                 backgroundColor: makoColors,
+//                 borderWidth: 1,
+//             }]
+//         },
+//         options: {
+//             responsive: true,
+//             plugins: {
+//                 tooltip: {
+//                 },
+//                 legend: {
+//                     display: false // Hide the legend
+//                 }
+//             },
+//         }
+//     });
+// }
 
 /*
     Best Practice: Using the DOMContentLoaded event is often considered a best practice for ensuring that your JavaScript runs at the right time, 
