@@ -6,10 +6,10 @@ module.exports = {
     },
     parserOptions: {
         sourceType: 'module',
-        ecmaVersion: 2017 // This specifies ES8 (ECMAScript 2017) support
+        ecmaVersion: 2017 
     },
     extends: 'eslint:recommended',
     rules: {
-        //custom_rules
+        
     },
 };
