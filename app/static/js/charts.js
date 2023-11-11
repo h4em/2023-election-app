@@ -58,7 +58,8 @@ function createEmptyBarChart() {
     new Chart(ctx, config);
 }
 
-/*zeby zmieniac size chyba trzeba dodac wrappera dla obu chartow i tam zmieniac:
+/*
+    zeby zmieniac size chyba trzeba dodac wrappera dla obu chartow i tam zmieniac:
     <div class="chart-container" style="position: relative; height:40vh; width:80vw">
         <canvas id="chart"></canvas>
     </div>
@@ -66,15 +67,7 @@ function createEmptyBarChart() {
     chart.canvas.parentNode.style.height = '128px';
     chart.canvas.parentNode.style.width = '128px';
 
-/*
-
-
-
-
-
 */
-
-
 
 // function setChartData(data) {
 //     var bar_chart_canvas = document.getElementById('bar-chart');
