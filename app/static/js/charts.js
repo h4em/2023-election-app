@@ -1,5 +1,7 @@
 const wrapper = document.querySelector('.charts-div');
 const barChart = wrapper.querySelector('.bar-chart');
+const doughnutChart = wrapper.querySelector('.doughnut-chart');
+
 //const doughnutChart = wrapper.querySelector('.doughnut-chart');
 
 // const committees = [
@@ -17,9 +19,9 @@ const barChart = wrapper.querySelector('.bar-chart');
 //     {shortname: 'MN', color: "rgb(255, 224, 0)", imageSrc: },
 // ];
 
-export function initCharts(){
+export function initCharts() {
     createEmptyBarChart();
-    //createEmptyDoughnutChart();
+    createEmptyDoughnutChart();
 }
 
 function createEmptyBarChart() {
@@ -29,9 +31,9 @@ function createEmptyBarChart() {
         type: 'bar',
 
         data: {
-            labels: [],  
+            labels: [],
             datasets: [{
-                data: [], 
+                data: [],
                 backgroundColor: 'transparent',
                 borderColor: 'rgba(34, 177, 76)',
                 borderWidth: 1
@@ -54,6 +56,24 @@ function createEmptyBarChart() {
             }
         }
     }
+
+    new Chart(ctx, config);
+}
+
+function createEmptyDoughnutChart() {
+    const ctx = doughnutChart.getContext('2d');
+
+    const config = {
+        type: 'doughnut',
+        data: {
+            datasets: [
+                {
+                    data: [1], // An empty array for the dataset data
+                },
+            ],
+            labels: ['asd'], // An empty array for labels
+        },
+    };
 
     new Chart(ctx, config);
 }
