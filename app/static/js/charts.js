@@ -2,8 +2,6 @@ const wrapper = document.querySelector('.charts-div');
 const barChart = wrapper.querySelector('.bar-chart');
 const doughnutChart = wrapper.querySelector('.doughnut-chart');
 
-//const doughnutChart = wrapper.querySelector('.doughnut-chart');
-
 // const committees = [
 //     {shortname: 'BS', color: "rgb(52, 45, 86)", imageSrc: },
 //     {shortname: '3D', color: "rgb(84, 181, 136)", imageSrc: },
@@ -71,23 +69,12 @@ function createEmptyDoughnutChart() {
                     data: [1], // An empty array for the dataset data
                 },
             ],
-            labels: ['asd'], // An empty array for labels
+            labels: [], // An empty array for labels
         },
     };
 
     new Chart(ctx, config);
 }
-
-/*
-    zeby zmieniac size chyba trzeba dodac wrappera dla obu chartow i tam zmieniac:
-    <div class="chart-container" style="position: relative; height:40vh; width:80vw">
-        <canvas id="chart"></canvas>
-    </div>
-
-    chart.canvas.parentNode.style.height = '128px';
-    chart.canvas.parentNode.style.width = '128px';
-
-*/
 
 // function setChartData(data) {
 //     var bar_chart_canvas = document.getElementById('bar-chart');
