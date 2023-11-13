@@ -1,14 +1,27 @@
 import { initCharts } from './charts.js';
 
-//const searchForm = document.querySelector('#search-form')
-const searchbar = document.querySelector('#searchbar');
-const hintContainer = document.querySelector('#searchbar-hints-div');
+const searchbar = document.querySelector('.searchbar');
+const hintContainer = document.querySelector('.search-hints');
 let hintIndex = -1;
 
 document.addEventListener('DOMContentLoaded', init);
 
-function init() {
+function resizeHintContainerAtWindowResize() {
+    const width = searchbar.offsetWidth;
+    hintContainer.style.width = width + 'px';
+}
+
+function setHintContainerWidth() {
+    const width = searchbar.offsetWidth;
+    hintContainer.style.width = width + 'px';
+}
+
+function init() {   
     setSearchbarListeners();
+    setHintContainerWidth();
+
+    window.addEventListener('resize', resizeHintContainerAtWindowResize);
+
     initCharts();
 }
 
@@ -29,7 +42,7 @@ function setSearchbarListeners() {
             event.preventDefault();
         }
     });
-    
+  
     searchbar.addEventListener('keydown', hintContainerArrowKeyNav);
 
     searchbar.addEventListener('submit', fetchInstitutionResults(searchbar.value));
@@ -50,7 +63,7 @@ function dehighlightHint(hint) {
 }
 
 function updateHintsHighlighting(newIndex) {
-    const hints = hintContainer.querySelectorAll('.hint-div');
+    const hints = hintContainer.querySelectorAll('.hint');
 
     const currHint = hints[hintIndex];
     const newHint = hints[newIndex];
@@ -65,7 +78,7 @@ function updateHintIndex(newIndex) {
 }
 
 function hintContainerArrowKeyNav(event) {
-    const hints = hintContainer.querySelectorAll('.hint-div');
+    const hints = hintContainer.querySelectorAll('.hint');
 
     if (event.key === 'ArrowUp' && hintIndex > 0) {
         updateHintIndex(hintIndex - 1);
@@ -90,7 +103,7 @@ async function hintInstitutions() {
     data.forEach((element, index) => {
         const hintElement = document.createElement('div');
         hintElement.textContent = element;
-        hintElement.className = 'hint-div';
+        hintElement.className = 'hint';
 
         //tutaj chyba nie bedzie element 
         hintElement.addEventListener('click', () => {

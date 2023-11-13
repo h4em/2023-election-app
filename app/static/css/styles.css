@@ -1,65 +1,89 @@
 body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #ffffff;
-    color: #FFFFFF; /* White text color */
+    width: 100vw;
+    height: 100vh;
+
+    overflow: auto;
+
     margin: 0;
     padding: 0;
 }
 
 main {
-    outline: 2px solid green;
-    margin: 5px;
-    
-    min-height: 100%;
-    min-width: 50%;
+    width: 65%;
+    height: 100%;
+
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 
     display: flex;
-    align-items: center;
     flex-direction: column;
+    align-items: flex-start;
     justify-content: flex-start;
-    
-    box-sizing: border-box;
-}
-  
-#search-form {
-    width: 100%; /* Occupy the full available horizontal space */
-    margin: 10px 0; /* Add some vertical spacing around the search form */
+
+    outline: 2px solid green;
+
+    margin: 4px;
+    padding: 4px;
 }
 
-.searchbar {
-    width: 100%;
-    max-width: 100%;
-    border: none;
-    border-radius: 20px;
-    padding: 10px;
-    font-size: 12px;
-    color: #FFFFFF;
-    box-shadow: 0 0 2px rgba(0, 0, 0, 0.4);
+main, .search-div, .charts-div {
     box-sizing: border-box;
-    background-color: #433F6A; /* Slightly darker search bar input background */
-    border-radius: 5px;
+}
+
+main > h1 {
+    font-size: 1.8rem;
+    color: black;
+}
+
+p {
+    text-align: justify;
+}
+
+input, p, .searchbar::placeholder, .hint {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    color: black;
+}
+
+.search-div, form {
+    width: 100%;
+
+    outline: 1px solid red;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-div {
+    outline: 1px solid red;
+}
+
+input {
+    width: 80%;
+    padding: 10px;
+
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.4);
+    
     white-space: nowrap; /* Prevent text from wrapping */
     overflow: hidden; /* Hide overflow text */
     text-overflow: ellipsis; /* Show ellipsis for overflow text */
-  }
-  
-  .searchbar:focus {
-    outline: none;
-  }
 
-.searchbar::placeholder {
-    color: #777;
+    border: none;
+    border-radius: 4px;
 }
 
-.hint-div {
-    font-family: 'Consolas', monospace;
-    color: #333;
-    background: #fafafa;
-    font-size: 12px;
-    
+input:focus {
+    outline: none;
+}
+
+.search-hints {
+    outline: 1px solid blue;
+}
+
+.hint {    
     cursor: pointer;
 
     padding-left: 10px;
@@ -78,47 +102,14 @@ main {
     font-weight: bold;
 }
 
-
-/*to sie nie wyswietla, czemu??*/
-.searchbar-hints-div {
-    background: #fafafa;
-    outline: 1px solid blue;
-    width: 100%; /* Match the width of the search bar */
-    margin-top: -10px;
-}
-
-.main-div {
-    outline: 2px solid pink;
-    
-    display: flex; /* Make .main-div a flex container */
-    flex-direction: row; /* Set the flex direction to column */
-    justify-content: space-between;
-    align-items: center;
-    
-    width: 1000px;
-    margin-top: 80px; /* Use margin-top instead of top for positioning */
-    margin-bottom: 80px;
-
-}
-
-.description-div {
-    flex: 1;
-    
-    width: 100%;
-    max-width: 100%;
-    
-    display: flex;
-    flex-direction: column; 
-
-    overflow: hidden;
-}
+/**/
 
 .charts-div {
-    flex: 1;
-
     width: 100%; 
-    max-width: 100%;
+    outline: 1px solid purple;
 
-    display: flex; 
-    flex-direction: column; 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
 }
