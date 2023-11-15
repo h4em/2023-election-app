@@ -7,6 +7,7 @@ main = Blueprint('main', __name__)
 def index():
     return render_template('index.html')
 
+#json format
 @main.route('/institution_search_bar', methods=['GET'])
 def search_for_institution():
     institution_name = request.args.get('q')
