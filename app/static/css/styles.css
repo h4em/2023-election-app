@@ -25,6 +25,10 @@ main {
     padding: 4px;
 }
 
+/*
+    jak zaczyna schodzic ponizej 1200 to slabe jest
+*/
+
 @media screen and (max-width: 767px) {
     main {
         width: 90%;
@@ -110,25 +114,19 @@ input:focus {
 
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
-    flex: 1;
     gap: 20px;
 
-    margin-top: 10px;
-
-    padding: 2px;
+    margin-top: 4px;
 }
 
-/*nie na chartsach tylko ich wrapperach??*/
-.bar-chart {
-    margin-top: 20px;
-}
-
-.dougnut-chart {
-    margin-bottom: 20px;
-}
-
+/*czy wrapper potrzebny wogle?*/
 .chart-wrapper {
     margin: 20px;
+}
+
+.bar-chart, .doughnut-chart {
+    width: 300px;
+    height: 300px;
 }

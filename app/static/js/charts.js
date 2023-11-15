@@ -1,21 +1,77 @@
 const wrapper = document.querySelector('.charts-div');
-const barChart = wrapper.querySelector('.bar-chart');
-const doughnutChart = wrapper.querySelector('.doughnut-chart');
+const barChartCanvas = wrapper.querySelector('.bar-chart');
+const doughnutChartCanvas = wrapper.querySelector('.doughnut-chart');
 
-// const committees = [
-//     {shortname: 'BS', color: "rgb(52, 45, 86)", imageSrc: },
-//     {shortname: '3D', color: "rgb(84, 181, 136)", imageSrc: },
-//     {shortname: 'NL', color: "rgb(134, 32, 98)", imageSrc: },
-//     {shortname: 'PiS', color: "rgb(33, 57, 119)", imageSrc: },
-//     {shortname: 'Konfederacja', color: "rgb(254, 201, 14)", imageSrc: },
-//     {shortname: 'KO', color: "rgb(214, 21, 65)", imageSrc: },
-//     {shortname: 'PJJ', color: "rgb(237, 33, 39)", imageSrc: },
-//     {shortname: 'DiP', color: "rgb(58, 53, 130)", imageSrc: },
-//     {shortname: 'NK', color: "rgb(26, 152, 146)", imageSrc: },
-//     {shortname: 'AP', color: "rgb(188, 188, 188)", imageSrc: },
-//     {shortname: 'RNP', color: "rgb(170, 30, 34)", imageSrc: },
-//     {shortname: 'MN', color: "rgb(255, 224, 0)", imageSrc: },
-// ];
+const committees = [
+    {name: 'BS', color: "rgb(52, 45, 86)", imageSrc: '../img/BS.png'},
+    {name: '3D', color: "rgb(84, 181, 136)", imageSrc: '../img/3D.png'},
+    {name: 'NL', color: "rgb(134, 32, 98)", imageSrc: '../img/NL.png'},
+    {name: 'PiS', color: "rgb(33, 57, 119)", imageSrc: '../img/PiS.png'},
+    {name: 'Konfederacja', color: "rgb(254, 201, 14)", imageSrc: '../img/Konfederacja.png'},
+    {name: 'KO', color: "rgb(214, 21, 65)", imageSrc: '../img/KO.png'},
+    {name: 'PJJ', color: "rgb(237, 33, 39)", imageSrc: '../img/PJJ.png'},
+    {name: 'DiP', color: "rgb(58, 53, 130)", imageSrc: '../img/DiP.png'},
+    {name: 'NK', color: "rgb(26, 152, 146)", imageSrc: '../img/NK.png'},
+    {name: 'AP', color: "rgb(188, 188, 188)", imageSrc: '../img/AP.png'},
+    {name: 'RNP', color: "rgb(170, 30, 34)", imageSrc: '../img/RNP.png'},
+    {name: 'MN', color: "rgb(255, 224, 0)", imageSrc: '../img/MN.png'},
+];
+
+function getColor(committeeName) {
+    let committee = committees.find(element => element.name === committeeName);
+
+    if (committee) {
+        return committee.color;
+    }
+
+    return 'rgb(0, 0, 0)';
+}
+
+function getColorsArray(data) {
+    let backgroundColors = [];
+
+    data.forEach(element => {
+        let color = getColor(element.name);
+        backgroundColors.push(color);
+    });
+
+    return backgroundColors;
+}
+
+export function setChartData(data) {
+    let chartLabels = [];
+    let chartData = [];
+
+    data.forEach(element => {
+        chartLabels.push(element.name);
+        chartData.push(element.num_of_votes);
+    });
+
+    let barChart = Chart.getChart(barChartCanvas);
+    let doughnutChart = Chart.getChart(doughnutChartCanvas);
+
+    //set labele
+    barChart.data.labels = chartLabels;
+    doughnutChart.data.labels = chartLabels;
+    
+    //set data
+    barChart.data.datasets[0].data = chartData;
+    doughnutChart.data.datasets[0].data = chartData;
+
+    //update osi na bar charcie
+    let minDataVal =  Math.min(...data);
+    let maxDataVal =  Math.max(...data);
+    barChart.options.scales.y.min = Math.floor(minDataVal / 10) * 10;
+    barChart.options.scales.y.max = Math.ceil(maxDataVal / 10) * 10;
+
+    //set backgroundColors
+    let backgroundColors = getColorsArray(data);
+    barChart.data.datasets[0].backgroundColor = backgroundColors;
+    doughnutChart.data.datasets[0].backgroundColor = backgroundColors;
+
+    barChart.update();
+    doughnutChart.update();
+}
 
 export function initCharts() {
     createEmptyBarChart();
@@ -23,7 +79,7 @@ export function initCharts() {
 }
 
 function createEmptyBarChart() {
-    const ctx = barChart.getContext('2d');
+    const ctx = barChartCanvas.getContext('2d');
 
     const config = {
         type: 'bar',
@@ -32,14 +88,11 @@ function createEmptyBarChart() {
             labels: [],
             datasets: [{
                 data: [],
-                backgroundColor: 'transparent',
-                borderColor: 'rgba(34, 177, 76)',
-                borderWidth: 1
             }]
         },
 
         options: {
-            responsive: true,
+            maintainAspectRatio: false,
             scales: {
                 y: {
                     min: 0,
@@ -59,97 +112,32 @@ function createEmptyBarChart() {
 }
 
 function createEmptyDoughnutChart() {
-    const ctx = doughnutChart.getContext('2d');
+    const ctx = doughnutChartCanvas.getContext('2d');
 
     const config = {
         type: 'doughnut',
         data: {
-            datasets: [
-                {
-                    data: [1], // An empty array for the dataset data
-                },
-            ],
-            labels: [], // An empty array for labels
+            labels: [],
+            datasets: [{
+                data: [1]
+            }]
         },
+        
+        options: {
+            plugins: {
+                fullsize: true,
+                legend: {
+                    display: false
+                }
+            }
+        }
     };
 
     new Chart(ctx, config);
 }
 
-// function setChartData(data) {
-//     var bar_chart_canvas = document.getElementById('bar-chart');
-//     var bar_chart = Chart.getChart(bar_chart_canvas);
-
-//     var doughnut_chart_canvas = document.getElementById('doughnut-chart');
-//     var doughnut_chart = Chart.getChart(doughnut_chart_canvas);
-
-//     var labels = data.map(function(item) {
-//         return item.name;
-//     });
-
-//     var values = data.map(function(item) {
-//         return item.num_of_votes;
-//     });
-
-//     bar_chart.data.labels = labels;
-//     bar_chart.data.datasets[0].data = values;
-
-//     doughnut_chart.data.labels = labels;
-//     doughnut_chart.data.datasets[0].data = values;
-
-//     doughnut_chart.update();
-//     bar_chart.update();
-// }
-
-
-// function chartSetup() {
-//     const bar_chart_canvas = document.getElementById('bar-chart');
-//     const doughnut_chart_canvas = document.getElementById('doughnut-chart');
-
-//     new Chart(bar_chart_canvas, {
-//         type: 'bar',
-//         data: {
-//             labels: [],  // Initially empty labels
-//             datasets: [{
-//                 data: [],   // Initially empty data
-//                 backgroundColor: 'rgba(75, 192, 192, 0.2)',
-//                 borderColor: 'rgba(75, 192, 192, 1)',
-//                 borderWidth: 1
-//             }]
-//         },
-//         options: {
-//             responsive: true,
-//             plugins: {
-//                 tooltip: {
-//                      // Disable tooltips
-//                 },
-//                 legend: {
-//                     display: false // Hide the legend
-//                 }
-//             },
-//         }
-//     });
-
-//     new Chart(doughnut_chart_canvas, {
-//         type: 'doughnut',
-//         data: {
-//             labels: [],  // Initially empty labels
-//             datasets: [{
-//                 data: [],   // Initially empty data
-//                 //backgroundcolor: lightcol
-//                 backgroundColor: makoColors,
-//                 borderWidth: 1,
-//             }]
-//         },
-//         options: {
-//             responsive: true,
-//             plugins: {
-//                 tooltip: {
-//                 },
-//                 legend: {
-//                     display: false // Hide the legend
-//                 }
-//             },
-//         }
-//     });
-// }
+/*
+    ogolnie w po updacie danych rozmiar canvasow sie nie zmniejsza (300x300 zostaje)
+    ale zaczyna includowac w tym legende/opisy osi wiec defacto rozmiar wykresow
+    sie zmniejsza.
+*/

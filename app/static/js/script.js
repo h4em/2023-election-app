@@ -1,20 +1,10 @@
-import { initCharts } from './charts.js';
+import { initCharts, setChartData } from './charts.js';
 
 const searchbar = document.querySelector('.searchbar');
 const hintContainer = document.querySelector('.search-hints');
 let hintIndex = -1;
 
 document.addEventListener('DOMContentLoaded', init);
-
-function resizeHintContainerAtWindowResize() {
-    const width = searchbar.offsetWidth;
-    hintContainer.style.width = width + 'px';
-}
-
-function setHintContainerWidth() {
-    const width = searchbar.offsetWidth;
-    hintContainer.style.width = width + 'px';
-}
 
 function init() {   
     setSearchbarListeners();
@@ -23,14 +13,6 @@ function init() {
     window.addEventListener('resize', resizeHintContainerAtWindowResize);
 
     initCharts();
-}
-
-function updateSearchbarValue(value) {
-    searchbar.value = value;
-}
-
-function emptyHintsContainer() {
-    hintContainer.innerHTML = '';
 }
 
 function setSearchbarListeners() {
@@ -45,9 +27,48 @@ function setSearchbarListeners() {
   
     searchbar.addEventListener('keydown', hintContainerArrowKeyNav);
 
-    searchbar.addEventListener('submit', fetchInstitutionResults(searchbar.value));
+    //gdy strona sie zaladuje po raz pierwszy leci submit automatyczny???
+    //searchbar.addEventListener('submit', fetchInstitutionResults(searchbar.value));
     
     searchbar.addEventListener('submit', emptyHintsContainer);
+}
+
+function hintContainerArrowKeyNav(event) {
+    const hints = hintContainer.querySelectorAll('.hint');
+
+    if (event.key === 'ArrowUp' && hintIndex > 0) {
+        updateHintIndex(hintIndex - 1);
+    } else if (event.key === 'ArrowDown' && hintIndex < hints.length - 1) {
+        updateHintIndex(hintIndex + 1);
+    }
+}
+
+function resizeHintContainerAtWindowResize() {
+    const width = searchbar.offsetWidth;
+    hintContainer.style.width = width + 'px';
+}
+
+function setHintContainerWidth() {
+    const width = searchbar.offsetWidth;
+    hintContainer.style.width = width + 'px';
+}
+
+function updateSearchbarValue(value) {
+    searchbar.value = value;
+}
+
+function emptyHintsContainer() {
+    hintContainer.innerHTML = '';
+}
+
+function updateHintsHighlighting(newIndex) {
+    const hints = hintContainer.querySelectorAll('.hint');
+
+    const currHint = hints[hintIndex];
+    const newHint = hints[newIndex];
+
+    dehighlightHint(currHint);
+    highlightHint(newHint);
 }
 
 function highlightHint(hint) {
@@ -62,35 +83,15 @@ function dehighlightHint(hint) {
     }
 }
 
-function updateHintsHighlighting(newIndex) {
-    const hints = hintContainer.querySelectorAll('.hint');
-
-    const currHint = hints[hintIndex];
-    const newHint = hints[newIndex];
-
-    dehighlightHint(currHint);
-    highlightHint(newHint);
-}
-
 function updateHintIndex(newIndex) {
     updateHintsHighlighting(newIndex);
     hintIndex = newIndex;
 }
 
-function hintContainerArrowKeyNav(event) {
-    const hints = hintContainer.querySelectorAll('.hint');
-
-    if (event.key === 'ArrowUp' && hintIndex > 0) {
-        updateHintIndex(hintIndex - 1);
-    } else if (event.key === 'ArrowDown' && hintIndex < hints.length - 1) {
-        updateHintIndex(hintIndex + 1);
-    }
-}
-
 //nazewnictwo i ogolnie o co chodzi.
 async function hintInstitutions() {
     const keyword = searchbar.value;
-
+    
     if (keyword.length === 0) {
         emptyHintsContainer();
     }
@@ -123,9 +124,8 @@ async function fetchInstitutionResults(institution_name) {
     const response = await fetch(`/institution_results?q=${institution_name}`);
     const data = await response.json();
 
-    data.forEach(element => {
-        console.log(element);
-    });
+    setChartData(data);
+    console.log(data);
 }
 
 /*
