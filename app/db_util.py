@@ -25,6 +25,9 @@ def get_institutions(institution_name):
         cursor.close()
         connection.close()
 
+    #z arrayu tupli na array stringow
+    institutions = [item[0] for item in institutions]
+    
     return institutions
 
 #tu format zwracany jest zly bardzo

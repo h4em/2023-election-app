@@ -7,12 +7,15 @@ main = Blueprint('main', __name__)
 def index():
     return render_template('index.html')
 
-#json format
+'''
+    keyword = request.args.get('keyword', default='', type=str)
+    category = request.args.get('category', default='', type=str)
+'''
 @main.route('/institution_search_bar', methods=['GET'])
 def search_for_institution():
     institution_name = request.args.get('q')
     institutions = get_institutions(institution_name) 
-    return jsonify(institutions)
+    return institutions
 
 @main.route('/institution_results', methods=['GET'])
 def institution_results():
