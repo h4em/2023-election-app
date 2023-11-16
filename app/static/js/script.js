@@ -133,11 +133,16 @@ async function fetchInstitutionResults(institution_name) {
 /*
     Co niedziala:
 
+    - no ogolnie wyszukiwanie LIKE jest chujowe strasznie XD
+
     - caly submit trzeba zrobic
+
     - SUBMIT MUSI BYC ZABEZPIECZONY ze mozna squerowac tylko item z podpowiedzi (istniejacy.)
     - przy resetowaniu indexu moga byc jakies bugi
     - zeby hintsy nie rozszerzaly containera tylko przykrywaly to co pod nim
     - zeby mapka pokazywala destynacje po submicie
+    python googlesearch-python
+
     - wiec trzeba bedzie jakos ogarnac modul ktory na podstawie tego co przyjdzie z bazy
         szukal w googlu latitute i longitude
     - no i ta legenda dla chartsow caly modul, zeby sie spod chartsow wysuwala
