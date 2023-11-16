@@ -1,4 +1,5 @@
 import { initCharts, setChartData } from './charts.js';
+import { initMap } from './map.js';
 
 const searchbar = document.querySelector('.searchbar');
 const hintContainer = document.querySelector('.search-hints');
@@ -13,6 +14,7 @@ function init() {
     window.addEventListener('resize', resizeHintContainerAtWindowResize);
 
     initCharts();
+    initMap();
 }
 
 function setSearchbarListeners() {

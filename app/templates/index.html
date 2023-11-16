@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <title>2023 election app</title>
     <link rel="stylesheet" type="text/css" href="../static/css/styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <!--<link rel="stylesheet" href="https://fonts.cdnfonts.com/css/mona-sans">-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -23,7 +25,11 @@
             </form>
             <div class="search-hints"></div>
         </div>
-               
+              
+        <div class="map-wrapper">
+            <div id="map"></div>
+        </div>
+
         <div class="charts-div">
             <div class="chart-wrapper">
                 <canvas class="bar-chart"></canvas>
@@ -37,6 +43,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script type="module" src="../static/js/script.js"></script>
     <script type="module" src="../static/js/charts.js"></script>
+    <script type="module" src="../static/js/map.js"></script>
 </body>
 </html> 
 

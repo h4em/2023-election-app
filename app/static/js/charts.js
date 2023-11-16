@@ -38,6 +38,11 @@ function getColorsArray(data) {
     return backgroundColors;
 }
 
+export function initCharts() {
+    createEmptyBarChart();
+    createEmptyDoughnutChart();
+}
+
 export function setChartData(data) {
     let chartLabels = [];
     let chartData = [];
@@ -50,32 +55,30 @@ export function setChartData(data) {
     let barChart = Chart.getChart(barChartCanvas);
     let doughnutChart = Chart.getChart(doughnutChartCanvas);
 
-    //set labele
+    //Set labels
     barChart.data.labels = chartLabels;
     doughnutChart.data.labels = chartLabels;
     
-    //set data
+    //Set data
     barChart.data.datasets[0].data = chartData;
     doughnutChart.data.datasets[0].data = chartData;
 
-    //update osi na bar charcie
+    //Update bar chart Y axis range
     let minDataVal =  Math.min(...data);
     let maxDataVal =  Math.max(...data);
     barChart.options.scales.y.min = Math.floor(minDataVal / 10) * 10;
     barChart.options.scales.y.max = Math.ceil(maxDataVal / 10) * 10;
 
-    //set backgroundColors
+    //Set data colors
     let backgroundColors = getColorsArray(data);
     barChart.data.datasets[0].backgroundColor = backgroundColors;
     doughnutChart.data.datasets[0].backgroundColor = backgroundColors;
 
+    //Enable tooltips for doughnut chart
+    doughnutChart.options.plugins.tooltip.enabled = true;
+
     barChart.update();
     doughnutChart.update();
-}
-
-export function initCharts() {
-    createEmptyBarChart();
-    createEmptyDoughnutChart();
 }
 
 function createEmptyBarChart() {
@@ -128,6 +131,9 @@ function createEmptyDoughnutChart() {
                 fullsize: true,
                 legend: {
                     display: false
+                },
+                tooltip: {
+                    enabled: false
                 }
             }
         }
