@@ -20,10 +20,20 @@
         </p>
 
         <div class="search-div">
-            <form>
+            <select id="category-dropdown" name="category">
+                <option>Institution name / address</option>
+                <option>City</option>
+                <option>Gmina</option>
+                <option>Powiat</option>
+                <option>Wojewodztwo</option>
+            </select>
+            
+            <div class="searchbar-wrapper">
                 <input type="text" class="searchbar" placeholder="Search...">
-            </form>
-            <div class="search-hints"></div>
+                <div class="search-hints"></div>
+            </div>
+            
+            <button type="submit">Submit</button>
         </div>
               
         <div class="map-wrapper">

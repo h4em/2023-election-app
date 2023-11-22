@@ -1,5 +1,5 @@
-from flask import Blueprint, render_template, request, jsonify
-from app.db_util import get_institutions, get_institution_results
+from flask import Blueprint, render_template, request
+from app.db_util import get_matching_records, get_voting_results
 
 main = Blueprint('main', __name__)
 
@@ -7,18 +7,20 @@ main = Blueprint('main', __name__)
 def index():
     return render_template('index.html')
 
-'''
+@main.route('/hints', methods=['GET'])
+def get_hints():
     keyword = request.args.get('keyword', default='', type=str)
     category = request.args.get('category', default='', type=str)
-'''
-@main.route('/institution_search_bar', methods=['GET'])
-def search_for_institution():
-    institution_name = request.args.get('q')
-    institutions = get_institutions(institution_name) 
-    return institutions
 
-@main.route('/institution_results', methods=['GET'])
-def institution_results():
-    institution = request.args.get('q')
-    result = get_institution_results(institution)
-    return jsonify(result)
+    results = get_matching_records(keyword, category)
+
+    return results
+
+@main.route('/results', methods=['GET'])
+def get_results():
+    item = request.args.get('item', default='', type=str)
+    category = request.args.get('category', default='', type=str)
+
+    results = get_voting_results(item, category)
+    
+    return results

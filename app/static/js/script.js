@@ -2,6 +2,7 @@ import { initCharts, setChartData } from './charts.js';
 import { initMap } from './map.js';
 
 const searchbar = document.querySelector('.searchbar');
+const categoryDropdown = document.querySelector('#category-dropdown');
 const hintContainer = document.querySelector('.search-hints');
 let highlightedHintIndex = -1;
 
@@ -19,8 +20,9 @@ function init() {
 
 function setSearchbarListeners() {
     //Listen for input
-    searchbar.addEventListener('input', showHints);
+    searchbar.addEventListener('input', getHints);
     
+    //Resets the highlighted hint when input changes
     searchbar.addEventListener('input', resetHiglightedHintIndex)
 
     //Listen for arrowkeys
@@ -82,11 +84,9 @@ function makeHint(content, index) {
     hint.classList.add('hint');    
     hint.textContent = content;
 
-    //trigger searcbar submission!!!
-    // hint.addEventListener('click', () => {
-    //     fetchInstitutionResults(item);
-    //     updateSearchbarValue(item);
-    // });
+    hint.addEventListener('click', () => {
+        getResults(content);
+    });
 
     hint.addEventListener('mouseover', () => {
         updateHintHiglight(index);
@@ -95,19 +95,16 @@ function makeHint(content, index) {
     return hint;
 } 
 
-
-async function showHints() {
+async function getHints() {
     const keyword = searchbar.value;
-    //tu sie doda opcje z dropdownu
-    //const category = ...
+    const category = categoryDropdown.value;
 
     if (keyword === '') {
         emptyHintsContainer();
         return;
     }
 
-    //?keyword=${keyword}&category=${category}
-    const response = await fetch(`/institution_search_bar?q=${keyword}`);
+    const response = await fetch(`/hints?keyword=${keyword}&category=${category}`);
     const data = await response.json();
 
     emptyHintsContainer();
@@ -123,15 +120,27 @@ async function showHints() {
     }
 }
 
-async function fetchInstitutionResults(institution_name) {
-    const response = await fetch(`/institution_results?q=${institution_name}`);
+/*
+    to kiedy i jak mozna request zsubmitowac jest bardzo wazne.
+    jakos to zabezpieczyc zeby mozna bylo squerowac resultsy tylko
+    dla czegos co istnieje w bazie!
+*/
+async function getResults(content) {
+    //const item = searchbar.value;
+    const category = categoryDropdown.value;
+    
+    const response = await fetch(`/results?item=${content}&category=${category}`);
     const data = await response.json();
 
+    //updateMapLocation
     setChartData(data);
 }
 
 /*
     Co niedziala:
+
+
+    - nie lubimy magicznych stringow, rozbic na pare tabelek jeszcze trzeba bedzie adres pociac na ulice i wogle.
 
     - no ogolnie wyszukiwanie LIKE jest chujowe strasznie XD
 
