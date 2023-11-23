@@ -1,6 +1,4 @@
 import pandas as pd
-import numpy as np
-
 #NOTE: excluded data from abroad, it was messing up the file structure
 
 df = pd.read_csv('raw_data\\obwody_glosowania_utf8.csv', delimiter='\t', encoding='utf-8', header=0)
