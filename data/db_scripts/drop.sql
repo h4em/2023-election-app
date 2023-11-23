@@ -1,18 +1,31 @@
--- foreign keys
-ALTER TABLE Placowka
-    DROP FOREIGN KEY Placowka_Okrag;
+ALTER TABLE Committee
+    DROP FOREIGN KEY Committee_City;
 
-ALTER TABLE Placowka_Wyniki
-    DROP FOREIGN KEY Wyniki_Placowka_Komitet;
+ALTER TABLE Committee
+    DROP FOREIGN KEY Committee_Gmina;
 
-ALTER TABLE Placowka_Wyniki
-    DROP FOREIGN KEY Wyniki_Placowka_Placowka;
+ALTER TABLE Committee
+    DROP FOREIGN KEY Committee_Powiat;
 
--- tables
-DROP TABLE Komitet;
+ALTER TABLE Committee
+    DROP FOREIGN KEY Committee_Wojewodztwo;
 
-DROP TABLE Okrag;
+ALTER TABLE Results
+    DROP FOREIGN KEY Results_Committee;
 
-DROP TABLE Placowka;
+ALTER TABLE Results
+    DROP FOREIGN KEY Results_Party;
 
-DROP TABLE Placowka_Wyniki;
+DROP TABLE City;
+
+DROP TABLE Committee;
+
+DROP TABLE Gmina;
+
+DROP TABLE Party;
+
+DROP TABLE Powiat;
+
+DROP TABLE Results;
+
+DROP TABLE Wojewodztwo;
