@@ -3,22 +3,22 @@ const barChartCanvas = wrapper.querySelector('.bar-chart');
 const doughnutChartCanvas = wrapper.querySelector('.doughnut-chart');
 
 const committees = [
-    {name: 'BS', color: "rgb(52, 45, 86)", imageSrc: '../img/BS.png'},
-    {name: '3D', color: "rgb(84, 181, 136)", imageSrc: '../img/3D.png'},
-    {name: 'NL', color: "rgb(134, 32, 98)", imageSrc: '../img/NL.png'},
-    {name: 'PiS', color: "rgb(33, 57, 119)", imageSrc: '../img/PiS.png'},
-    {name: 'Konfederacja', color: "rgb(254, 201, 14)", imageSrc: '../img/Konfederacja.png'},
-    {name: 'KO', color: "rgb(214, 21, 65)", imageSrc: '../img/KO.png'},
-    {name: 'PJJ', color: "rgb(237, 33, 39)", imageSrc: '../img/PJJ.png'},
-    {name: 'DiP', color: "rgb(58, 53, 130)", imageSrc: '../img/DiP.png'},
-    {name: 'NK', color: "rgb(26, 152, 146)", imageSrc: '../img/NK.png'},
-    {name: 'AP', color: "rgb(188, 188, 188)", imageSrc: '../img/AP.png'},
-    {name: 'RNP', color: "rgb(170, 30, 34)", imageSrc: '../img/RNP.png'},
-    {name: 'MN', color: "rgb(255, 224, 0)", imageSrc: '../img/MN.png'},
+    {party: 'BS', color: "rgb(52, 45, 86)", imageSrc: '../img/BS.png'},
+    {party: '3D', color: "rgb(84, 181, 136)", imageSrc: '../img/3D.png'},
+    {party: 'NL', color: "rgb(134, 32, 98)", imageSrc: '../img/NL.png'},
+    {party: 'PiS', color: "rgb(33, 57, 119)", imageSrc: '../img/PiS.png'},
+    {party: 'Konfederacja', color: "rgb(254, 201, 14)", imageSrc: '../img/Konfederacja.png'},
+    {party: 'KO', color: "rgb(214, 21, 65)", imageSrc: '../img/KO.png'},
+    {party: 'PJJ', color: "rgb(237, 33, 39)", imageSrc: '../img/PJJ.png'},
+    {party: 'DiP', color: "rgb(58, 53, 130)", imageSrc: '../img/DiP.png'},
+    {party: 'NK', color: "rgb(26, 152, 146)", imageSrc: '../img/NK.png'},
+    {party: 'AP', color: "rgb(188, 188, 188)", imageSrc: '../img/AP.png'},
+    {party: 'RNP', color: "rgb(170, 30, 34)", imageSrc: '../img/RNP.png'},
+    {party: 'MN', color: "rgb(255, 224, 0)", imageSrc: '../img/MN.png'},
 ];
 
 function getColor(committeeName) {
-    let committee = committees.find(element => element.name === committeeName);
+    let committee = committees.find(element => element.party === committeeName);
 
     if (committee) {
         return committee.color;
@@ -31,7 +31,7 @@ function getColorsArray(data) {
     let backgroundColors = [];
 
     data.forEach(element => {
-        let color = getColor(element.name);
+        let color = getColor(element.party);
         backgroundColors.push(color);
     });
 
@@ -48,7 +48,7 @@ export function setChartData(data) {
     let chartData = [];
 
     data.forEach(element => {
-        chartLabels.push(element.name);
+        chartLabels.push(element.party);
         chartData.push(element.num_of_votes);
     });
 

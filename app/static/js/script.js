@@ -49,6 +49,10 @@ function emptyHintsContainer() {
     hintContainer.innerHTML = '';
 }
 
+function emptySearchbar() {
+    searchbar.value = '';
+}
+
 //z tym resetowaniem indexu moga problemu jakies byc, jest strasznie duzo przypadkow.
 function resetHiglightedHintIndex() {
     highlightedHintIndex = -1;
@@ -79,13 +83,19 @@ function updateHintHiglight(index) {
     hints[highlightedHintIndex].classList.add('highlight');
 }
 
-function makeHint(content, index) {
+function makeHint(data, category, index) {
     const hint = document.createElement('div');
     hint.classList.add('hint');    
-    hint.textContent = content;
+    
+    hint.dataset.id = data.id;
+    hint.dataset.category = category;
+    hint.textContent = data.body;
 
     hint.addEventListener('click', () => {
-        getResults(content);
+        getResults(data.id, category);
+        emptyHintsContainer();
+        emptySearchbar();
+        //update results for: label
     });
 
     hint.addEventListener('mouseover', () => {
@@ -114,7 +124,7 @@ async function getHints() {
         hintContainer.append(newHint);
     } else {
         data.forEach((item, index) => {
-            const newHint = makeHint(item, index);
+            const newHint = makeHint(item, category, index);
             hintContainer.append(newHint);
         });
     }
@@ -125,16 +135,21 @@ async function getHints() {
     jakos to zabezpieczyc zeby mozna bylo squerowac resultsy tylko
     dla czegos co istnieje w bazie!
 */
-async function getResults(content) {
-    //const item = searchbar.value;
-    const category = categoryDropdown.value;
-    
-    const response = await fetch(`/results?item=${content}&category=${category}`);
+async function getResults(id, category) {
+    const response = await fetch(`/results?id=${id}&category=${category}`);
     const data = await response.json();
 
     //updateMapLocation
     setChartData(data);
 }
+
+/*
+    jak sie zmienia kategorie niech sie czysci searchbar i hint container
+
+    timeouty na get res
+
+*/
+
 
 /*
     Co niedziala:

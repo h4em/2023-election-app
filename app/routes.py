@@ -18,9 +18,9 @@ def get_hints():
 
 @main.route('/results', methods=['GET'])
 def get_results():
-    item = request.args.get('item', default='', type=str)
+    id = request.args.get('id', default='', type=str)
     category = request.args.get('category', default='', type=str)
 
-    results = get_voting_results(item, category)
+    results = get_voting_results(id, category)
     
     return results
