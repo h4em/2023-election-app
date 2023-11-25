@@ -1,10 +1,10 @@
 import mysql.connector
-from app.db_config import config
+from db_config import DB_CONFIG
 
 connection_pool = mysql.connector.pooling.MySQLConnectionPool(
     pool_name = "main_pool",
     pool_size = 5,
-    **config  
+    **DB_CONFIG  
 )
 
 def get_matching_records(keyword, category):
