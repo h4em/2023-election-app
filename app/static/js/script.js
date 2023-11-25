@@ -1,5 +1,5 @@
 import { initCharts, setChartData } from './charts.js';
-import { initMap } from './map.js';
+import { initMap, updateMap } from './map.js';
 
 const searchbar = document.querySelector('.searchbar');
 const categoryDropdown = document.querySelector('#category-dropdown');
@@ -93,6 +93,10 @@ function makeHint(data, category, index) {
 
     hint.addEventListener('click', () => {
         getResults(data.id, category);
+
+        getLocationCoordinates(data.body, category)
+        // updateMap(coordinates)
+
         emptyHintsContainer();
         emptySearchbar();
         //update results for: label
@@ -104,6 +108,20 @@ function makeHint(data, category, index) {
 
     return hint;
 } 
+
+/*
+    przy updacie mapy w zaleznosci od kategorii zoom level,
+    albo skorzystac z detailsow ktore przyjda z api.
+*/
+async function getLocationCoordinates(placename, category) {
+    const response = await fetch(`/location?placename=${placename}&category=${category}`);
+    const data = await response.json();
+
+    const lat = data.lat;
+    const lon = data.lon;
+
+    updateMap(lat, lon, category);
+}
 
 async function getHints() {
     const keyword = searchbar.value;
@@ -139,7 +157,6 @@ async function getResults(id, category) {
     const response = await fetch(`/results?id=${id}&category=${category}`);
     const data = await response.json();
 
-    //updateMapLocation
     setChartData(data);
 }
 
@@ -147,17 +164,12 @@ async function getResults(id, category) {
     jak sie zmienia kategorie niech sie czysci searchbar i hint container
 
     timeouty na get res
-
 */
-
 
 /*
     Co niedziala:
 
-
-    - nie lubimy magicznych stringow, rozbic na pare tabelek jeszcze trzeba bedzie adres pociac na ulice i wogle.
-
-    - no ogolnie wyszukiwanie LIKE jest chujowe strasznie XD
+    - wyszukiwanie LIKE'iem jest slabe bardzo
 
     - caly submit trzeba zrobic
 
@@ -165,10 +177,7 @@ async function getResults(id, category) {
     - przy resetowaniu indexu moga byc jakies bugi
     - zeby hintsy nie rozszerzaly containera tylko przykrywaly to co pod nim
     - zeby mapka pokazywala destynacje po submicie
-    python googlesearch-python
 
-    - wiec trzeba bedzie jakos ogarnac modul ktory na podstawie tego co przyjdzie z bazy
-        szukal w googlu latitute i longitude
     - no i ta legenda dla chartsow caly modul, zeby sie spod chartsow wysuwala
     - timeout to co gracjan mowil na hintowaniu.
 

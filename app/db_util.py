@@ -26,10 +26,10 @@ def map_category(category):
 def get_select_query(keyword, table_name):
     if table_name == 'committee':
         return '''
-            SELECT committee.id, CONCAT(committee.name, ', ', address, ', ', post_code, ', ', city.name)
+            SELECT committee.id, CONCAT(committee.name, ', ', address, ', ', city.name, ', ', post_code)
             FROM committee
             INNER JOIN city ON committee.city_id = city.id
-            WHERE CONCAT(committee.name, ', ', address, ', ', post_code, ', ', city.name) LIKE '%{}%'
+            WHERE CONCAT(committee.name, ', ', address, ', ', city.name, ', ', post_code) LIKE '%{}%'
             LIMIT 10;
         '''.format(keyword)
     else:

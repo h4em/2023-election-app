@@ -1,5 +1,7 @@
+let map;
+
 export function initMap() {
-    const map = L.map('map').setView([52.232, 21.005], 12);
+    map = L.map('map').setView([52.232, 21.005], 12);
     
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '© OpenStreetMap contributors'
@@ -9,10 +11,32 @@ export function initMap() {
     map.zoomControl.setPosition('bottomright');
     document.querySelector('.leaflet-control-zoom').style.display = 'none';
 
-    //Changing the 'Leaflet | © OpenStreetMap contributors' element font size
     document.querySelector('.leaflet-control-attribution').style.fontSize = '0.5rem';
 }
 
+export function updateMap(latitude, longitude, category) {
+    let zoom = getZoom(category)
+    
+    if (map) {
+        map.flyTo([latitude, longitude], zoom);
+    }
+}
+
+function getZoom(category) {
+    if(category == '1') {
+        return 16;
+    } else if (category == '2') {
+        return 11
+    } else if (category == '3') {
+        return 13
+    } else if (category == '4') {
+        return 10;
+    } else if (category == '5')
+        return 8;
+
+    return 11;
+}
+
 /*
-    flyTo(<LatLng> latlng, <Number> zoom?, <Zoom/pan options> options?)
+    miasto na podstawie wielkosci miasta zoom?
 */
