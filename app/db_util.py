@@ -1,5 +1,5 @@
-import mysql.connector
 import json
+import mysql.connector
 from db_config import DB_CONFIG
 
 connection_pool = mysql.connector.pooling.MySQLConnectionPool(
@@ -8,21 +8,7 @@ connection_pool = mysql.connector.pooling.MySQLConnectionPool(
     **DB_CONFIG  
 )
 
-def map_category(category):
-    if category == '1':
-        return 'committee'
-    elif category == '2':
-        return 'city'
-    elif category == '3':
-        return 'gmina'
-    elif category == '4':
-        return 'powiat'
-    elif category == '5':
-        return 'wojewodztwo'
-    else:
-        raise ValueError(f'Invalid category: {category}')
-
-#Returns select query based on selected table name.
+# Returns select query based on selected table name.
 def get_select_query(keyword, table_name):
     if table_name == 'committee':
         return '''
@@ -69,6 +55,7 @@ def get_matching_records(keyword, category):
         raise ve
     return json.dumps(result, ensure_ascii=False)
 
+# Returns list with voting results for queried args
 def get_voting_results(id, category):
     results = []
 
@@ -83,21 +70,48 @@ def get_voting_results(id, category):
                     column_name += '_id'
 
                 query = '''
-                    SELECT party.shortname, SUM(num_of_votes) 
+                    SELECT party.name, party.shortname, party.color, SUM(num_of_votes) AS votes
                     FROM party 
                     INNER JOIN results ON results.party_id = party.id
                     INNER JOIN committee ON committee.id = results.committee_id
                     WHERE {} = {}
-                    GROUP BY party.shortname
-                    ORDER BY SUM(num_of_votes) DESC;
+                    GROUP BY party.shortname, party.name, party.color
+                    ORDER BY votes DESC;
                 '''.format(column_name, id)
 
                 cursor.execute(query)
-                
-                result = [{'party': party, 'num_of_votes': int(num_of_votes)} for party, num_of_votes in cursor.fetchall() if num_of_votes != 0]
+            
+                # Parsing the query result, casting num of votes to int, removing records where num_of_votes == 0.
+                result = [{'name': name, 'shortname': shortname, 'color': color, 'num_of_votes': int(num_of_votes)}
+                    for name, shortname, color, num_of_votes in cursor.fetchall() if num_of_votes != 0
+                ]
+
+                total_votes = sum(item['num_of_votes'] for item in result)
+
+                # Extending the result list by assigning 'party_img_uri' and 'votes_percentage' to each item.
+                result = [{
+                    **item, 
+                    'votes_percentage': round((item['num_of_votes'] / total_votes) * 100.00, 2),
+                    'party_img_uri': 'static/img/' + item['shortname'] + '.png' 
+                } for item in result]
 
     except mysql.connector.Error as ce:
         print(f'Database Error: {ce}')
         raise ce
 
     return json.dumps(result, ensure_ascii=False)
+
+# Czy cos z tym mozna zrobic?
+def map_category(category):
+    if category == '1':
+        return 'committee'
+    elif category == '2':
+        return 'city'
+    elif category == '3':
+        return 'gmina'
+    elif category == '4':
+        return 'powiat'
+    elif category == '5':
+        return 'wojewodztwo'
+    else:
+        raise ValueError(f'Invalid category: {category}')

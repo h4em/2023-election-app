@@ -32,8 +32,7 @@ function getZoom(category) {
     } else if (category == '4') {
         return 10;
     } else if (category == '5')
-        return 8;
-
+        return 7;
     return 11;
 }
 

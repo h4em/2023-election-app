@@ -2,42 +2,6 @@ const wrapper = document.querySelector('.charts-div');
 const barChartCanvas = wrapper.querySelector('.bar-chart');
 const doughnutChartCanvas = wrapper.querySelector('.doughnut-chart');
 
-const committees = [
-    {party: 'BS', color: "rgb(52, 45, 86)", imageSrc: '../img/BS.png'},
-    {party: '3D', color: "rgb(84, 181, 136)", imageSrc: '../img/3D.png'},
-    {party: 'NL', color: "rgb(134, 32, 98)", imageSrc: '../img/NL.png'},
-    {party: 'PiS', color: "rgb(33, 57, 119)", imageSrc: '../img/PiS.png'},
-    {party: 'Konfederacja', color: "rgb(254, 201, 14)", imageSrc: '../img/Konfederacja.png'},
-    {party: 'KO', color: "rgb(214, 21, 65)", imageSrc: '../img/KO.png'},
-    {party: 'PJJ', color: "rgb(237, 33, 39)", imageSrc: '../img/PJJ.png'},
-    {party: 'DiP', color: "rgb(58, 53, 130)", imageSrc: '../img/DiP.png'},
-    {party: 'NK', color: "rgb(26, 152, 146)", imageSrc: '../img/NK.png'},
-    {party: 'AP', color: "rgb(188, 188, 188)", imageSrc: '../img/AP.png'},
-    {party: 'RNP', color: "rgb(170, 30, 34)", imageSrc: '../img/RNP.png'},
-    {party: 'MN', color: "rgb(255, 224, 0)", imageSrc: '../img/MN.png'},
-];
-
-function getColor(committeeName) {
-    let committee = committees.find(element => element.party === committeeName);
-
-    if (committee) {
-        return committee.color;
-    }
-
-    return 'rgb(0, 0, 0)';
-}
-
-function getColorsArray(data) {
-    let backgroundColors = [];
-
-    data.forEach(element => {
-        let color = getColor(element.party);
-        backgroundColors.push(color);
-    });
-
-    return backgroundColors;
-}
-
 export function initCharts() {
     createEmptyBarChart();
     createEmptyDoughnutChart();
@@ -46,10 +10,12 @@ export function initCharts() {
 export function setChartData(data) {
     let chartLabels = [];
     let chartData = [];
+    let chartColors = [];
 
-    data.forEach(element => {
-        chartLabels.push(element.party);
-        chartData.push(element.num_of_votes);
+    data.forEach(item => {
+        chartLabels.push(item.shortname);
+        chartData.push(item.num_of_votes);
+        chartColors.push(item.color);
     });
 
     let barChart = Chart.getChart(barChartCanvas);
@@ -70,9 +36,8 @@ export function setChartData(data) {
     barChart.options.scales.y.max = Math.ceil(maxDataVal / 10) * 10;
 
     //Set data colors
-    let backgroundColors = getColorsArray(data);
-    barChart.data.datasets[0].backgroundColor = backgroundColors;
-    doughnutChart.data.datasets[0].backgroundColor = backgroundColors;
+    barChart.data.datasets[0].backgroundColor = chartColors;
+    doughnutChart.data.datasets[0].backgroundColor = chartColors;
 
     //Enable tooltips for doughnut chart
     doughnutChart.options.plugins.tooltip.enabled = true;

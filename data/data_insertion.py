@@ -1,6 +1,6 @@
 import pymysql
 import traceback
-from app.db_config import DB_CONFIG
+from db_config import DB_CONFIG
 from data_parser import placowka_table_df, placowka_wyniki_df, komitet_table_df, okrag_table_df
 
 connection = pymysql.connect(

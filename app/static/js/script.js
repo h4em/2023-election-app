@@ -1,5 +1,6 @@
 import { initCharts, setChartData } from './charts.js';
 import { initMap, updateMap } from './map.js';
+import { fillLegend } from './legend.js';
 
 const searchbar = document.querySelector('.searchbar');
 const categoryDropdown = document.querySelector('#category-dropdown');
@@ -157,6 +158,7 @@ async function getResults(id, category) {
     const response = await fetch(`/results?id=${id}&category=${category}`);
     const data = await response.json();
 
+    fillLegend(data);
     setChartData(data);
 }
 
