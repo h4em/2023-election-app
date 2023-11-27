@@ -40,6 +40,7 @@ body, main, .search-div, .charts-div, .map-wrapper, .results-div {
 }
 
 main > h1 {
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 2rem;
     color: black;
 }
@@ -146,15 +147,22 @@ input:focus {
 
     margin-top: 4px;
 }
+
 /*!!!*/
 .legend-div, .charts-div {
     flex: 1;
 }
 
 .legend-div {
+    margin-left: 4px;
+}
+
+.legend-div {
     display: flex;
     
+    flex-shrink: 1;
     flex-direction: column;
+
     justify-content: center;
     align-items: center;
 }
@@ -163,7 +171,6 @@ input:focus {
     display: inline-block;
     text-align: center;
 }
-
 
 .charts-div div {
     width: 300px;
@@ -186,7 +193,37 @@ input:focus {
     height: 100%;
 }
 
-.party-img {
-    width: 50px;
-    height: 50px;
+/* .legend-item elements */
+
+.legend-item {
+    outline: 1px solid blue;
+
+    display: flex;
+    align-items: flex-start;
+
+    width: 100%;
+    margin: 2px;
 }
+
+.legend-item img {
+    width: 60px;
+    height: 60px;
+    align-self: center;
+    justify-self: center;
+    margin-left: 6px;
+}
+
+.legend-item p {
+    font-size: 0.8rem;
+    align-self: center;
+    margin-left: 6px;
+
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+
+/*
+    > jeden w dol
+    ' ' wszystkie w dol, regardless how deeply nested.
+*/

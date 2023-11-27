@@ -14,28 +14,22 @@ export function initMap() {
     document.querySelector('.leaflet-control-attribution').style.fontSize = '0.5rem';
 }
 
-export function updateMap(latitude, longitude, category) {
-    let zoom = getZoom(category)
+export function updateMap(data) {
+    const lat = parseFloat(data.lat)
+    const lon = parseFloat(data.lon)
+
+    const bounds = [
+        [parseFloat(data.bounds[0]), parseFloat(data.bounds[2])],
+        [parseFloat(data.bounds[1]), parseFloat(data.bounds[3])]
+    ];
     
     if (map) {
-        map.flyTo([latitude, longitude], zoom);
+        map.flyToBounds(bounds, {
+            duration: 4
+        });
     }
 }
 
-function getZoom(category) {
-    if(category == '1') {
-        return 16;
-    } else if (category == '2') {
-        return 11
-    } else if (category == '3') {
-        return 13
-    } else if (category == '4') {
-        return 10;
-    } else if (category == '5')
-        return 7;
-    return 11;
-}
-
 /*
-    miasto na podstawie wielkosci miasta zoom?
+    jakies markery dodac?
 */

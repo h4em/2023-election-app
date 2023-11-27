@@ -115,3 +115,12 @@ def map_category(category):
         return 'wojewodztwo'
     else:
         raise ValueError(f'Invalid category: {category}')
+    
+
+'''
+w bazie committee address sa whitespacey trailing!!!
+
+
+
+
+'''

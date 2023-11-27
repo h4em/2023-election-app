@@ -9,7 +9,7 @@ function makeLegendItem(item) {
     img.classList.add('party-img')
 
     const partyName = document.createElement('p');
-    partyName.textContent = item.party;
+    partyName.textContent = item.name;
 
     // const percentageBar = makePercentageBar(item.num_of_votes, sumOfVotes)
     // const partyColor = item.color;

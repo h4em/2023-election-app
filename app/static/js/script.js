@@ -117,11 +117,8 @@ function makeHint(data, category, index) {
 async function getLocationCoordinates(placename, category) {
     const response = await fetch(`/location?placename=${placename}&category=${category}`);
     const data = await response.json();
-
-    const lat = data.lat;
-    const lon = data.lon;
-
-    updateMap(lat, lon, category);
+    
+    updateMap(data);
 }
 
 async function getHints() {
