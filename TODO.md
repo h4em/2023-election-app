@@ -1,5 +1,8 @@
-api key do nominatima,
+ogarnac result label
 
-naprawic baze danych pythonem, adresy
+mapowanie category
 
-ogarnac mapke do konca, zoom levels etc.
+czy zrobic oddzielna sciezke na to????
+
+klasy w JS
+

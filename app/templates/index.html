@@ -41,7 +41,10 @@
         </div>
 
         <div class="results-div">
-            <div class="legend-div"></div>
+            <div>
+                <p>Results for: <span class="result-label"></span></p>
+                <div class="legend-div"></div>
+            </div>
             <div class="charts-div">
                 <div><canvas class="bar-chart"></canvas></div>
                 <div><canvas class="doughnut-chart"></canvas></div>
@@ -49,15 +52,11 @@
         </div>
         
     </main>
-    <footer></footer>
+    <footer>Hubert Michalski © <span class="year"></span>, <a href="https://github.com/h4em/2023-election-data-analysis" target="_blank">source code</a></footer>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script type="module" src="../static/js/script.js"></script>
     <script type="module" src="../static/js/legend.js"></script>
     <script type="module" src="../static/js/charts.js"></script>
     <script type="module" src="../static/js/map.js"></script>
 </body>
-</html> 
-
-<!--
-    ogarnac footer
--->
+</html>

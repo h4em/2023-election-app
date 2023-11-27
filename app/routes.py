@@ -27,10 +27,15 @@ def get_results():
     return results
 
 @main.route('/location', methods=['GET'])
-def get_coordinates():
+def get_location_details():
     placename = request.args.get('placename', default='', type=str)
     category = request.args.get('category', default='', type=str)
 
-    location_coordinates = geocode_placename(placename, category)
+    if category == '1':
+        placename = placename.split(', ', 1)[1]
+        if placename.startswith('ul. '):
+            placename = placename[4:]
 
-    return location_coordinates
+    results = geocode_placename(placename)
+
+    return results

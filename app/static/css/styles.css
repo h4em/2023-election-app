@@ -222,6 +222,13 @@ input:focus {
     overflow: hidden;
 }
 
+.results-div p {
+    margin: 2px;
+}
+
+footer {
+    text-align: center;
+}
 
 /*
     > jeden w dol

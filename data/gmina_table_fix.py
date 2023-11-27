@@ -13,19 +13,23 @@ connection_pool = mysql.connector.pooling.MySQLConnectionPool(
 try:
     with connection_pool.get_connection() as connection:
         with connection.cursor() as cursor:
-            query = 'SELECT * FROM committee;'
+            query = 'SELECT * FROM gmina;'
 
             cursor.execute(query)
 
             rows = cursor.fetchall()
             
             for row in rows:
-                address = row[2]
-                address = address.strip()
+                name = row[1]
+                name = name.strip()
+                name_parts = name.split(' ', 1)
 
-                update_query = "UPDATE committee SET address = %s WHERE id = %s"
+                if len(name_parts) > 1:
+                    name = name_parts[1]
 
-                cursor.execute(update_query, (address, row[0]))
+                update_query = "UPDATE gmina SET name = %s WHERE id = %s"
+
+                cursor.execute(update_query, (name, row[0]))
 
             connection.commit()
 

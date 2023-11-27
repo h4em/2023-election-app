@@ -5,6 +5,9 @@ import { fillLegend } from './legend.js';
 const searchbar = document.querySelector('.searchbar');
 const categoryDropdown = document.querySelector('#category-dropdown');
 const hintContainer = document.querySelector('.search-hints');
+const resultLabel = document.querySelector('.result-label');
+const yearSpan = document.querySelector('.year');
+
 let highlightedHintIndex = -1;
 
 document.addEventListener('DOMContentLoaded', init);
@@ -12,11 +15,19 @@ document.addEventListener('DOMContentLoaded', init);
 function init() {   
     setSearchbarListeners();
     updateSearchContainerWidth();
+    setYearInFooter();
 
     window.addEventListener('resize', updateSearchContainerWidth);
 
     initCharts();
     initMap();
+}
+
+function setYearInFooter() {
+    const currentDate = new Date();
+    const currentYear = currentDate.getFullYear();
+
+    yearSpan.textContent = currentYear;
 }
 
 function setSearchbarListeners() {
@@ -98,9 +109,10 @@ function makeHint(data, category, index) {
         getLocationCoordinates(data.body, category)
         // updateMap(coordinates)
 
+        updateResultsLabel(data.body, category);
+
         emptyHintsContainer();
         emptySearchbar();
-        //update results for: label
     });
 
     hint.addEventListener('mouseover', () => {
@@ -110,6 +122,10 @@ function makeHint(data, category, index) {
     return hint;
 } 
 
+function updateResultsLabel(text, category) {
+    resultLabel.textContent = text;
+}
+
 /*
     przy updacie mapy w zaleznosci od kategorii zoom level,
     albo skorzystac z detailsow ktore przyjda z api.
@@ -117,7 +133,7 @@ function makeHint(data, category, index) {
 async function getLocationCoordinates(placename, category) {
     const response = await fetch(`/location?placename=${placename}&category=${category}`);
     const data = await response.json();
-    
+
     updateMap(data);
 }
 
