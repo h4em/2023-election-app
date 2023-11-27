@@ -13,11 +13,10 @@ export function initMap() {
 }
 
 export function updateMap(data) {
-    removeAllMarkers();
-
     const lat = parseFloat(data.lat);
     const lon = parseFloat(data.lon);
 
+    removeAllMarkers();
     placeMarker(lat, lon)
 
     const bounds = [
@@ -30,6 +29,17 @@ export function updateMap(data) {
         map.dragging.disable();
 
         const zoom = map.getBoundsZoom(bounds);
+    
+        clearGeoJSONLayers();
+
+        L.geoJSON(data.geojson, {
+            style: {
+                color: '#3388ff',
+                weight: 2,
+                fillOpacity: 0.1
+            }
+        }).addTo(map)
+
 
         map.flyTo([lat, lon], zoom, {
             duration: 4
@@ -61,3 +71,17 @@ function removeAllMarkers() {
         }
     });
 }
+
+function clearGeoJSONLayers() {
+    map.eachLayer(function (layer) {
+        if (layer instanceof L.GeoJSON) {
+        map.removeLayer(layer);
+        }
+    });
+}
+
+/*
+    jezeli address to marker, else geojson
+
+
+*/

@@ -8,7 +8,8 @@ def geocode_placename(placename):
         'q': placename,
         'format': 'json',
         'limit': 1,
-        'countrycodes': 'PL'
+        'countrycodes': 'PL',
+        'polygon_geojson': 1
     }
     
     response = requests.get(base_url, params)
@@ -21,6 +22,7 @@ def geocode_placename(placename):
         result['lat'] = data[0]['lat']
         result['lon'] = data[0]['lon']
         result['bounds'] = data[0]['boundingbox']
+        result['geojson'] = data[0]['geojson']
 
     return json.dumps(result, ensure_ascii=True)
 
