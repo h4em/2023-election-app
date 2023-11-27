@@ -1,0 +1,2418 @@
+mysql> SELECT * FROM gmina;
++------+-----------------------------+
+| id   | name                        |
++------+-----------------------------+
+|    1 | m. Bielsko-Bia?a            |
+|    2 | Ursus                       |
+|    3 | m. ?yrardów                 |
+|    4 | gm. Police                  |
+|    5 | m. Wis?a                    |
+|    6 | m. Wroc?aw                  |
+|    7 | gm. Stary S?cz              |
+|    8 | gm. Ko?cian                 |
+|    9 | m. Opole                    |
+|   10 | gm. Zakrzewo                |
+|   11 | gm. Marianowo               |
+|   12 | m. Siedlce                  |
+|   13 | gm. K?ty                    |
+|   14 | m. Chodzie?                 |
+|   15 | m. ?winouj?cie              |
+|   16 | m. Rumia                    |
+|   17 | gm. Polkowice               |
+|   18 | gm. Józefów                 |
+|   19 | gm. Gorzyce                 |
+|   20 | m. Kutno                    |
+|   21 | gm. Ba?tów                  |
+|   22 | gm. Celestynów              |
+|   23 | gm. Wielka Nieszawka        |
+|   24 | gm. Pilchowice              |
+|   25 | m. Gliwice                  |
+|   26 | gm. ?wiebodzin              |
+|   27 | gm. Olecko                  |
+|   28 | m. E?k                      |
+|   29 | m. Katowice                 |
+|   30 | m. Inowroc?aw               |
+|   31 | gm. Pszczyna                |
+|   32 | gm. D?bowiec                |
+|   33 | gm. Kalwaria Zebrzydowska   |
+|   34 | gm. Jarocin                 |
+|   35 | gm. Kocza?a                 |
+|   36 | gm. Strzy?ów                |
+|   37 | gm. Bytów                   |
+|   38 | gm. Bukowina Tatrza?ska     |
+|   39 | m. Lublin                   |
+|   40 | m. Bydgoszcz                |
+|   41 | m. ?aga?                    |
+|   42 | m. ?ary                     |
+|   43 | m. Wa?cz                    |
+|   44 | m. Szczecin                 |
+|   45 | m. Hel                      |
+|   46 | m. ?ód?                     |
+|   47 | gm. Busko-Zdrój             |
+|   48 | m. Kraków                   |
+|   49 | m. D?blin                   |
+|   50 | m. Gda?sk                   |
+|   51 | Praga-Pó?noc                |
+|   52 | m. Olsztyn                  |
+|   53 | m. Sanok                    |
+|   54 | m. D?browa Górnicza         |
+|   55 | m. Bi?goraj                 |
+|   56 | m. Jaworzno                 |
+|   57 | m. Jelenia Góra             |
+|   58 | m. Hrubieszów               |
+|   59 | m. ?uków                    |
+|   60 | m. Zakopane                 |
+|   61 | gm. Radomy?l Wielki         |
+|   62 | m. Bia?a Podlaska           |
+|   63 | m. Sieradz                  |
+|   64 | m. Kalisz                   |
+|   65 | m. Elbl?g                   |
+|   66 | m. Konin                    |
+|   67 | m. Piotrków Trybunalski     |
+|   68 | ?oliborz                    |
+|   69 | m. Tarnów                   |
+|   70 | m. Zamo??                   |
+|   71 | m. ?om?a                    |
+|   72 | m. Piekary ?l?skie          |
+|   73 | m. Terespol                 |
+|   74 | gm. Andrychów               |
+|   75 | m. Milanówek                |
+|   76 | m. Koszalin                 |
+|   77 | m. Legionowo                |
+|   78 | m. Tarnowskie Góry          |
+|   79 | Praga-Po?udnie              |
+|   80 | Ursynów                     |
+|   81 | m. Cz?stochowa              |
+|   82 | gm. Grójec                  |
+|   83 | gm. Mi?dzyrzecz             |
+|   84 | gm. Turawa                  |
+|   85 | m. Ostrów Wielkopolski      |
+|   86 | m. Pozna?                   |
+|   87 | m. Sosnowiec                |
+|   88 | m. Ustka                    |
+|   89 | m. S?upsk                   |
+|   90 | m. Zielona Góra             |
+|   91 | m. ?widnica                 |
+|   92 | Bia?o??ka                   |
+|   93 | m. Wejherowo                |
+|   94 | m. Mys?owice                |
+|   95 | m. Bia?ystok                |
+|   96 | m. Krasnystaw               |
+|   97 | m. Starogard Gda?ski        |
+|   98 | m. Hajnówka                 |
+|   99 | m. Suwa?ki                  |
+|  100 | m. Radom                    |
+|  101 | m. Bytom                    |
+|  102 | m. Kielce                   |
+|  103 | m. Dzier?oniów              |
+|  104 | gm. Stara Kamienica         |
+|  105 | W?ochy                      |
+|  106 | m. Augustów                 |
+|  107 | gm. Opalenica               |
+|  108 | gm. Raszyn                  |
+|  109 | m. Limanowa                 |
+|  110 | m. Chorzów                  |
+|  111 | gm. Barlinek                |
+|  112 | m. Bartoszyce               |
+|  113 | m. Lubliniec                |
+|  114 | m. Bukowno                  |
+|  115 | Bemowo                      |
+|  116 | gm. Brenna                  |
+|  117 | gm. Jaworze                 |
+|  118 | gm. Przec?aw                |
+|  119 | gm. Bia?obrzegi             |
+|  120 | m. Bia?ogard                |
+|  121 | gm. Bia?owie?a              |
+|  122 | gm. Czarny Bór              |
+|  123 | gm. Piekoszów               |
+|  124 | gm. Trzebielino             |
+|  125 | gm. Ko?obrzeg               |
+|  126 | gm. I?owa                   |
+|  127 | m. ?owicz                   |
+|  128 | m. Kostrzyn nad Odr?        |
+|  129 | m. Imielin                  |
+|  130 | m. Grudzi?dz                |
+|  131 | gm. Brzeg Dolny             |
+|  132 | m. W?growiec                |
+|  133 | gm. Gryfino                 |
+|  134 | gm. Grodzisk Mazowiecki     |
+|  135 | gm. Jadów                   |
+|  136 | gm. Kolno                   |
+|  137 | gm. Lipno                   |
+|  138 | gm. Nowa Ruda               |
+|  139 | gm. Radecznica              |
+|  140 | gm. Rossosz                 |
+|  141 | gm. Sulechów                |
+|  142 | gm. Wa?cz                   |
+|  143 | gm. Zb?szy?                 |
+|  144 | gm. Zduny                   |
+|  145 | gm. Gosty?                  |
+|  146 | m. Rydu?towy                |
+|  147 | gm. Barcin                  |
+|  148 | gm. Ko?skie                 |
+|  149 | gm. Ko?uchów                |
+|  150 | gm. Mirsk                   |
+|  151 | gm. Oborniki                |
+|  152 | gm. Radzymin                |
+|  153 | gm. Wronki                  |
+|  154 | gm. S?ubice                 |
+|  155 | gm. Bystrzyca K?odzka       |
+|  156 | gm. Kostrzyn                |
+|  157 | gm. Mi?dzylesie             |
+|  158 | gm. Ko?min Wielkopolski     |
+|  159 | gm. Wyszków                 |
+|  160 | gm. Ka?mierz                |
+|  161 | gm. Trzcianka               |
+|  162 | gm. Ostaszewo               |
+|  163 | Rembertów                   |
+|  164 | Bielany                     |
+|  165 | gm. Janowiec Wielkopolski   |
+|  166 | ?ródmie?cie                 |
+|  167 | gm. Ch?ciny                 |
+|  168 | Wawer                       |
+|  169 | gm. Golina                  |
+|  170 | gm. Swarz?dz                |
+|  171 | gm. Syców                   |
+|  172 | gm. Paw?ów                  |
+|  173 | gm. W?growiec               |
+|  174 | gm. W?oszczowa              |
+|  175 | gm. Marcinowice             |
+|  176 | gm. Wschowa                 |
+|  177 | gm. Namys?ów                |
+|  178 | gm. Z?ocieniec              |
+|  179 | gm. ?arów                   |
+|  180 | gm. K?pice                  |
+|  181 | gm. Murowana Go?lina        |
+|  182 | gm. Szamocin                |
+|  183 | gm. Wolin                   |
+|  184 | gm. Czerwonka               |
+|  185 | gm. Wejherowo               |
+|  186 | gm. Kruklanki               |
+|  187 | gm. ?apsze Ni?ne            |
+|  188 | gm. Komarów-Osada           |
+|  189 | gm. Sorkwity                |
+|  190 | gm. Sztum                   |
+|  191 | gm. Gubin                   |
+|  192 | gm. Biskupiec               |
+|  193 | gm. ?aga?                   |
+|  194 | m. Miko?ów                  |
+|  195 | gm. Przemków                |
+|  196 | gm. Stare Juchy             |
+|  197 | gm. Lubsko                  |
+|  198 | gm. Lubniewice              |
+|  199 | gm. ?ubianka                |
+|  200 | gm. Szczuczyn               |
+|  201 | gm. Sadowie                 |
+|  202 | gm. Tar?ów                  |
+|  203 | m. Bielawa                  |
+|  204 | m. Bielsk Podlaski          |
+|  205 | gm. Lesko                   |
+|  206 | gm. Ustrzyki Dolne          |
+|  207 | gm. Krobia                  |
+|  208 | gm. Jastarnia               |
+|  209 | m. Otwock                   |
+|  210 | m. Przemy?l                 |
+|  211 | gm. Dzier?oniów             |
+|  212 | m. P?ock                    |
+|  213 | m. Stalowa Wola             |
+|  214 | gm. Czerniejewo             |
+|  215 | gm. Bogatynia               |
+|  216 | gm. Piaski                  |
+|  217 | gm. Bisztynek               |
+|  218 | m. Braniewo                 |
+|  219 | gm. ?ambinowice             |
+|  220 | gm. Gniewkowo               |
+|  221 | gm. Maszewo                 |
+|  222 | m. Brodnica                 |
+|  223 | gm. Brze?? Kujawski         |
+|  224 | m. Brzeg                    |
+|  225 | m. Ciechanów                |
+|  226 | gm. Jaktorów                |
+|  227 | gm. Hy?ne                   |
+|  228 | gm. Ryglice                 |
+|  229 | m. Gorlice                  |
+|  230 | gm. Gocza?kowice-Zdrój      |
+|  231 | m. Z?otów                   |
+|  232 | gm. Zakrzew                 |
+|  233 | m. Che?m                    |
+|  234 | gm. Krempna                 |
+|  235 | gm. Rz??nik                 |
+|  236 | gm. Korczyna                |
+|  237 | gm. Go?cieradów             |
+|  238 | gm. Narol                   |
+|  239 | gm. Rejowiec                |
+|  240 | gm. Solec-Zdrój             |
+|  241 | gm. Latowicz                |
+|  242 | gm. Rokiciny                |
+|  243 | gm. Zagna?sk                |
+|  244 | gm. Skulsk                  |
+|  245 | gm. Zielonki                |
+|  246 | gm. Proszowice              |
+|  247 | gm. Kamienica Polska        |
+|  248 | gm. Strzelno                |
+|  249 | gm. ?nin                    |
+|  250 | gm. Stupsk                  |
+|  251 | gm. Lubicz                  |
+|  252 | gm. Lipiany                 |
+|  253 | gm. Szczecinek              |
+|  254 | gm. Radgoszcz               |
+|  255 | gm. ?abno                   |
+|  256 | gm. Wólka                   |
+|  257 | gm. D?ugo??ka               |
+|  258 | gm. S?aboszów               |
+|  259 | gm. D?bno                   |
+|  260 | gm. Krzeszowice             |
+|  261 | gm. Zar?by Ko?cielne        |
+|  262 | gm. Przykona                |
+|  263 | gm. Czchów                  |
+|  264 | gm. Czersk                  |
+|  265 | gm. Aleksandrów ?ódzki      |
+|  266 | gm. Borne Sulinowo          |
+|  267 | gm. ?yraków                 |
+|  268 | gm. Ujazd                   |
+|  269 | gm. Jasienica               |
+|  270 | gm. Wietrzychowice          |
+|  271 | gm. Stargard                |
+|  272 | gm. Chocz                   |
+|  273 | gm. G?sawa                  |
+|  274 | gm. Prabuty                 |
+|  275 | gm. Puchaczów               |
+|  276 | gm. Mas?owice               |
+|  277 | gm. Mogielnica              |
+|  278 | gm. ?arnów                  |
+|  279 | gm. Rzezawa                 |
+|  280 | gm. Podd?bice               |
+|  281 | gm. P?czniew                |
+|  282 | gm. Warka                   |
+|  283 | gm. Buczek                  |
+|  284 | gm. Kraszewice              |
+|  285 | gm. S?popol                 |
+|  286 | gm. Bochnia                 |
+|  287 | gm. Huszlew                 |
+|  288 | gm. ?urawica                |
+|  289 | gm. Strzelce                |
+|  290 | gm. Borki                   |
+|  291 | gm. Mirzec                  |
+|  292 | gm. ?osice                  |
+|  293 | gm. ?askarzew               |
+|  294 | gm. S?omniki                |
+|  295 | gm. Strachówka              |
+|  296 | gm. Tykocin                 |
+|  297 | gm. Szczytniki              |
+|  298 | gm. Stawiszyn               |
+|  299 | gm. Widawa                  |
+|  300 | gm. Czernice Borowe         |
+|  301 | gm. Kazanów                 |
+|  302 | gm. Czarnocin               |
+|  303 | gm. Wieruszów               |
+|  304 | gm. Brzeziny                |
+|  305 | gm. Ka?uszyn                |
+|  306 | gm. Góra ?wi?tej Ma?gorzaty |
+|  307 | gm. Kie?czyg?ów             |
+|  308 | gm. Toszek                  |
+|  309 | gm. Wodynie                 |
+|  310 | gm. Gdów                    |
+|  311 | gm. Przy??k                 |
+|  312 | gm. Parz?czew               |
+|  313 | gm. Maciejowice             |
+|  314 | gm. Konopnica               |
+|  315 | gm. Babice                  |
+|  316 | gm. Grabów nad Pilic?       |
+|  317 | gm. Wieliszew               |
+|  318 | gm. K?pno                   |
+|  319 | gm. Mi?dzyzdroje            |
+|  320 | gm. Zbójna                  |
+|  321 | gm. Kamieniec Z?bkowicki    |
+|  322 | gm. Ozimek                  |
+|  323 | gm. Strzelce Wielkie        |
+|  324 | gm. Wola Krzysztoporska     |
+|  325 | gm. Konstancin-Jeziorna     |
+|  326 | gm. Marklowice              |
+|  327 | gm. Mieszkowice             |
+|  328 | m. Rybnik                   |
+|  329 | m. Ostróda                  |
+|  330 | gm. Rawicz                  |
+|  331 | m. Rejowiec Fabryczny       |
+|  332 | gm. ?roda Wielkopolska      |
+|  333 | gm. Dzia?oszyce             |
+|  334 | gm. B?aszki                 |
+|  335 | m. Skórcz                   |
+|  336 | gm. Dobrzyca                |
+|  337 | gm. Czarna Bia?ostocka      |
+|  338 | gm. Gorzów ?l?ski           |
+|  339 | gm. Jas?o                   |
+|  340 | gm. Gr?boszów               |
+|  341 | gm. Dolice                  |
+|  342 | gm. Joniec                  |
+|  343 | gm. Sobków                  |
+|  344 | gm. Nowy Dwór               |
+|  345 | gm. Nowa Sól                |
+|  346 | m. Ustro?                   |
+|  347 | gm. Kulesze Ko?cielne       |
+|  348 | gm. Kikó?                   |
+|  349 | gm. Micha?owice             |
+|  350 | gm. Galewice                |
+|  351 | gm. Dobiegniew              |
+|  352 | gm. Piszczac                |
+|  353 | gm. Komorniki               |
+|  354 | gm. Kluczbork               |
+|  355 | gm. Chodel                  |
+|  356 | gm. Wo?niki                 |
+|  357 | gm. Nowy Dwór Gda?ski       |
+|  358 | gm. R?czno                  |
+|  359 | gm. W?sewo                  |
+|  360 | gm. Charsznica              |
+|  361 | gm. Kadzid?o                |
+|  362 | gm. Barg?ów Ko?cielny       |
+|  363 | gm. Urszulin                |
+|  364 | gm. Nowogródek Pomorski     |
+|  365 | gm. Czaplinek               |
+|  366 | gm. Radymno                 |
+|  367 | gm. Komarówka Podlaska      |
+|  368 | gm. Zadzim                  |
+|  369 | gm. Kamie? Pomorski         |
+|  370 | gm. Belsk Du?y              |
+|  371 | gm. Me?giew                 |
+|  372 | gm. Soko?ów Podlaski        |
+|  373 | gm. Kra?niczyn              |
+|  374 | gm. Przesmyki               |
+|  375 | gm. Frysztak                |
+|  376 | gm. Stanin                  |
+|  377 | gm. Ci??kowice              |
+|  378 | gm. Olesno                  |
+|  379 | gm. Lipinki                 |
+|  380 | gm. Ochotnica Dolna         |
+|  381 | gm. Wielka Wie?             |
+|  382 | gm. Tuchów                  |
+|  383 | gm. Jerzmanowice-Przeginia  |
+|  384 | gm. Nowe Brzesko            |
+|  385 | gm. Z?bkowice ?l?skie       |
+|  386 | gm. Ciasna                  |
+|  387 | gm. Tworóg                  |
+|  388 | gm. Walce                   |
+|  389 | gm. Rejowiec Fabryczny      |
+|  390 | m. Kwidzyn                  |
+|  391 | gm. Niemce                  |
+|  392 | m. Ostro??ka                |
+|  393 | gm. Postomino               |
+|  394 | gm. Brzozów                 |
+|  395 | m. Gniezno                  |
+|  396 | gm. Korsze                  |
+|  397 | gm. Krzepice                |
+|  398 | m. ?wiebodzice              |
+|  399 | gm. Rusiec                  |
+|  400 | gm. Tuszyn                  |
+|  401 | m. Starachowice             |
+|  402 | gm. Grabica                 |
+|  403 | gm. Wi?lica                 |
+|  404 | gm. Lipsko                  |
+|  405 | gm. G?bin                   |
+|  406 | gm. Skomlin                 |
+|  407 | gm. Garbatka-Letnisko       |
+|  408 | gm. Sobolew                 |
+|  409 | gm. Kazimierza Wielka       |
+|  410 | gm. S?dziszów Ma?opolski    |
+|  411 | gm. Zamo??                  |
+|  412 | m. Por?ba                   |
+|  413 | gm. Ulanów                  |
+|  414 | gm. Grzegorzew              |
+|  415 | gm. Kiernozia               |
+|  416 | gm. Ciechanowiec            |
+|  417 | gm. Nowogrodziec            |
+|  418 | gm. Ciel?dz                 |
+|  419 | gm. Krzynow?oga Ma?a        |
+|  420 | gm. Bolimów                 |
+|  421 | gm. Kolbuszowa              |
+|  422 | gm. Psary                   |
+|  423 | gm. Kury?ówka               |
+|  424 | gm. Smyków                  |
+|  425 | gm. Pierzchnica             |
+|  426 | gm. Dru?bice                |
+|  427 | gm. Wolbrom                 |
+|  428 | gm. Mierz?cice              |
+|  429 | gm. Boguchwa?a              |
+|  430 | gm. Adamów                  |
+|  431 | gm. Nowy Targ               |
+|  432 | gm. Chojna                  |
+|  433 | gm. Ma?kinia Górna          |
+|  434 | gm. Jod?ownik               |
+|  435 | gm. Krasnosielc             |
+|  436 | gm. L?dek-Zdrój             |
+|  437 | gm. Dobrodzie?              |
+|  438 | gm. Budzy?                  |
+|  439 | gm. Le?na                   |
+|  440 | gm. Korzenna                |
+|  441 | m. Zawiercie                |
+|  442 | gm. Mi?dzyrzec Podlaski     |
+|  443 | gm. Igo?omia-Wawrze?czyce   |
+|  444 | gm. Lidzbark Warmi?ski      |
+|  445 | gm. Kazimierz Dolny         |
+|  446 | gm. Czarna Woda             |
+|  447 | gm. S?o?sk                  |
+|  448 | gm. Pysznica                |
+|  449 | gm. Otmuchów                |
+|  450 | gm. St?szew                 |
+|  451 | gm. Brzesko                 |
+|  452 | gm. Sianów                  |
+|  453 | gm. Stary Dzierzgo?         |
+|  454 | gm. Ha?lach                 |
+|  455 | gm. ?ó?kiewka               |
+|  456 | gm. Szypliszki              |
+|  457 | gm. Somianka                |
+|  458 | gm. Szelków                 |
+|  459 | gm. Koz?ów                  |
+|  460 | gm. Puszcza Maria?ska       |
+|  461 | gm. ?rem                    |
+|  462 | gm. Z?bowice                |
+|  463 | gm. Niemcza                 |
+|  464 | gm. Bychawa                 |
+|  465 | gm. D?browa Tarnowska       |
+|  466 | gm. Trzebinia               |
+|  467 | gm. Kolbudy                 |
+|  468 | gm. E?k                     |
+|  469 | gm. Inowroc?aw              |
+|  470 | gm. Lesznowola              |
+|  471 | gm. Pcim                    |
+|  472 | gm. ?yrzyn                  |
+|  473 | gm. Kotla                   |
+|  474 | gm. ??kawica                |
+|  475 | gm. Rajcza                  |
+|  476 | gm. Serokomla               |
+|  477 | gm. Lniano                  |
+|  478 | gm. Grabów nad Prosn?       |
+|  479 | gm. Mstów                   |
+|  480 | gm. Czerwonak               |
+|  481 | gm. Ozorków                 |
+|  482 | gm. Kro?niewice             |
+|  483 | gm. Halinów                 |
+|  484 | gm. Miastków Ko?cielny      |
+|  485 | gm. Resko                   |
+|  486 | gm. Grodków                 |
+|  487 | gm. Sidra                   |
+|  488 | gm. Ruda Maleniecka         |
+|  489 | gm. W?gorzyno               |
+|  490 | gm. Jedlnia-Letnisko        |
+|  491 | gm. Górzno                  |
+|  492 | gm. Policzna                |
+|  493 | gm. Bielsk                  |
+|  494 | gm. Kunów                   |
+|  495 | gm. ?apy                    |
+|  496 | gm. Brudze? Du?y            |
+|  497 | gm. Dzia?dowo               |
+|  498 | gm. Horod?o                 |
+|  499 | gm. Nowy Duninów            |
+|  500 | gm. Trzyci??                |
+|  501 | gm. Oksa                    |
+|  502 | gm. Boniewo                 |
+|  503 | gm. Drohiczyn               |
+|  504 | gm. Nag?owice               |
+|  505 | gm. Siedliszcze             |
+|  506 | gm. Che?miec                |
+|  507 | gm. Myszyniec               |
+|  508 | gm. Zabrodzie               |
+|  509 | gm. Wilcz?ta                |
+|  510 | gm. Pieni??no               |
+|  511 | gm. Kalinowo                |
+|  512 | gm. Nowe Miasto             |
+|  513 | gm. Parczew                 |
+|  514 | gm. K?odawa                 |
+|  515 | gm. Fajs?awice              |
+|  516 | gm. Wieniawa                |
+|  517 | gm. Niemodlin               |
+|  518 | m. Szklarska Por?ba         |
+|  519 | gm. Drobin                  |
+|  520 | gm. Baranowo                |
+|  521 | gm. Barczewo                |
+|  522 | gm. Krasocin                |
+|  523 | gm. Mi?om?yn                |
+|  524 | gm. Zatory                  |
+|  525 | gm. Szczurowa               |
+|  526 | gm. Aleksandrów             |
+|  527 | gm. W?adys?awów             |
+|  528 | gm. Krasne                  |
+|  529 | gm. M?odzieszyn             |
+|  530 | gm. Korczew                 |
+|  531 | gm. Gniewoszów              |
+|  532 | gm. Zawidz                  |
+|  533 | gm. Grodziczno              |
+|  534 | gm. ?mielów                 |
+|  535 | gm. Bobrowniki              |
+|  536 | gm. Krasnopol               |
+|  537 | gm. Zambrów                 |
+|  538 | gm. Go?cza                  |
+|  539 | gm. Dalików                 |
+|  540 | gm. Baka?arzewo             |
+|  541 | gm. Janów Lubelski          |
+|  542 | gm. Ku?nica                 |
+|  543 | gm. ?arnowiec               |
+|  544 | gm. Tomaszów Lubelski       |
+|  545 | gm. Tarnogród               |
+|  546 | gm. Kutno                   |
+|  547 | gm. Padew Narodowa          |
+|  548 | gm. Trzebieszów             |
+|  549 | gm. Milejów                 |
+|  550 | gm. Wierzbica               |
+|  551 | gm. Dywity                  |
+|  552 | gm. Korycin                 |
+|  553 | gm. D?browa Bia?ostocka     |
+|  554 | gm. Brzozie                 |
+|  555 | gm. Lipnik                  |
+|  556 | gm. Lubraniec               |
+|  557 | m. Lidzbark Warmi?ski       |
+|  558 | gm. Jab?onna Lacka          |
+|  559 | gm. O?awa                   |
+|  560 | gm. Klucze                  |
+|  561 | gm. Pyzdry                  |
+|  562 | m. Mielec                   |
+|  563 | gm. Mie?cisko               |
+|  564 | gm. Bierutów                |
+|  565 | gm. Kotlin                  |
+|  566 | gm. Wa?niów                 |
+|  567 | gm. Liszki                  |
+|  568 | gm. Jedwabno                |
+|  569 | gm. ?omazy                  |
+|  570 | gm. Blizanów                |
+|  571 | gm. Radzy? Che?mi?ski       |
+|  572 | gm. Goni?dz                 |
+|  573 | gm. Baligród                |
+|  574 | m. Ostrowiec ?wi?tokrzyski  |
+|  575 | gm. Lichnowy                |
+|  576 | gm. Koluszki                |
+|  577 | gm. My?libórz               |
+|  578 | gm. Kórnik                  |
+|  579 | gm. Tyszowce                |
+|  580 | gm. Stanis?awów             |
+|  581 | gm. D?browa                 |
+|  582 | m. Chojnice                 |
+|  583 | gm. Raciechowice            |
+|  584 | gm. Mogilany                |
+|  585 | gm. Siewierz                |
+|  586 | gm. Suwa?ki                 |
+|  587 | gm. Przemy?l                |
+|  588 | gm. Borowa                  |
+|  589 | gm. Stara Kornica           |
+|  590 | gm. Skaryszew               |
+|  591 | gm. Ple?na                  |
+|  592 | gm. ??czna                  |
+|  593 | gm. Raków                   |
+|  594 | m. Jastrz?bie-Zdrój         |
+|  595 | gm. ?opiennik Górny         |
+|  596 | m. Ko?cian                  |
+|  597 | m. Skierniewice             |
+|  598 | gm. Prostki                 |
+|  599 | gm. Ja?liska                |
+|  600 | gm. Gorzkowice              |
+|  601 | gm. Wizna                   |
+|  602 | gm. Wielopole Skrzy?skie    |
+|  603 | gm. Rudziniec               |
+|  604 | gm. Ko?cielisko             |
+|  605 | gm. Zdzieszowice            |
+|  606 | gm. Limanowa                |
+|  607 | gm. Dzikowiec               |
+|  608 | gm. Kleczew                 |
+|  609 | gm. Michów                  |
+|  610 | gm. Regimin                 |
+|  611 | gm. Janów                   |
+|  612 | gm. ?ukowo                  |
+|  613 | gm. Jastrz?b                |
+|  614 | gm. Parady?                 |
+|  615 | gm. Rudnik                  |
+|  616 | gm. Jeziorzany              |
+|  617 | m. ?ywiec                   |
+|  618 | m. Gostynin                 |
+|  619 | m. Radomsko                 |
+|  620 | gm. Miechów                 |
+|  621 | m. ??czyca                  |
+|  622 | m. Sandomierz               |
+|  623 | gm. M?cinka                 |
+|  624 | gm. Sanniki                 |
+|  625 | gm. Mas?ów                  |
+|  626 | gm. Zab?udów                |
+|  627 | gm. Dubiecko                |
+|  628 | gm. Przodkowo               |
+|  629 | gm. Iwierzyce               |
+|  630 | gm. Krosno Odrza?skie       |
+|  631 | Mokotów                     |
+|  632 | Ochota                      |
+|  633 | gm. Na??czów                |
+|  634 | Targówek                    |
+|  635 | gm. Nowy Korczyn            |
+|  636 | gm. Pacanów                 |
+|  637 | gm. Nysa                    |
+|  638 | gm. Polska Cerekiew         |
+|  639 | m. Nowe Miasto Lubawskie    |
+|  640 | m. Ole?nica                 |
+|  641 | gm. My?lenice               |
+|  642 | gm. Boles?awiec             |
+|  643 | gm. Gogolin                 |
+|  644 | gm. Pasym                   |
+|  645 | gm. Skawina                 |
+|  646 | gm. Bielsk Podlaski         |
+|  647 | gm. Kurz?tnik               |
+|  648 | gm. Chmielnik               |
+|  649 | gm. S?upsk                  |
+|  650 | gm. Poczesna                |
+|  651 | gm. Mi?oradz                |
+|  652 | gm. D?browa Biskupia        |
+|  653 | gm. Podgórzyn               |
+|  654 | gm. Osiecznica              |
+|  655 | gm. S?pólno Kraje?skie      |
+|  656 | m. Nowa Sól                 |
+|  657 | gm. Gr?bocice               |
+|  658 | m. Rypin                    |
+|  659 | gm. Strzelce Kraje?skie     |
+|  660 | gm. Wo?omin                 |
+|  661 | m. Jedlina-Zdrój            |
+|  662 | gm. K?odzko                 |
+|  663 | m. Wojcieszów               |
+|  664 | gm. Kamienna Góra           |
+|  665 | gm. Che?m                   |
+|  666 | gm. Osie                    |
+|  667 | gm. Lubiszyn                |
+|  668 | gm. Olszanka                |
+|  669 | gm. Cmolas                  |
+|  670 | gm. Skoczów                 |
+|  671 | gm. Pilzno                  |
+|  672 | gm. Daleszyce               |
+|  673 | gm. Miastko                 |
+|  674 | m. Gorzów Wielkopolski      |
+|  675 | gm. Krynki                  |
+|  676 | gm. Damnica                 |
+|  677 | m. Zabrze                   |
+|  678 | gm. Piaseczno               |
+|  679 | gm. ?ob?enica               |
+|  680 | gm. Wieliczka               |
+|  681 | gm. Kro?nice                |
+|  682 | gm. Nak?o nad Noteci?       |
+|  683 | gm. Opole Lubelskie         |
+|  684 | gm. Zi?bice                 |
+|  685 | gm. P?aska                  |
+|  686 | gm. Janowice Wielkie        |
+|  687 | gm. G?ucho?azy              |
+|  688 | gm. Pako??                  |
+|  689 | gm. Lgota Wielka            |
+|  690 | gm. Radków                  |
+|  691 | gm. S?awno                  |
+|  692 | gm. Somonino                |
+|  693 | m. Ostrów Mazowiecka        |
+|  694 | gm. Chmielno                |
+|  695 | gm. Rogo?no                 |
+|  696 | gm. Frampol                 |
+|  697 | gm. Janowiec                |
+|  698 | m. Nowy S?cz                |
+|  699 | gm. Koszyce                 |
+|  700 | m. W?brze?no                |
+|  701 | m. Sopot                    |
+|  702 | m. Toru?                    |
+|  703 | m. Racibórz                 |
+|  704 | m. Gdynia                   |
+|  705 | m. B?dzin                   |
+|  706 | m. Pionki                   |
+|  707 | gm. Wo?ów                   |
+|  708 | gm. Strzelin                |
+|  709 | m. Legnica                  |
+|  710 | m. Mr?gowo                  |
+|  711 | gm. Prudnik                 |
+|  712 | gm. Strzelce Opolskie       |
+|  713 | m. O?awa                    |
+|  714 | gm. Skwierzyna              |
+|  715 | gm. Stryków                 |
+|  716 | gm. Mosina                  |
+|  717 | gm. Suchedniów              |
+|  718 | gm. Szczytno                |
+|  719 | gm. Miedziana Góra          |
+|  720 | gm. Wle?                    |
+|  721 | gm. Wielgie                 |
+|  722 | gm. Bolków                  |
+|  723 | gm. Dobre Miasto            |
+|  724 | gm. Soko?y                  |
+|  725 | gm. Radziemice              |
+|  726 | gm. Prochowice              |
+|  727 | gm. Siemiatycze             |
+|  728 | gm. Strzegowo               |
+|  729 | m. Radzionków               |
+|  730 | gm. Grodzisk Wielkopolski   |
+|  731 | gm. Nowe                    |
+|  732 | gm. Markowa                 |
+|  733 | gm. ?apanów                 |
+|  734 | gm. ?om?a                   |
+|  735 | gm. Izabelin                |
+|  736 | gm. Wadowice                |
+|  737 | gm. Krynica-Zdrój           |
+|  738 | gm. Siechnice               |
+|  739 | gm. Poniatowa               |
+|  740 | gm. Sieraków                |
+|  741 | gm. Koronowo                |
+|  742 | gm. Go?dap                  |
+|  743 | gm. Pelplin                 |
+|  744 | Wilanów                     |
+|  745 | gm. ?ubnice                 |
+|  746 | gm. D?bica                  |
+|  747 | gm. Augustów                |
+|  748 | gm. Studzienice             |
+|  749 | gm. ?wieszyno               |
+|  750 | gm. Nowa Sarzyna            |
+|  751 | gm. Bardo                   |
+|  752 | gm. Brusy                   |
+|  753 | gm. Zakrzówek               |
+|  754 | gm. Domaniów                |
+|  755 | gm. Zb?szynek               |
+|  756 | m. Podkowa Le?na            |
+|  757 | gm. Go?cino                 |
+|  758 | gm. Bobowa                  |
+|  759 | gm. Telatyn                 |
+|  760 | gm. Kocmyrzów-Luborzyca     |
+|  761 | gm. Chrzanów                |
+|  762 | m. Kra?nik                  |
+|  763 | gm. Kobylanka               |
+|  764 | gm. Stara D?browa           |
+|  765 | gm. Be?chatów               |
+|  766 | gm. Kietrz                  |
+|  767 | gm. Radzanowo               |
+|  768 | gm. Tarnów                  |
+|  769 | m. Pruszcz Gda?ski          |
+|  770 | gm. Cieszanów               |
+|  771 | gm. Jab?onowo Pomorskie     |
+|  772 | gm. Walim                   |
+|  773 | gm. Ropczyce                |
+|  774 | gm. Boles?aw                |
+|  775 | gm. Baranów                 |
+|  776 | gm. Paw?osiów               |
+|  777 | gm. Dobra                   |
+|  778 | gm. G?ogówek                |
+|  779 | gm. Lubie? Kujawski         |
+|  780 | gm. Paw?owice               |
+|  781 | gm. Su?oszowa               |
+|  782 | gm. Troszyn                 |
+|  783 | gm. Trzciel                 |
+|  784 | gm. Krzy?anowice            |
+|  785 | gm. ?omianki                |
+|  786 | gm. ?migiel                 |
+|  787 | gm. ?wiecie                 |
+|  788 | gm. Sitno                   |
+|  789 | m. ?wi?toch?owice           |
+|  790 | m. W?oc?awek                |
+|  791 | gm. ??ck                    |
+|  792 | gm. Ruda-Huta               |
+|  793 | gm. Stary Brus              |
+|  794 | gm. Pruchnik                |
+|  795 | gm. ?wierzawa               |
+|  796 | gm. Debrzno                 |
+|  797 | gm. B?onie                  |
+|  798 | m. Kamienna Góra            |
+|  799 | gm. Karczew                 |
+|  800 | gm. Lelis                   |
+|  801 | gm. G?uszyca                |
+|  802 | Wola                        |
+|  803 | m. Zgierz                   |
+|  804 | gm. Raci??                  |
+|  805 | m. Karpacz                  |
+|  806 | m. ?a?cut                   |
+|  807 | gm. S?kowa                  |
+|  808 | m. Boguszów-Gorce           |
+|  809 | m. Jaros?aw                 |
+|  810 | gm. Kozienice               |
+|  811 | m. K?trzyn                  |
+|  812 | m. Lubo?                    |
+|  813 | m. Szczecinek               |
+|  814 | gm. Bytnica                 |
+|  815 | gm. Kramsk                  |
+|  816 | m. Malbork                  |
+|  817 | gm. Ustka                   |
+|  818 | gm. Warta                   |
+|  819 | gm. Wilkowice               |
+|  820 | gm. Nowe Miasteczko         |
+|  821 | gm. Go?uchów                |
+|  822 | gm. Osieczna                |
+|  823 | m. Szczytno                 |
+|  824 | gm. Nidzica                 |
+|  825 | gm. Dopiewo                 |
+|  826 | gm. Starogard Gda?ski       |
+|  827 | m. Pi?a                     |
+|  828 | gm. Baranów Sandomierski    |
+|  829 | gm. Jemielnica              |
+|  830 | gm. Che?mek                 |
+|  831 | m. Zgorzelec                |
+|  832 | gm. Cedry Wielkie           |
+|  833 | gm. Mogilno                 |
+|  834 | gm. Zaleszany               |
+|  835 | gm. Szamotu?y               |
+|  836 | m. Garwolin                 |
+|  837 | m. L?bork                   |
+|  838 | gm. Rzewnie                 |
+|  839 | gm. Górzyca                 |
+|  840 | gm. ?oniów                  |
+|  841 | gm. Rogó?no                 |
+|  842 | m. Kowal                    |
+|  843 | gm. Pietrowice Wielkie      |
+|  844 | gm. Gorzków                 |
+|  845 | gm. Moszczenica             |
+|  846 | gm. Uniejów                 |
+|  847 | gm. Strzeleczki             |
+|  848 | gm. Lubochnia               |
+|  849 | gm. Bieliny                 |
+|  850 | gm. ?cinawa                 |
+|  851 | gm. Szyd?owo                |
+|  852 | gm. Czarnia                 |
+|  853 | gm. Pieszyce                |
+|  854 | gm. Stawiski                |
+|  855 | gm. S?upno                  |
+|  856 | gm. ?obez                   |
+|  857 | m. Sochaczew                |
+|  858 | m. ?widnik                  |
+|  859 | m. Radlin                   |
+|  860 | gm. S?upca                  |
+|  861 | gm. Biesiekierz             |
+|  862 | gm. Ceg?ów                  |
+|  863 | gm. Choszczno               |
+|  864 | gm. W?gorzewo               |
+|  865 | m. Lubin                    |
+|  866 | gm. Wielu?                  |
+|  867 | m. Dar?owo                  |
+|  868 | m. Radzy? Podlaski          |
+|  869 | gm. ?abia Wola              |
+|  870 | gm. Dobrzy? nad Wis??       |
+|  871 | gm. Mieroszów               |
+|  872 | m. Chojnów                  |
+|  873 | m. Jawor                    |
+|  874 | gm. Oborniki ?l?skie        |
+|  875 | gm. Kolonowskie             |
+|  876 | m. K?odzko                  |
+|  877 | gm. Jasie?                  |
+|  878 | gm. Hajnówka                |
+|  879 | gm. Bra?szczyk              |
+|  880 | gm. Brwinów                 |
+|  881 | m. Leszno                   |
+|  882 | m. Siemianowice ?l?skie     |
+|  883 | gm. ?elechlinek             |
+|  884 | gm. Sul?cin                 |
+|  885 | gm. Puck                    |
+|  886 | gm. Konopiska               |
+|  887 | gm. Bodzanów                |
+|  888 | m. K?dzierzyn-Ko?le         |
+|  889 | m. Bieru?                   |
+|  890 | gm. Zarszyn                 |
+|  891 | gm. O?arów Mazowiecki       |
+|  892 | gm. Grybów                  |
+|  893 | gm. Moskorzew               |
+|  894 | gm. Mi?dzychód              |
+|  895 | gm. Wi?zowna                |
+|  896 | gm. Czarna                  |
+|  897 | gm. Siepraw                 |
+|  898 | gm. K?kolewnica             |
+|  899 | gm. Nied?wied?              |
+|  900 | gm. ?a?cut                  |
+|  901 | gm. Banie                   |
+|  902 | gm. Bartoszyce              |
+|  903 | gm. Bojanów                 |
+|  904 | gm. K?aj                    |
+|  905 | gm. ?o?ynia                 |
+|  906 | gm. Niepo?omice             |
+|  907 | gm. Brze?nica               |
+|  908 | gm. Kleszczów               |
+|  909 | gm. Ha?sk                   |
+|  910 | gm. Dziwnów                 |
+|  911 | gm. D?utów                  |
+|  912 | gm. Wyry                    |
+|  913 | gm. Je?ewo                  |
+|  914 | gm. Chorkówka               |
+|  915 | gm. Ko?aczyce               |
+|  916 | gm. Wolsztyn                |
+|  917 | gm. Ma?ogoszcz              |
+|  918 | gm. Wi?zownica              |
+|  919 | gm. Wojaszówka              |
+|  920 | gm. Opatowiec               |
+|  921 | gm. Jaros?aw                |
+|  922 | gm. Pleszew                 |
+|  923 | gm. Por?bka                 |
+|  924 | gm. Powidz                  |
+|  925 | gm. Przysucha               |
+|  926 | gm. Stepnica                |
+|  927 | gm. Radwanice               |
+|  928 | m. Ruda ?l?ska              |
+|  929 | gm. Siekierczyn             |
+|  930 | gm. Subkowy                 |
+|  931 | gm. Biskupice               |
+|  932 | gm. Rad?ów                  |
+|  933 | gm. Mied?na                 |
+|  934 | gm. Ka?czuga                |
+|  935 | gm. ?ubowo                  |
+|  936 | gm. Mucharz                 |
+|  937 | gm. Libi??                  |
+|  938 | gm. Poniec                  |
+|  939 | m. Pabianice                |
+|  940 | gm. S?awa                   |
+|  941 | gm. W?gliniec               |
+|  942 | gm. Kornowac                |
+|  943 | gm. Jemielno                |
+|  944 | gm. Glinojeck               |
+|  945 | gm. Do?hobyczów             |
+|  946 | gm. Pruszcz                 |
+|  947 | gm. Lubenia                 |
+|  948 | gm. Rachanie                |
+|  949 | gm. Soko?ów Ma?opolski      |
+|  950 | gm. Krokowa                 |
+|  951 | m. Gozdnica                 |
+|  952 | m. Knurów                   |
+|  953 | gm. Rakoniewice             |
+|  954 | gm. Czerwionka-Leszczyny    |
+|  955 | gm. Przechlewo              |
+|  956 | gm. ?abunie                 |
+|  957 | m. Sierpc                   |
+|  958 | gm. P?oty                   |
+|  959 | gm. Wojs?awice              |
+|  960 | gm. Wilków                  |
+|  961 | gm. Trzemeszno              |
+|  962 | m. Jas?o                    |
+|  963 | gm. Brzeszcze               |
+|  964 | gm. Stary Zamo??            |
+|  965 | gm. Rakszawa                |
+|  966 | gm. Czudec                  |
+|  967 | gm. Tczów                   |
+|  968 | gm. Radzy? Podlaski         |
+|  969 | gm. Wolbórz                 |
+|  970 | gm. Ostrów                  |
+|  971 | gm. Tyczyn                  |
+|  972 | gm. Wohy?                   |
+|  973 | gm. Nowy ?migród            |
+|  974 | gm. Bierawa                 |
+|  975 | gm. G?ogów Ma?opolski       |
+|  976 | gm. Brzostek                |
+|  977 | gm. Haczów                  |
+|  978 | gm. Radziechowy-Wieprz      |
+|  979 | gm. Rymanów                 |
+|  980 | gm. ?wilcza                 |
+|  981 | gm. Tomaszów Mazowiecki     |
+|  982 | gm. Dukla                   |
+|  983 | gm. Z?ota                   |
+|  984 | gm. Bielawy                 |
+|  985 | gm. Or?y                    |
+|  986 | gm. Osiek Jasielski         |
+|  987 | gm. Tarnowiec               |
+|  988 | gm. Trojanów                |
+|  989 | gm. Jedlicze                |
+|  990 | gm. O?wi?cim                |
+|  991 | gm. Radomy?l nad Sanem      |
+|  992 | gm. Brzyska                 |
+|  993 | gm. Alwernia                |
+|  994 | gm. M?drzechów              |
+|  995 | gm. Ulan-Majorat            |
+|  996 | gm. Dynów                   |
+|  997 | gm. Sko?yszyn               |
+|  998 | gm. Dydnia                  |
+|  999 | gm. Wi?niowa                |
+| 1000 | gm. Tuszów Narodowy         |
+| 1001 | gm. Bia?a                   |
+| 1002 | gm. ?ask                    |
+| 1003 | gm. Ole?nica                |
+| 1004 | gm. Trzcinica               |
+| 1005 | gm. Gostynin                |
+| 1006 | gm. Sieniawa                |
+| 1007 | gm. Iwonicz-Zdrój           |
+| 1008 | gm. Krotoszyn               |
+| 1009 | gm. Bodzechów               |
+| 1010 | gm. B?dzino                 |
+| 1011 | gm. Miejsce Piastowe        |
+| 1012 | gm. Zator                   |
+| 1013 | gm. ?owicz                  |
+| 1014 | gm. Wadowice Górne          |
+| 1015 | gm. Kro?cienko Wy?ne        |
+| 1016 | gm. Nowa D?ba               |
+| 1017 | gm. Praszka                 |
+| 1018 | gm. Stegna                  |
+| 1019 | gm. Popielów                |
+| 1020 | gm. Gilowice                |
+| 1021 | gm. Olsztyn                 |
+| 1022 | gm. Micha?owo               |
+| 1023 | gm. Rani?ów                 |
+| 1024 | gm. Czemierniki             |
+| 1025 | gm. Drelów                  |
+| 1026 | gm. Trzebownisko            |
+| 1027 | gm. Rzepiennik Strzy?ewski  |
+| 1028 | gm. Ciepielów               |
+| 1029 | gm. Wilamowice              |
+| 1030 | gm. Gnojnik                 |
+| 1031 | gm. Nielisz                 |
+| 1032 | gm. Krasnystaw              |
+| 1033 | gm. Miedzna                 |
+| 1034 | gm. Markuszów               |
+| 1035 | gm. Wierzchos?awice         |
+| 1036 | gm. Gromnik                 |
+| 1037 | gm. Bralin                  |
+| 1038 | gm. Szczucin                |
+| 1039 | gm. Wojnicz                 |
+| 1040 | gm. Kozieg?owy              |
+| 1041 | gm. Biecz                   |
+| 1042 | gm. Skarbimierz             |
+| 1043 | gm. Be??yce                 |
+| 1044 | gm. Lipnica Wielka          |
+| 1045 | gm. Sompolno                |
+| 1046 | gm. Lubsza                  |
+| 1047 | gm. ?u?na                   |
+| 1048 | gm. Przygodzice             |
+| 1049 | gm. Szczytna                |
+| 1050 | gm. Godziesze Wielkie       |
+| 1051 | gm. Gorlice                 |
+| 1052 | m. Dynów                    |
+| 1053 | m. Rzeszów                  |
+| 1054 | gm. Goleszów                |
+| 1055 | m. Tarnobrzeg               |
+| 1056 | gm. Maków Podhala?ski       |
+| 1057 | gm. Pot?gowo                |
+| 1058 | gm. Wrze?nia                |
+| 1059 | gm. Wi?zów                  |
+| 1060 | gm. Baborów                 |
+| 1061 | gm. Ko?minek                |
+| 1062 | gm. Paw?owiczki             |
+| 1063 | gm. ?elechów                |
+| 1064 | gm. Stawiguda               |
+| 1065 | gm. Klembów                 |
+| 1066 | gm. K?ty Wroc?awskie        |
+| 1067 | m. O?wi?cim                 |
+| 1068 | gm. Suchy Las               |
+| 1069 | gm. Andrespol               |
+| 1070 | gm. Podegrodzie             |
+| 1071 | gm. Zawoja                  |
+| 1072 | gm. Paczków                 |
+| 1073 | gm. Zakliczyn               |
+| 1074 | m. Cieszyn                  |
+| 1075 | m. Skar?ysko-Kamienna       |
+| 1076 | gm. Mszana Dolna            |
+| 1077 | gm. Ja?wi?y                 |
+| 1078 | gm. Ostrów Mazowiecka       |
+| 1079 | gm. S?upia Konecka          |
+| 1080 | gm. Sulejów                 |
+| 1081 | gm. Strawczyn               |
+| 1082 | gm. Wieliczki               |
+| 1083 | m. G?ogów                   |
+| 1084 | gm. Lutomiersk              |
+| 1085 | m. Konstantynów ?ódzki      |
+| 1086 | gm. Mietków                 |
+| 1087 | gm. Górowo I?aweckie        |
+| 1088 | gm. Szaflary                |
+| 1089 | gm. Ryjewo                  |
+| 1090 | gm. Czechowice-Dziedzice    |
+| 1091 | gm. Je?owe                  |
+| 1092 | gm. Miko?ajki               |
+| 1093 | gm. Ruciane-Nida            |
+| 1094 | gm. Skoki                   |
+| 1095 | m. Tomaszów Mazowiecki      |
+| 1096 | m. Krosno                   |
+| 1097 | gm. Staszów                 |
+| 1098 | m. Przasnysz                |
+| 1099 | gm. Ruja                    |
+| 1100 | m. Ko?o                     |
+| 1101 | gm. Aleksandrów Kujawski    |
+| 1102 | gm. Lubaczów                |
+| 1103 | gm. Bierzwnik               |
+| 1104 | gm. Stara Bia?a             |
+| 1105 | gm. Wyszogród               |
+| 1106 | m. Bra?sk                   |
+| 1107 | gm. Le?ajsk                 |
+| 1108 | gm. Tuchola                 |
+| 1109 | gm. Kock                    |
+| 1110 | gm. Nowe Miasto nad Pilic?  |
+| 1111 | gm. Ryki                    |
+| 1112 | gm. Raba Wy?na              |
+| 1113 | gm. Zbros?awice             |
+| 1114 | gm. Ba?kowice               |
+| 1115 | gm. Bejsce                  |
+| 1116 | gm. Sieradz                 |
+| 1117 | gm. Blachownia              |
+| 1118 | gm. Dzia?oszyn              |
+| 1119 | m. Bochnia                  |
+| 1120 | m. Boles?awiec              |
+| 1121 | gm. Borz?cin                |
+| 1122 | m. Brzeziny                 |
+| 1123 | gm. Lubowidz                |
+| 1124 | gm. Polanów                 |
+| 1125 | gm. Choroszcz               |
+| 1126 | gm. Karsin                  |
+| 1127 | gm. O?arów                  |
+| 1128 | m. Czelad?                  |
+| 1129 | gm. Juchnowiec Ko?cielny    |
+| 1130 | gm. Tczew                   |
+| 1131 | gm. Drzewica                |
+| 1132 | gm. Je?ów                   |
+| 1133 | m. D?bica                   |
+| 1134 | m. Gi?ycko                  |
+| 1135 | gm. Gniew                   |
+| 1136 | gm. Gnojno                  |
+| 1137 | gm. Wartkowice              |
+| 1138 | gm. Gietrzwa?d              |
+| 1139 | gm. Góra Kalwaria           |
+| 1140 | m. G?owno                   |
+| 1141 | gm. Fredropol               |
+| 1142 | gm. Zaklików                |
+| 1143 | gm. W?dro?e Wielkie         |
+| 1144 | gm. Jonkowo                 |
+| 1145 | gm. Kamie? Kraje?ski        |
+| 1146 | gm. Witnica                 |
+| 1147 | gm. Zabierzów               |
+| 1148 | gm. Strzy?ewice             |
+| 1149 | gm. Branice                 |
+| 1150 | gm. G?ubczyce               |
+| 1151 | gm. Kobyla Góra             |
+| 1152 | gm. Ostrzeszów              |
+| 1153 | gm. Konstantynów            |
+| 1154 | gm. Korfantów               |
+| 1155 | gm. Bia?a Podlaska          |
+| 1156 | gm. Krasnobród              |
+| 1157 | gm. S?awoborze              |
+| 1158 | gm. Baruchowo               |
+| 1159 | gm. Lisków                  |
+| 1160 | m. Maków Mazowiecki         |
+| 1161 | gm. Ksi?? Wielki            |
+| 1162 | gm. Mielno                  |
+| 1163 | gm. J?drzejów               |
+| 1164 | gm. R?bino                  |
+| 1165 | gm. Mo?ki                   |
+| 1166 | m. Nowa Ruda                |
+| 1167 | gm. Nowogard                |
+| 1168 | gm. Obryte                  |
+| 1169 | gm. Olkusz                  |
+| 1170 | gm. Pakos?aw                |
+| 1171 | gm. Pi?czów                 |
+| 1172 | gm. Bedlno                  |
+| 1173 | gm. Szadek                  |
+| 1174 | gm. Iwaniska                |
+| 1175 | gm. Prószków                |
+| 1176 | gm. Sieroszewice            |
+| 1177 | gm. Pu?tusk                 |
+| 1178 | gm. Bogoria                 |
+| 1179 | gm. Sanok                   |
+| 1180 | gm. ?adzice                 |
+| 1181 | gm. Szyd?ów                 |
+| 1182 | gm. ?uków                   |
+| 1183 | gm. Jeziora Wielkie         |
+| 1184 | gm. Ostrówek                |
+| 1185 | gm. Orchowo                 |
+| 1186 | gm. Strza?kowo              |
+| 1187 | gm. Gniewino                |
+| 1188 | gm. Le?nica                 |
+| 1189 | gm. Wi?cbork                |
+| 1190 | gm. Pszczew                 |
+| 1191 | gm. D?bie                   |
+| 1192 | gm. Szczutowo               |
+| 1193 | gm. ?wi?tajno               |
+| 1194 | gm. Radziejowice            |
+| 1195 | gm. Bi?goraj                |
+| 1196 | gm. Trzebiechów             |
+| 1197 | gm. ?ani?ta                 |
+| 1198 | gm. Secemin                 |
+| 1199 | gm. Wydminy                 |
+| 1200 | gm. Laszki                  |
+| 1201 | gm. Zagórów                 |
+| 1202 | gm. Ma?a Wie?               |
+| 1203 | gm. Opatów                  |
+| 1204 | gm. Oro?sko                 |
+| 1205 | gm. Rozprza                 |
+| 1206 | gm. Koniusza                |
+| 1207 | gm. Chrzypsko Wielkie       |
+| 1208 | gm. ?lesin                  |
+| 1209 | gm. Elbl?g                  |
+| 1210 | m. Tychy                    |
+| 1211 | gm. Przedbórz               |
+| 1212 | gm. Olsztynek               |
+| 1213 | gm. Kowale Oleckie          |
+| 1214 | gm. Bojad?a                 |
+| 1215 | gm. Che?m?a                 |
+| 1216 | gm. Drawno                  |
+| 1217 | gm. Czempi?                 |
+| 1218 | gm. Ropa                    |
+| 1219 | gm. Gzy                     |
+| 1220 | gm. Bojanowo                |
+| 1221 | gm. Dygowo                  |
+| 1222 | gm. Urz?dów                 |
+| 1223 | gm. W?odawa                 |
+| 1224 | gm. Wapno                   |
+| 1225 | gm. Wielowie?               |
+| 1226 | gm. Zelów                   |
+| 1227 | gm. Gródek nad Dunajcem     |
+| 1228 | m. Ozorków                  |
+| 1229 | m. Puck                     |
+| 1230 | m. Che?mno                  |
+| 1231 | m. Be?chatów                |
+| 1232 | Weso?a                      |
+| 1233 | gm. Trzebiatów              |
+| 1234 | m. I?awa                    |
+| 1235 | m. Zielonka                 |
+| 1236 | gm. Jeziorany               |
+| 1237 | gm. Gryfice                 |
+| 1238 | m. Kowary                   |
+| 1239 | gm. Rabka-Zdrój             |
+| 1240 | gm. Lyski                   |
+| 1241 | gm. Mory?                   |
+| 1242 | gm. Lelów                   |
+| 1243 | gm. Tolkmicko               |
+| 1244 | gm. Nasielsk                |
+| 1245 | gm. Czarne                  |
+| 1246 | gm. Muszyna                 |
+| 1247 | m. Zdu?ska Wola             |
+| 1248 | gm. Lubartów                |
+| 1249 | gm. Jordanów                |
+| 1250 | m. ?askarzew                |
+| 1251 | gm. Za?uski                 |
+| 1252 | gm. Godów                   |
+| 1253 | gm. Staro?reby              |
+| 1254 | gm. Kluki                   |
+| 1255 | m. Pruszków                 |
+| 1256 | m. Wa?brzych                |
+| 1257 | gm. Choczewo                |
+| 1258 | gm. Kochanowice             |
+| 1259 | gm. Komprachcice            |
+| 1260 | gm. Ujso?y                  |
+| 1261 | gm. Pilawa                  |
+| 1262 | gm. St??yca                 |
+| 1263 | gm. Gaw?uszowice            |
+| 1264 | gm. Parysów                 |
+| 1265 | gm. Domaradz                |
+| 1266 | gm. Czermin                 |
+| 1267 | gm. Niebylec                |
+| 1268 | gm. Nozdrzec                |
+| 1269 | gm. Brojce                  |
+| 1270 | gm. Krajenka                |
+| 1271 | gm. Zagórz                  |
+| 1272 | gm. Terespol                |
+| 1273 | gm. Potworów                |
+| 1274 | gm. Spytkowice              |
+| 1275 | gm. Przytoczna              |
+| 1276 | gm. Oleszyce                |
+| 1277 | gm. Kosz?cin                |
+| 1278 | gm. Warlubie                |
+| 1279 | gm. Jedli?sk                |
+| 1280 | gm. Skierbieszów            |
+| 1281 | gm. Lisia Góra              |
+| 1282 | gm. Cisek                   |
+| 1283 | gm. Kobylin                 |
+| 1284 | gm. Szerzyny                |
+| 1285 | gm. Warnice                 |
+| 1286 | gm. Bestwina                |
+| 1287 | gm. Golczewo                |
+| 1288 | gm. Grudusk                 |
+| 1289 | gm. Grzmi?ca                |
+| 1290 | gm. Grodzisko Dolne         |
+| 1291 | gm. Nisko                   |
+| 1292 | gm. Bodzentyn               |
+| 1293 | gm. Budzów                  |
+| 1294 | gm. Goleniów                |
+| 1295 | gm. Le?niowice              |
+| 1296 | m. Duszniki-Zdrój           |
+| 1297 | gm. Szczawnica              |
+| 1298 | gm. Czernichów              |
+| 1299 | m. Cz?uchów                 |
+| 1300 | gm. ?roda ?l?ska            |
+| 1301 | gm. Mi?akowo                |
+| 1302 | gm. Kwidzyn                 |
+| 1303 | gm. Janikowo                |
+| 1304 | m. Przeworsk                |
+| 1305 | gm. Ga?                     |
+| 1306 | gm. Sarnaki                 |
+| 1307 | gm. Lidzbark                |
+| 1308 | gm. Bartniczka              |
+| 1309 | gm. Chrostkowo              |
+| 1310 | m. Pu?awy                   |
+| 1311 | gm. Lututów                 |
+| 1312 | gm. Ró?an                   |
+| 1313 | gm. Ogrodzieniec            |
+| 1314 | gm. Turobin                 |
+| 1315 | gm. Perzów                  |
+| 1316 | gm. Kostom?oty              |
+| 1317 | gm. Ryn                     |
+| 1318 | gm. Pie?sk                  |
+| 1319 | m. Tczew                    |
+| 1320 | gm. Siedlce                 |
+| 1321 | gm. T?uszcz                 |
+| 1322 | gm. Firlej                  |
+| 1323 | gm. R?dziny                 |
+| 1324 | gm. Nieborów                |
+| 1325 | gm. Poronin                 |
+| 1326 | gm. Brody                   |
+| 1327 | gm. Wyryki                  |
+| 1328 | gm. Gr?bków                 |
+| 1329 | gm. Osieck                  |
+| 1330 | gm. ?ysomice                |
+| 1331 | gm. Goworowo                |
+| 1332 | gm. Rzeczniów               |
+| 1333 | gm. Reszel                  |
+| 1334 | gm. Jele?nia                |
+| 1335 | gm. ?arki                   |
+| 1336 | gm. ?ubniany                |
+| 1337 | gm. Jelcz-Laskowice         |
+| 1338 | m. Sucha Beskidzka          |
+| 1339 | m. Z?bki                    |
+| 1340 | gm. Pas??k                  |
+| 1341 | gm. Brójce                  |
+| 1342 | gm. Dzierzkowice            |
+| 1343 | gm. W?odowice               |
+| 1344 | gm. Radomin                 |
+| 1345 | gm. Góra                    |
+| 1346 | gm. Kocierzew Po?udniowy    |
+| 1347 | gm. ?mud?                   |
+| 1348 | gm. Wysoka                  |
+| 1349 | gm. Pszczó?ki               |
+| 1350 | gm. Jab?onna                |
+| 1351 | gm. Tarnowo Podgórne        |
+| 1352 | gm. Sadowne                 |
+| 1353 | m. Nowy Targ                |
+| 1354 | m. Luba?                    |
+| 1355 | gm. Nowy Staw               |
+| 1356 | gm. Krzywda                 |
+| 1357 | gm. Dzwola                  |
+| 1358 | gm. Sulmierzyce             |
+| 1359 | gm. Przasnysz               |
+| 1360 | gm. Go?ymin-O?rodek         |
+| 1361 | gm. Jab?o?                  |
+| 1362 | gm. Jasieniec               |
+| 1363 | gm. Nowy Kaw?czyn           |
+| 1364 | gm. Osjaków                 |
+| 1365 | gm. Pakos?awice             |
+| 1366 | gm. Pawonków                |
+| 1367 | gm. Regnów                  |
+| 1368 | gm. Rogów                   |
+| 1369 | gm. Rytwiany                |
+| 1370 | gm. Santok                  |
+| 1371 | gm. Waganiec                |
+| 1372 | gm. Wysokie                 |
+| 1373 | gm. Zwierzyn                |
+| 1374 | gm. ??czna                  |
+| 1375 | gm. ?wi?tki                 |
+| 1376 | gm. Ludwin                  |
+| 1377 | gm. Jeleniewo               |
+| 1378 | gm. Borzytuchom             |
+| 1379 | gm. Starcza                 |
+| 1380 | gm. Supra?l                 |
+| 1381 | gm. Lewin K?odzki           |
+| 1382 | gm. Bojszowy                |
+| 1383 | gm. Wolanów                 |
+| 1384 | gm. Krzanowice              |
+| 1385 | gm. Kodr?b                  |
+| 1386 | gm. Mszczonów               |
+| 1387 | gm. D?ugosiod?o             |
+| 1388 | gm. Miko?ajki Pomorskie     |
+| 1389 | gm. Ostróda                 |
+| 1390 | gm. D?brówno                |
+| 1391 | gm. Niegos?awice            |
+| 1392 | gm. Rzeczenica              |
+| 1393 | gm. Radowo Ma?e             |
+| 1394 | gm. Czarna D?brówka         |
+| 1395 | gm. Parchowo                |
+| 1396 | gm. Kcynia                  |
+| 1397 | gm. Godziszów               |
+| 1398 | gm. Drwinia                 |
+| 1399 | gm. Jutrosin                |
+| 1400 | gm. Szczawin Ko?c.          |
+| 1401 | gm. Trzebnica               |
+| 1402 | gm. Dubeninki               |
+| 1403 | gm. Gródek                  |
+| 1404 | gm. Krzemieniewo            |
+| 1405 | gm. Orla                    |
+| 1406 | gm. Spiczyn                 |
+| 1407 | gm. ?órawina                |
+| 1408 | gm. Kargowa                 |
+| 1409 | gm. Lelkowo                 |
+| 1410 | gm. Szastarka               |
+| 1411 | gm. Kode?                   |
+| 1412 | gm. Polanka Wielka          |
+| 1413 | gm. Bia?e B?ota             |
+| 1414 | gm. Dobrzyniewo Du?e        |
+| 1415 | gm. Krz?cin                 |
+| 1416 | gm. ?ychlin                 |
+| 1417 | gm. Kosów Lacki             |
+| 1418 | gm. Malanów                 |
+| 1419 | gm. Niepor?t                |
+| 1420 | gm. Sabnie                  |
+| 1421 | gm. So?nicowice             |
+| 1422 | gm. Ulhówek                 |
+| 1423 | gm. Odolanów                |
+| 1424 | gm. Nowosolna               |
+| 1425 | gm. Kobiór                  |
+| 1426 | gm. Kolsko                  |
+| 1427 | gm. Lipnica Murowana        |
+| 1428 | gm. Rogowo                  |
+| 1429 | gm. Ksawerów                |
+| 1430 | gm. Kosakowo                |
+| 1431 | gm. Sucha?                  |
+| 1432 | gm. Zakroczym               |
+| 1433 | gm. Karnice                 |
+| 1434 | gm. Nowa Wie? L?borska      |
+| 1435 | gm. ?lemie?                 |
+| 1436 | gm. Borkowice               |
+| 1437 | gm. Raci??ek                |
+| 1438 | gm. K?omnice                |
+| 1439 | gm. Osielsko                |
+| 1440 | gm. Nowa Karczma            |
+| 1441 | gm. Lipusz                  |
+| 1442 | gm. Babiak                  |
+| 1443 | gm. Siemy?l                 |
+| 1444 | gm. Wymiarki                |
+| 1445 | gm. Wisznice                |
+| 1446 | gm. Gi?ycko                 |
+| 1447 | gm. I?owo-Osada             |
+| 1448 | gm. Jastków                 |
+| 1449 | gm. Kobiele Wielkie         |
+| 1450 | gm. Prusice                 |
+| 1451 | gm. Stare Pole              |
+| 1452 | gm. Wicko                   |
+| 1453 | gm. Wielgom?yny             |
+| 1454 | gm. ?yszkowice              |
+| 1455 | gm. Hanna                   |
+| 1456 | gm. Babimost                |
+| 1457 | gm. Besko                   |
+| 1458 | gm. Bli?yn                  |
+| 1459 | gm. Bo?ki                   |
+| 1460 | gm. Budry                   |
+| 1461 | gm. Czeremcha               |
+| 1462 | gm. Czy?ew                  |
+| 1463 | gm. Damas?awek              |
+| 1464 | gm. Domaniewice             |
+| 1465 | gm. D?bowa K?oda            |
+| 1466 | gm. D?wierzuty              |
+| 1467 | gm. Grunwald                |
+| 1468 | gm. So?sk                   |
+| 1469 | gm. Horyniec-Zdrój          |
+| 1470 | gm. Iwkowa                  |
+| 1471 | gm. Kazimierz Biskupi       |
+| 1472 | gm. Kleszczewo              |
+| 1473 | gm. Klonowa                 |
+| 1474 | gm. Klukowo                 |
+| 1475 | gm. Kondratowice            |
+| 1476 | gm. Koneck                  |
+| 1477 | gm. Krasiczyn               |
+| 1478 | gm. Krypno                  |
+| 1479 | gm. Lanckorona              |
+| 1480 | gm. I?awa                   |
+| 1481 | gm. Lipie                   |
+| 1482 | gm. Lubanie                 |
+| 1483 | gm. Lutowiska               |
+| 1484 | gm. Majdan Królewski        |
+| 1485 | gm. Ma?y P?ock              |
+| 1486 | gm. Milanów                 |
+| 1487 | gm. Mys?akowice             |
+| 1488 | gm. Narewka                 |
+| 1489 | gm. Niechanowo              |
+| 1490 | gm. Nowinka                 |
+| 1491 | gm. Olszanica               |
+| 1492 | gm. Osi?ciny                |
+| 1493 | gm. Platerów                |
+| 1494 | gm. Radzanów                |
+| 1495 | gm. Rozogi                  |
+| 1496 | gm. Rychtal                 |
+| 1497 | gm. Sierakowice             |
+| 1498 | gm. Srokowo                 |
+| 1499 | gm. Stary Targ              |
+| 1500 | gm. Sulików                 |
+| 1501 | gm. Szepietowo              |
+| 1502 | gm. Szumowo                 |
+| 1503 | gm. S?awatycze              |
+| 1504 | gm. Tarczyn                 |
+| 1505 | gm. Trzcianne               |
+| 1506 | gm. T?uchowo                |
+| 1507 | gm. Wielbark                |
+| 1508 | gm. Wieprz                  |
+| 1509 | gm. Wi?niew                 |
+| 1510 | gm. ?ukta                   |
+| 1511 | gm. ?ukowa                  |
+| 1512 | gm. ?ytno                   |
+| 1513 | gm. Smo?dzino               |
+| 1514 | gm. Piecki                  |
+| 1515 | gm. Nowiny                  |
+| 1516 | gm. P?c?aw                  |
+| 1517 | gm. Bobrowo                 |
+| 1518 | gm. Dragacz                 |
+| 1519 | gm. Biszcza                 |
+| 1520 | gm. Dobromierz              |
+| 1521 | gm. Liniewo                 |
+| 1522 | gm. Lipce Reymontowskie     |
+| 1523 | gm. Przystaj?               |
+| 1524 | gm. Krupski M?yn            |
+| 1525 | gm. Jasionówka              |
+| 1526 | gm. Przero?l                |
+| 1527 | gm. Manowo                  |
+| 1528 | gm. Raczki                  |
+| 1529 | gm. Lubomia                 |
+| 1530 | gm. ?liwice                 |
+| 1531 | gm. Niechlów                |
+| 1532 | gm. Kaliska                 |
+| 1533 | gm. Dobre                   |
+| 1534 | gm. Gostycyn                |
+| 1535 | gm. Zblewo                  |
+| 1536 | gm. ?wierklaniec            |
+| 1537 | gm. Lipka                   |
+| 1538 | gm. Tuchomie                |
+| 1539 | gm. Pomiechówek             |
+| 1540 | gm. Kurów                   |
+| 1541 | gm. K?oczew                 |
+| 1542 | gm. Opatówek                |
+| 1543 | gm. Mircze                  |
+| 1544 | gm. Ku?lin                  |
+| 1545 | gm. Ko?skowola              |
+| 1546 | gm. Herby                   |
+| 1547 | gm. Be??ec                  |
+| 1548 | gm. Ryczywó?                |
+| 1549 | gm. Po?ajewo                |
+| 1550 | gm. Tarnów Opolski          |
+| 1551 | gm. ?niadowo                |
+| 1552 | gm. Unis?aw                 |
+| 1553 | gm. Uchanie                 |
+| 1554 | gm. ?aszczów                |
+| 1555 | gm. Werbkowice              |
+| 1556 | gm. ?odygowice              |
+| 1557 | gm. Bia?o?liwie             |
+| 1558 | gm. Boleszkowice            |
+| 1559 | gm. I?ów                    |
+| 1560 | gm. Grabowiec               |
+| 1561 | gm. Krzeszów                |
+| 1562 | gm. Zaniemy?l               |
+| 1563 | gm. Ko?czyg?owy             |
+| 1564 | gm. Ksi??ki                 |
+| 1565 | gm. Cekcyn                  |
+| 1566 | gm. Susiec                  |
+| 1567 | gm. Wilga                   |
+| 1568 | gm. Olszyna                 |
+| 1569 | gm. Tuczno                  |
+| 1570 | gm. Modliborzyce            |
+| 1571 | gm. Siedlec                 |
+| 1572 | gm. D?bnica Kaszubska       |
+| 1573 | gm. Wi?sko                  |
+| 1574 | gm. Gromadka                |
+| 1575 | gm. Jasienica Rosielna      |
+| 1576 | gm. Nowa Wie? Wielka        |
+| 1577 | gm. ?wiecie nad Os?         |
+| 1578 | gm. Goraj                   |
+| 1579 | gm. Bra?sk                  |
+| 1580 | gm. Czarny Dunajec          |
+| 1581 | gm. Popów                   |
+| 1582 | gm. ?agów                   |
+| 1583 | gm. Go?a?cz                 |
+| 1584 | m. Pszów                    |
+| 1585 | m. Grajewo                  |
+| 1586 | m. Gubin                    |
+| 1587 | gm. Przelewice              |
+| 1588 | gm. Morawica                |
+| 1589 | m. Z?otoryja                |
+| 1590 | m. ?widwin                  |
+| 1591 | gm. Koniecpol               |
+| 1592 | m. Józefów                  |
+| 1593 | gm. Rytro                   |
+| 1594 | gm. Chorzele                |
+| 1595 | gm. Barciany                |
+| 1596 | gm. Su?kowice               |
+| 1597 | gm. Doruchów                |
+| 1598 | gm. D?be Wielkie            |
+| 1599 | gm. Goszczyn                |
+| 1600 | gm. Medyka                  |
+| 1601 | m. Raci??                   |
+| 1602 | gm. Gowarczów               |
+| 1603 | gm. ?erków                  |
+| 1604 | gm. Rojewo                  |
+| 1605 | gm. Lwówek ?l?ski           |
+| 1606 | gm. Panki                   |
+| 1607 | gm. Radoszyce               |
+| 1608 | gm. Buk                     |
+| 1609 | gm. Drezdenko               |
+| 1610 | gm. Krzywi?                 |
+| 1611 | m. Che?m?a                  |
+| 1612 | gm. Cz?opa                  |
+| 1613 | m. Pyskowice                |
+| 1614 | gm. Miejska Górka           |
+| 1615 | gm. Po?czyn-Zdrój           |
+| 1616 | gm. Trzci?sko-Zdrój         |
+| 1617 | gm. Luzino                  |
+| 1618 | gm. Kiszkowo                |
+| 1619 | gm. Piotrków Kujawski       |
+| 1620 | gm. Rydzyna                 |
+| 1621 | m. Mi?dzyrzec Podlaski      |
+| 1622 | gm. Osiek                   |
+| 1623 | gm. Zawonia                 |
+| 1624 | gm. Chocianów               |
+| 1625 | gm. Raszków                 |
+| 1626 | gm. Kunice                  |
+| 1627 | m. Siemiatycze              |
+| 1628 | m. Golub-Dobrzy?            |
+| 1629 | gm. Chociwel                |
+| 1630 | gm. W?adys?awowo            |
+| 1631 | gm. Pisz                    |
+| 1632 | m. Stargard                 |
+| 1633 | m. M?awa                    |
+| 1634 | m. Kolno                    |
+| 1635 | m. Lubartów                 |
+| 1636 | gm. ?widnica                |
+| 1637 | gm. Lubomierz               |
+| 1638 | m. Ko?obrzeg                |
+| 1639 | gm. Sicienko                |
+| 1640 | gm. Karlino                 |
+| 1641 | m. P?o?sk                   |
+| 1642 | gm. Linia                   |
+| 1643 | gm. Siennica                |
+| 1644 | gm. Suchowola               |
+| 1645 | gm. I?sko                   |
+| 1646 | m. Lubawa                   |
+| 1647 | gm. Warta Boles?awiecka     |
+| 1648 | gm. Zawadzkie               |
+| 1649 | gm. Legnickie Pole          |
+| 1650 | gm. Wyrzysk                 |
+| 1651 | m. Piastów                  |
+| 1652 | gm. Filipów                 |
+| 1653 | gm. Chrz?stowice            |
+| 1654 | gm. Skalbmierz              |
+| 1655 | gm. Morzeszczyn             |
+| 1656 | gm. Chodecz                 |
+| 1657 | gm. ?widwin                 |
+| 1658 | gm. Zalesie                 |
+| 1659 | gm. Jedwabne                |
+| 1660 | gm. Wy?mierzyce             |
+| 1661 | gm. Gryfów ?l?ski           |
+| 1662 | gm. ?ososina Dolna          |
+| 1663 | m. Turek                    |
+| 1664 | gm. Izbicko                 |
+| 1665 | gm. Stare Miasto            |
+| 1666 | gm. Sk?pe                   |
+| 1667 | gm. Dobra (Szczeci?ska)     |
+| 1668 | gm. Lubrza                  |
+| 1669 | gm. Nowogród                |
+| 1670 | gm. Knyszyn                 |
+| 1671 | m. Sejny                    |
+| 1672 | m. Tomaszów Lubelski        |
+| 1673 | gm. Rewal                   |
+| 1674 | gm. Ko?cierzyna             |
+| 1675 | gm. Czajków                 |
+| 1676 | gm. Oty?                    |
+| 1677 | gm. O?no Lubuskie           |
+| 1678 | gm. Krapkowice              |
+| 1679 | m. Kudowa-Zdrój             |
+| 1680 | gm. Rozdra?ew               |
+| 1681 | m. Mi?sk Mazowiecki         |
+| 1682 | gm. Samborzec               |
+| 1683 | gm. I??a                    |
+| 1684 | m. S?upca                   |
+| 1685 | gm. ?uromin                 |
+| 1686 | m. Myszków                  |
+| 1687 | m. Nowy Dwór Mazowiecki     |
+| 1688 | m. Grybów                   |
+| 1689 | m. Soko?ów Podlaski         |
+| 1690 | m. Lubaczów                 |
+| 1691 | gm. Bie?u?                  |
+| 1692 | gm. Kro?cienko nad Dunajcem |
+| 1693 | gm. Pniewy                  |
+| 1694 | gm. Kamionka                |
+| 1695 | gm. U???                    |
+| 1696 | gm. Karczmiska              |
+| 1697 | gm. Kra?nik                 |
+| 1698 | gm. Sawin                   |
+| 1699 | m. W?odawa                  |
+| 1700 | gm. Rybno                   |
+| 1701 | gm. Dziadkowice             |
+| 1702 | gm. Stare Bogaczowice       |
+| 1703 | gm. Torzym                  |
+| 1704 | m. L?dziny                  |
+| 1705 | gm. Mrozy                   |
+| 1706 | gm. Ma?omice                |
+| 1707 | gm. Wiele?                  |
+| 1708 | gm. Szubin                  |
+| 1709 | gm. Milejczyce              |
+| 1710 | gm. Czerniewice             |
+| 1711 | m. ?aziska Górne            |
+| 1712 | m. Szczawno-Zdrój           |
+| 1713 | m. Dzia?dowo                |
+| 1714 | gm. Jastrowie               |
+| 1715 | gm. Mor?g                   |
+| 1716 | m. ?eba                     |
+| 1717 | m. ?wieradów-Zdrój          |
+| 1718 | m. Zambrów                  |
+| 1719 | m. S?awków                  |
+| 1720 | m. Radziejów                |
+| 1721 | m. Kalety                   |
+| 1722 | gm. Orneta                  |
+| 1723 | gm. Rzepin                  |
+| 1724 | m. Rawa Mazowiecka          |
+| 1725 | gm. Szczebrzeszyn           |
+| 1726 | m. ?ory                     |
+| 1727 | m. Koby?ka                  |
+| 1728 | m. Wysokie Mazowieckie      |
+| 1729 | gm. ?azy                    |
+| 1730 | gm. Kleszczele              |
+| 1731 | gm. Ku?nia Raciborska       |
+| 1732 | m. Wojkowice                |
+| 1733 | m. Orzesze                  |
+| 1734 | m. Miasteczko ?l?skie       |
+| 1735 | m. Lipno                    |
+| 1736 | gm. Rudnik nad Sanem        |
+| 1737 | m. Aleksandrów Kujawski     |
+| 1738 | m. Le?ajsk                  |
+| 1739 | m. Czarnków                 |
+| 1740 | m. Ciechocinek              |
+| 1741 | gm. Nowogród Bobrza?ski     |
+| 1742 | gm. St?porków               |
+| 1743 | gm. Recz                    |
+| 1744 | gm. K?ecko                  |
+| 1745 | gm. Czerwie?sk              |
+| 1746 | gm. Borek Wielkopolski      |
+| 1747 | gm. Piwniczna-Zdrój         |
+| 1748 | gm. Margonin                |
+| 1749 | gm. Izbica Kujawska         |
+| 1750 | gm. Stopnica                |
+| 1751 | gm. Kaczory                 |
+| 1752 | gm. Mrocza                  |
+| 1753 | gm. Szczekociny             |
+| 1754 | gm. Bia?a Rawska            |
+| 1755 | gm. Lipsk                   |
+| 1756 | gm. Lubawka                 |
+| 1757 | gm. Lwówek                  |
+| 1758 | gm. Mi?dzybórz              |
+| 1759 | gm. Mordy                   |
+| 1760 | gm. Sochocin                |
+| 1761 | gm. Solec nad Wis??         |
+| 1762 | gm. Sura?                   |
+| 1763 | gm. W?chock                 |
+| 1764 | gm. Zawichost               |
+| 1765 | gm. Frombork                |
+| 1766 | gm. Kowalewo Pomorskie      |
+| 1767 | gm. ?asin                   |
+| 1768 | gm. Tuliszków               |
+| 1769 | gm. Krzy? Wielkopolski      |
+| 1770 | gm. Przedecz                |
+| 1771 | gm. Solec Kujawski          |
+| 1772 | gm. Barwice                 |
+| 1773 | gm. Milicz                  |
+| 1774 | gm. Mi?os?aw                |
+| 1775 | m. Nieszawa                 |
+| 1776 | gm. Nadarzyn                |
+| 1777 | gm. Perlejewo               |
+| 1778 | gm. Drawsko Pomorskie       |
+| 1779 | gm. Kalisz Pomorski         |
+| 1780 | gm. Koszarawa               |
+| 1781 | gm. Kowal                   |
+| 1782 | gm. ?elazków                |
+| 1783 | gm. Zbuczyn                 |
+| 1784 | gm. Witkowo                 |
+| 1785 | gm. Skórzec                 |
+| 1786 | gm. Krzymów                 |
+| 1787 | gm. Kiwity                  |
+| 1788 | gm. Bircza                  |
+| 1789 | gm. Rusinów                 |
+| 1790 | gm. Jastrz?bia              |
+| 1791 | gm. O?arowice               |
+| 1792 | gm. Kruszwica               |
+| 1793 | gm. Sobótka                 |
+| 1794 | gm. Ma?dyty                 |
+| 1795 | gm. Przyrów                 |
+| 1796 | gm. Krynice                 |
+| 1797 | gm. Sienno                  |
+| 1798 | gm. Poraj                   |
+| 1799 | gm. ?abiszyn                |
+| 1800 | gm. Stronie ?l?skie         |
+| 1801 | gm. Kowiesy                 |
+| 1802 | gm. Kotu?                   |
+| 1803 | gm. P?tnów                  |
+| 1804 | gm. Nowy Tomy?l             |
+| 1805 | gm. Szprotawa               |
+| 1806 | gm. Opoczno                 |
+| 1807 | gm. D?brówka                |
+| 1808 | gm. Ksi??pol                |
+| 1809 | gm. Tokarnia                |
+| 1810 | gm. W?gierska Górka         |
+| 1811 | gm. Przytyk                 |
+| 1812 | gm. Siemi?tkowo             |
+| 1813 | gm. Zwole?                  |
+| 1814 | gm. B?dków                  |
+| 1815 | gm. Chybie                  |
+| 1816 | gm. Wiskitki                |
+| 1817 | gm. Magnuszew               |
+| 1818 | gm. Dobczyce                |
+| 1819 | gm. G?owaczów               |
+| 1820 | gm. Leszno                  |
+| 1821 | gm. Gidle                   |
+| 1822 | gm. Rzgów                   |
+| 1823 | gm. S?upia                  |
+| 1824 | gm. Sul?czyno               |
+| 1825 | gm. Tomice                  |
+| 1826 | gm. Paj?czno                |
+| 1827 | gm. K?obuck                 |
+| 1828 | gm. Promna                  |
+| 1829 | gm. Pobiedziska             |
+| 1830 | gm. S?dziszów               |
+| 1831 | gm. Niedrzwica Du?a         |
+| 1832 | gm. Czarno?y?y              |
+| 1833 | gm. Kroczyce                |
+| 1834 | gm. Teresin                 |
+| 1835 | gm. D?browa Che?mi?ska      |
+| 1836 | gm. Pra?mów                 |
+| 1837 | gm. Kampinos                |
+| 1838 | gm. Jakubów                 |
+| 1839 | gm. Kruszyna                |
+| 1840 | gm. Nowe Ostrowy            |
+| 1841 | gm. Pokój                   |
+| 1842 | gm. Ceków-Kolonia           |
+| 1843 | gm. Kartuzy                 |
+| 1844 | gm. Wo?czyn                 |
+| 1845 | gm. Z?otów                  |
+| 1846 | gm. Tychowo                 |
+| 1847 | gm. Pionki                  |
+| 1848 | gm. ?agiewniki              |
+| 1849 | gm. Rac?awice               |
+| 1850 | gm. Wola Uhruska            |
+| 1851 | gm. Stryszawa               |
+| 1852 | gm. Wisznia Ma?a            |
+| 1853 | gm. Gaszowice               |
+| 1854 | gm. Miros?awiec             |
+| 1855 | gm. Mi?ki                   |
+| 1856 | gm. Koma?cza                |
+| 1857 | m. Zawidów                  |
+| 1858 | gm. Pruszcz Gda?ski         |
+| 1859 | gm. Byczyna                 |
+| 1860 | gm. M?ynary                 |
+| 1861 | gm. Przybiernów             |
+| 1862 | gm. Tuplice                 |
+| 1863 | gm. W?sosz                  |
+| 1864 | gm. Sokó?ka                 |
+| 1865 | m. S?awno                   |
+| 1866 | gm. G?owno                  |
+| 1867 | gm. Siemkowice              |
+| 1868 | gm. Rokietnica              |
+| 1869 | gm. Zembrzyce               |
+| 1870 | gm. Lubin                   |
+| 1871 | gm. Ciep?owody              |
+| 1872 | gm. Gaworzyce               |
+| 1873 | gm. Kozy                    |
+| 1874 | gm. Obrowo                  |
+| 1875 | m. Ko?cierzyna              |
+| 1876 | gm. Czorsztyn               |
+| 1877 | gm. Pozezdrze               |
+| 1878 | m. Wodzis?aw ?l?ski         |
+| 1879 | gm. Radziejów               |
+| 1880 | gm. Stare Babice            |
+| 1881 | m. W?grów                   |
+| 1882 | gm. Giza?ki                 |
+| 1883 | gm. Pyrzyce                 |
+| 1884 | gm. Po?aniec                |
+| 1885 | gm. S?dziejowice            |
+| 1886 | gm. Sk?pe                   |
+| 1887 | gm. Skrzyszów               |
+| 1888 | gm. Ostrów Wielkopolski     |
+| 1889 | gm. Re?ska Wie?             |
+| 1890 | gm. Szyd?owiec              |
+| 1891 | m. Piechowice               |
+| 1892 | gm. Przeworsk               |
+| 1893 | gm. Przem?t                 |
+| 1894 | gm. Pacyna                  |
+| 1895 | gm. Rychwa?                 |
+| 1896 | gm. Gruta                   |
+| 1897 | gm. Lubomino                |
+| 1898 | gm. Tymbark                 |
+| 1899 | m. Radymno                  |
+| 1900 | m. Reda                     |
+| 1901 | gm. Bobolice                |
+| 1902 | gm. So?nie                  |
+| 1903 | gm. Duszniki                |
+| 1904 | gm. Mykanów                 |
+| 1905 | gm. Grajewo                 |
+| 1906 | gm. Choce?                  |
+| 1907 | gm. Strumie?                |
+| 1908 | gm. Wasilków                |
+| 1909 | gm. N?dza                   |
+| 1910 | gm. Strzegom                |
+| 1911 | gm. Br?szewice              |
+| 1912 | gm. Rudniki                 |
+| 1913 | gm. P?oniawy-Bramura        |
+| 1914 | gm. Mi?czyn                 |
+| 1915 | gm. Fa?ków                  |
+| 1916 | gm. Klimontów               |
+| 1917 | gm. Inow?ódz                |
+| 1918 | gm. Brze?nio                |
+| 1919 | gm. Skórcz                  |
+| 1920 | gm. Kowala                  |
+| 1921 | gm. Wojciechów              |
+| 1922 | gm. Batorz                  |
+| 1923 | gm. Wojciechowice           |
+| 1924 | gm. Gielniów                |
+| 1925 | gm. Mirów                   |
+| 1926 | gm. Bobowo                  |
+| 1927 | gm. Stromiec                |
+| 1928 | gm. Borów                   |
+| 1929 | gm. Chynów                  |
+| 1930 | gm. Winnica                 |
+| 1931 | gm. B??dów                  |
+| 1932 | gm. Chotcza                 |
+| 1933 | gm. Nowy Wi?nicz            |
+| 1934 | gm. Radomsko                |
+| 1935 | gm. Harasiuki               |
+| 1936 | gm. Borowie                 |
+| 1937 | gm. Trzciana                |
+| 1938 | gm. Stara B?otnica          |
+| 1939 | gm. Skar?ysko Ko?cielne     |
+| 1940 | gm. Gózd                    |
+| 1941 | gm. Jednoro?ec              |
+| 1942 | gm. Lubichowo               |
+| 1943 | gm. Serniki                 |
+| 1944 | gm. Odrzywó?                |
+| 1945 | gm. Potok Wielki            |
+| 1946 | gm. Sobienie-Jeziory        |
+| 1947 | gm. Tu?owice                |
+| 1948 | gm. Wielkie Oczy            |
+| 1949 | gm. Dobrze? Wielki          |
+| 1950 | gm. M?ynarze                |
+| 1951 | gm. Annopol                 |
+| 1952 | gm. Lubasz                  |
+| 1953 | gm. Murów                   |
+| 1954 | gm. Bia?opole               |
+| 1955 | gm. Wr?czyca Wielka         |
+| 1956 | gm. ?migród                 |
+| 1957 | gm. Skarszewy               |
+| 1958 | gm. Zgorzelec               |
+| 1959 | gm. Solina                  |
+| 1960 | gm. Mi?sk Mazowiecki        |
+| 1961 | gm. Wróblew                 |
+| 1962 | gm. U?cie Gorlickie         |
+| 1963 | gm. Sierpc                  |
+| 1964 | gm. Je?ów Sudecki           |
+| 1965 | gm. Chojnów                 |
+| 1966 | gm. Cyców                   |
+| 1967 | gm. Budziszewice            |
+| 1968 | gm. ?winna                  |
+| 1969 | gm. Bystra-Sidzina          |
+| 1970 | gm. Po?wi?tne               |
+| 1971 | gm. Jawornik Polski         |
+| 1972 | gm. Zarzecze                |
+| 1973 | gm. Luba?                   |
+| 1974 | gm. Repki                   |
+| 1975 | gm. ?ochów                  |
+| 1976 | gm. Józefów nad Wis??       |
+| 1977 | gm. Sejny                   |
+| 1978 | gm. Rajgród                 |
+| 1979 | gm. D?browa Zielona         |
+| 1980 | gm. Koprzywnica             |
+| 1981 | gm. Dzierzgowo              |
+| 1982 | gm. Siemie?                 |
+| 1983 | gm. Wysokie Mazowieckie     |
+| 1984 | gm. Ceranów                 |
+| 1985 | gm. Rypin                   |
+| 1986 | gm. Burzenin                |
+| 1987 | gm. Stoczek ?ukowski        |
+| 1988 | gm. Sterdy?                 |
+| 1989 | gm. Wodzis?aw               |
+| 1990 | gm. Skrwilno                |
+| 1991 | gm. Wierzchlas              |
+| 1992 | gm. Trzydnik Du?y           |
+| 1993 | gm. Sosnowica               |
+| 1994 | gm. Zwierzyniec             |
+| 1995 | gm. Topólka                 |
+| 1996 | gm. Zapolice                |
+| 1997 | gm. Wilczyce                |
+| 1998 | gm. Stare Kurowo            |
+| 1999 | gm. Gozdowo                 |
+| 2000 | gm. Klwów                   |
+| 2001 | gm. Bukowsko                |
+| 2002 | gm. Goszczanów              |
+| 2003 | gm. Rybczewice              |
+| 2004 | gm. Grabów                  |
+| 2005 | gm. Kamionka Wielka         |
+| 2006 | gm. Jab?onka                |
+| 2007 | gm. Borzechów               |
+| 2008 | gm. Czerwin                 |
+| 2009 | gm. P?o?nica                |
+| 2010 | gm. Sztabin                 |
+| 2011 | gm. ?abowa                  |
+| 2012 | gm. Krzczonów               |
+| 2013 | gm. Stary Luboty?           |
+| 2014 | gm. U?cimów                 |
+| 2015 | gm. Bia?y Dunajec           |
+| 2016 | gm. Zebrzydowice            |
+| 2017 | gm. Zagrodno                |
+| 2018 | gm. Siennica Ró?ana         |
+| 2019 | gm. Grabowo                 |
+| 2020 | gm. Dubienka                |
+| 2021 | gm. Tereszpol               |
+| 2022 | gm. Szudzia?owo             |
+| 2023 | gm. ??cko                   |
+| 2024 | gm. Nowodwór                |
+| 2025 | gm. Rutka-Tartak            |
+| 2026 | gm. Irz?dze                 |
+| 2027 | gm. Ska?a                   |
+| 2028 | gm. ?egocina                |
+| 2029 | gm. Liw                     |
+| 2030 | gm. Byto?                   |
+| 2031 | gm. Iwanowice               |
+| 2032 | gm. Olszewo-Borki           |
+| 2033 | gm. Pi?tek                  |
+| 2034 | gm. Pa?ecznica              |
+| 2035 | gm. Ciechanów               |
+| 2036 | gm. ?aziska                 |
+| 2037 | gm. Purda                   |
+| 2038 | gm. Obrazów                 |
+| 2039 | gm. Wi?ajny                 |
+| 2040 | gm. Lipowa                  |
+| 2041 | gm. Kluczewsko              |
+| 2042 | gm. Pokrzywnica             |
+| 2043 | gm. Dwikozy                 |
+| 2044 | gm. ??ki Szlacheckie        |
+| 2045 | gm. Cisna                   |
+| 2046 | gm. Bulkowo                 |
+| 2047 | gm. B?dkowo                 |
+| 2048 | gm. ?opuszno                |
+| 2049 | gm. Wierzbinek              |
+| 2050 | gm. Brze?no                 |
+| 2051 | gm. Pilica                  |
+| 2052 | gm. ??czyca                 |
+| 2053 | gm. Krzy?anów               |
+| 2054 | gm. Karniewo                |
+| 2055 | gm. Rz??nia                 |
+| 2056 | gm. Przywidz                |
+| 2057 | gm. Trzeszczany             |
+| 2058 | gm. ?ary                    |
+| 2059 | gm. S?upia (J?drzejowska)   |
+| 2060 | gm. Sm?towo Graniczne       |
+| 2061 | gm. Sosnówka                |
+| 2062 | gm. Grudzi?dz               |
+| 2063 | gm. Su?ów                   |
+| 2064 | gm. Suszec                  |
+| 2065 | gm. P?u?nica                |
+| 2066 | gm. Nowe Miasto Lubawskie   |
+| 2067 | gm. Rudna                   |
+| 2068 | gm. Ko?aczkowo              |
+| 2069 | gm. Adamówka                |
+| 2070 | gm. Jod?owa                 |
+| 2071 | gm. ?wiekatowo              |
+| 2072 | gm. Wilczyn                 |
+| 2073 | gm. Wola Mys?owska          |
+| 2074 | gm. Chodów                  |
+| 2075 | gm. Stubno                  |
+| 2076 | gm. L?dek                   |
+| 2077 | gm. Czastary                |
+| 2078 | gm. Ostrowite               |
+| 2079 | gm. ?winice Warckie         |
+| 2080 | gm. Lasowice Wielkie        |
+| 2081 | gm. Sokolniki               |
+| 2082 | gm. ??ka Opatowska          |
+| 2083 | gm. Lewin Brzeski           |
+| 2084 | gm. Dzierzgo?               |
+| 2085 | gm. Brodnica                |
+| 2086 | gm. Przewóz                 |
+| 2087 | gm. Deszczno                |
+| 2088 | gm. Zawady                  |
+| 2089 | gm. Wierzchowo              |
+| 2090 | gm. Bledzew                 |
+| 2091 | gm. Drawsko                 |
+| 2092 | gm. Czarnków                |
+| 2093 | gm. Krzeszyce               |
+| 2094 | gm. So?no                   |
+| 2095 | gm. Siedlisko               |
+| 2096 | gm. Ryma?                   |
+| 2097 | gm. Szczaniec               |
+| 2098 | gm. Radzi?ów                |
+| 2099 | m. Górowo I?aweckie         |
+| 2100 | gm. Ko?aki Ko?cielne        |
+| 2101 | gm. Konarzyny               |
+| 2102 | gm. Stare Czarnowo          |
+| 2103 | gm. Bielany                 |
+| 2104 | gm. Wierzbno                |
+| 2105 | gm. Bielice                 |
+| 2106 | gm. W?oszakowice            |
+| 2107 | gm. Sadlinki                |
+| 2108 | gm. Try?cza                 |
+| 2109 | gm. Stary Dzików            |
+| 2110 | gm. Jaworzyna ?l?ska        |
+| 2111 | gm. Kwilcz                  |
+| 2112 | gm. Dolsk                   |
+| 2113 | gm. Orzysz                  |
+| 2114 | gm. Miedzichowo             |
+| 2115 | gm. P?powo                  |
+| 2116 | gm. Lipnica                 |
+| 2117 | gm. Tarnówka                |
+| 2118 | gm. W?wolnica               |
+| 2119 | gm. Lutocin                 |
+| 2120 | gm. Imielno                 |
+| 2121 | gm. Serock                  |
+| 2122 | gm. Stoczek                 |
+| 2123 | gm. Mielec                  |
+| 2124 | gm. Izbica                  |
+| 2125 | gm. Jarczów                 |
+| 2126 | gm. ?wi?ciechowa            |
+| 2127 | gm. Mi?kinia                |
+| 2128 | gm. ?wierczów               |
+| 2129 | gm. Bia?a Piska             |
+| 2130 | m. Polanica-Zdrój           |
+| 2131 | gm. Grodziec                |
+| 2132 | gm. Stoszowice              |
+| 2133 | gm. Godzianów               |
+| 2134 | gm. Gomunice                |
+| 2135 | gm. Dmosin                  |
+| 2136 | gm. Dobro?                  |
+| 2137 | gm. Skierniewice            |
+| 2138 | gm. Czerwi?sk nad Wis??     |
+| 2139 | gm. Domaszowice             |
+| 2140 | gm. Leoncin                 |
+| 2141 | gm. Mycielin                |
+| 2142 | gm. Susz                    |
+| 2143 | gm. Braniewo                |
+| 2144 | gm. Gr?bów                  |
+| 2145 | gm. Buczkowice              |
+| 2146 | gm. Janowo                  |
+| 2147 | gm. ?wiedziebnia            |
+| 2148 | gm. Z?awie? Wielka          |
+| 2149 | gm. Nowe Piekuty            |
+| 2150 | gm. Przeciszów              |
+| 2151 | gm. Kamienica               |
+| 2152 | m. Mszana Dolna             |
+| 2153 | gm. Che?m ?l?ski            |
+| 2154 | m. Marki                    |
+| 2155 | gm. S?opnice                |
+| 2156 | gm. W?oc?awek               |
+| 2157 | gm. Kobylnica               |
+| 2158 | gm. Trzebiel                |
+| 2159 | gm. Ro?wienica              |
+| 2160 | gm. Mochowo                 |
+| 2161 | gm. Garwolin                |
+| 2162 | gm. Osina                   |
+| 2163 | gm. Ciechocin               |
+| 2164 | gm. Czernica                |
+| 2165 | gm. Che?mno                 |
+| 2166 | gm. Szlichtyngowa           |
+| 2167 | gm. Lubycza Królewska       |
+| 2168 | gm. Platerówka              |
+| 2169 | gm. Mikstat                 |
+| 2170 | gm. Ro?ciszewo              |
+| 2171 | gm. Krotoszyce              |
+| 2172 | gm. Czernikowo              |
+| 2173 | gm. Dobroszyce              |
+| 2174 | gm. Mniów                   |
+| 2175 | gm. Baboszewo               |
+| 2176 | gm. Bia?ogard               |
+| 2177 | gm. Pe?czyce                |
+| 2178 | gm. Janowiec Ko?cielny      |
+| 2179 | gm. Turek                   |
+| 2180 | gm. Rokitno                 |
+| 2181 | gm. Obsza                   |
+| 2182 | gm. Kaw?czyn                |
+| 2183 | gm. Szemud                  |
+| 2184 | gm. Kijewo Królewskie       |
+| 2185 | gm. Rychliki                |
+| 2186 | gm. Lubiewo                 |
+| 2187 | gm. Fabianki                |
+| 2188 | gm. ?wierzno                |
+| 2189 | gm. Bia?y Bór               |
+| 2190 | gm. Obrzycko                |
+| 2191 | gm. Ch??no                  |
+| 2192 | gm. Golub-Dobrzy?           |
+| 2193 | gm. Z?otniki Kujawskie      |
+| 2194 | gm. Pi?tnica                |
+| 2195 | gm. P?o?sk                  |
+| 2196 | gm. Wielichowo              |
+| 2197 | m. Pi?awa Górna             |
+| 2198 | gm. Wijewo                  |
+| 2199 | gm. Laskowa                 |
+| 2200 | gm. Maków                   |
+| 2201 | gm. Gniezno                 |
+| 2202 | gm. Dar?owo                 |
+| 2203 | gm. Czosnów                 |
+| 2204 | gm. Turo?l                  |
+| 2205 | gm. Ustronie Morskie        |
+| 2206 | gm. Sadkowice               |
+| 2207 | gm. Rzeku?                  |
+| 2208 | gm. Papowo Biskupie         |
+| 2209 | gm. Suchy D?b               |
+| 2210 | gm. Kobierzyce              |
+| 2211 | gm. Wyszki                  |
+| 2212 | m. Sulmierzyce              |
+| 2213 | gm. ?wierklany              |
+| 2214 | gm. Brudzew                 |
+| 2215 | gm. Dziemiany               |
+| 2216 | gm. Naruszewo               |
+| 2217 | gm. Miasteczko Kraje?skie   |
+| 2218 | gm. Gardeja                 |
+| 2219 | gm. Sadki                   |
+| 2220 | gm. Kamie?                  |
+| 2221 | m. Szczyrk                  |
+| 2222 | gm. Istebna                 |
+| 2223 | m. Sulejówek                |
+| 2224 | gm. Milówka                 |
+| 2225 | m. Puszczykowo              |
+| 2226 | gm. Twardogóra              |
+| 2227 | gm. Zdu?ska Wola            |
+| 2228 | gm. Zgierz                  |
+| 2229 | gm. Bia?aczów               |
+| 2230 | gm. B?a?owa                 |
+| 2231 | gm. Cybinka                 |
+| 2232 | gm. G?uchów                 |
+| 2233 | gm. K?trzyn                 |
+| 2234 | gm. Dobryszyce              |
+| 2235 | gm. Wi?niewo                |
+| 2236 | gm. Rawa Mazowiecka         |
+| 2237 | gm. Zalewo                  |
+| 2238 | gm. Mr?gowo                 |
+| 2239 | gm. Brochów                 |
+| 2240 | gm. Z?oczew                 |
+| 2241 | gm. Chlewiska               |
+| 2242 | gm. Mniszków                |
+| 2243 | gm. Pabianice               |
+| 2244 | gm. Lubawa                  |
+| 2245 | gm. Bytom Odrza?ski         |
+| 2246 | gm. Górno                   |
+| 2247 | gm. Szczerców               |
+| 2248 | gm. P?oskinia               |
+| 2249 | gm. Skoroszyce              |
+| 2250 | gm. Ksi?? Wielkopolski      |
+| 2251 | gm. Ch?opice                |
+| 2252 | gm. Cieszków                |
+| 2253 | gm. Tr?bki Wielkie          |
+| 2254 | gm. Ko?biel                 |
+| 2255 | gm. Dobrcz                  |
+| 2256 | gm. Domanice                |
+| 2257 | gm. Trawniki                |
+| 2258 | gm. Drzycim                 |
+| 2259 | gm. Dubicze Cerkiewne       |
+| 2260 | gm. Nowa Brze?nica          |
+| 2261 | gm. Dzierz??nia             |
+| 2262 | gm. Stryszów                |
+| 2263 | gm. W?pielsk                |
+| 2264 | gm. Sochaczew               |
+| 2265 | gm. Giby                    |
+| 2266 | gm. Dominowo                |
+| 2267 | gm. Kisielice               |
+| 2268 | gm. Kuczbork-Osada          |
+| 2269 | gm. Rutki                   |
+| 2270 | gm. Korytnica               |
+| 2271 | gm. Sypniewo                |
+| 2272 | gm. Wojcieszków             |
+| 2273 | gm. Niwiska                 |
+| 2274 | gm. Jejkowice               |
+| 2275 | gm. Nowa S?upia             |
+| 2276 | gm. Tucz?py                 |
+| 2277 | gm. Ko?o                    |
+| 2278 | gm. Nowa Sucha              |
+| 2279 | gm. Opinogóra Górna         |
+| 2280 | gm. Ojrze?                  |
+| 2281 | gm. Lubie?                  |
+| 2282 | gm. Malechowo               |
+| 2283 | gm. Le?na Podlaska          |
+| 2284 | gm. Potok Górny             |
+| 2285 | gm. ?yse                    |
+| 2286 | gm. Lipowiec Ko?cielny      |
+| 2287 | gm. Banie Mazurskie         |
+| 2288 | gm. Daszyna                 |
+| 2289 | gm. Mi?kowice               |
+| 2290 | gm. Dziadowa K?oda          |
+| 2291 | gm. Malbork                 |
+| 2292 | gm. Uj?cie                  |
+| 2293 | gm. Nur                     |
+| 2294 | gm. ?wi?tniki Górne         |
+| 2295 | gm. Okonek                  |
+| 2296 | gm. Chodzie?                |
+| 2297 | gm. Oporów                  |
+| 2298 | gm. Wilko?az                |
+| 2299 | gm. Brzuze                  |
+| 2300 | gm. Paprotnia               |
+| 2301 | gm. Olszówka                |
+| 2302 | gm. Szre?sk                 |
+| 2303 | gm. G?ogów                  |
+| 2304 | gm. Koz?owo                 |
+| 2305 | gm. Rzeczyca                |
+| 2306 | gm. M?ciwojów               |
+| 2307 | gm. ?wiercze                |
+| 2308 | gm. Szulborze Wielkie       |
+| 2309 | gm. Turo?? Ko?cielna        |
+| 2310 | gm. Udanin                  |
+| 2311 | gm. Wieczfnia Ko?cielna     |
+| 2312 | m. ??knica                  |
+| 2313 | gm. Boguty-Pianki           |
+| 2314 | gm. Granowo                 |
+| 2315 | gm. Nowe Skalmierzyce       |
+| 2316 | gm. Cz?uchów                |
+| 2317 | gm. Niegowa                 |
+| 2318 | gm. Pu?awy                  |
+| 2319 | gm. ?ukowice                |
+| 2320 | gm. Nawojowa                |
+| 2321 | gm. Ko?baskowo              |
+| 2322 | gm. Osiek Ma?y              |
+| 2323 | gm. Bobrowice               |
+| 2324 | gm. D?bowa ??ka             |
+| 2325 | gm. Z?otoryja               |
+| 2326 | gm. Mszana                  |
+| 2327 | gm. Jaraczewo               |
+| 2328 | gm. Hrubieszów              |
+| 2329 | gm. Jerzmanowa              |
+| 2330 | gm. ?ukowica                |
+| 2331 | gm. Ry?sk                   |
+| 2332 | gm. Bogdaniec               |
+| 2333 | gm. Brok                    |
+| 2334 | gm. G?usk                   |
+| 2335 | gm. Mieleszyn               |
+| 2336 | gm. Ostrów Lubelski         |
+| 2337 | gm. Zbójno                  |
+| 2338 | gm. Nowe Miasto nad Wart?   |
+| 2339 | gm. Kamieniec               |
+| 2340 | gm. Bukowiec                |
+| 2341 | gm. Kozielice               |
+| 2342 | gm. Lisewo                  |
+| 2343 | gm. Chojnice                |
+| 2344 | gm. Cedynia                 |
+| 2345 | gm. Stolno                  |
+| 2346 | gm. Ko?cielec               |
+| 2347 | gm. Miastkowo               |
+| 2348 | gm. Andrzejewo              |
+| 2349 | gm. Przytu?y                |
+| 2350 | gm. Pu?sk                   |
+| 2351 | gm. Abramów                 |
+| 2352 | gm. Markusy                 |
+| 2353 | gm. Kamiennik               |
+| 2354 | gm. Widuchowa               |
+| 2355 | gm. Z?oty Stok              |
+| 2356 | gm. Ostroróg                |
+| 2357 | m. Jordanów                 |
+| 2358 | gm. Kobylin-Borzymy         |
+| 2359 | gm. Pogorzela               |
+| 2360 | gm. Cewice                  |
+| 2361 | gm. ??czyce                 |
+| 2362 | gm. K?sowo                  |
+| 2363 | gm. Malczyce                |
+| 2364 | gm. Dorohusk                |
+| 2365 | gm. Narew                   |
+| 2366 | gm. Zabór                   |
+| 2367 | gm. Marciszów               |
+| 2368 | gm. Przeworno               |
+| 2369 | gm. Sucho?ebry              |
+| 2370 | gm. Sztutowo                |
+| 2371 | gm. Tyrawa Wo?oska          |
+| 2372 | gm. Witonia                 |
+| 2373 | gm. Wodzierady              |
+| 2374 | gm. Godkowo                 |
+| 2375 | gm. Pielgrzymka             |
+| 2376 | gm. Tuczna                  |
+| 2377 | gm. Nowe Warpno             |
+| 2378 | gm. Stara Kiszewa           |
+| 2379 | gm. Mokobody                |
+| 2380 | m. Stoczek ?ukowski         |
+| 2381 | gm. Dobrzany                |
+| 2382 | gm. G?ówczyce               |
+| 2383 | gm. Janów Podlaski          |
+| 2384 | gm. Kije                    |
+| 2385 | gm. Podedwórze              |
+| 2386 | gm. Sieciechów              |
+| 2387 | gm. Boronów                 |
+| 2388 | gm. Kamie?sk                |
+| 2389 | gm. Mied?no                 |
+| 2390 | gm. Krzykosy                |
+| 2391 | gm. Nurzec-Stacja           |
+| 2392 | gm. Giera?towice            |
+| 2393 | gm. Milejewo                |
+| 2394 | gm. Lipinki ?u?yckie        |
+| 2395 | gm. Ornontowice             |
+| 2396 | gm. Mokrsko                 |
+| 2397 | gm. Tarnawatka              |
+| 2398 | gm. Mielnik                 |
+| 2399 | gm. D?browice               |
+| 2400 | m. Obrzycko                 |
+| 2401 | gm. Nekla                   |
+| 2402 | gm. Gronowo Elbl?skie       |
+| 2403 | gm. Garbów                  |
+| 2404 | gm. Nied?wiada              |
+| 2405 | m. Krynica Morska           |
+| 2406 | gm. Zbiczno                 |
+| 2407 | gm. Grodzisk                |
+| 2408 | gm. Krzywcza                |
+| 2409 | gm. Czy?e                   |
+| 2410 | gm. Jordanów ?l?ski         |
+| 2411 | gm. Rudka                   |
+| 2412 | gm. Paszowice               |
+| 2413 | gm. Micha?ów                |
++------+-----------------------------+

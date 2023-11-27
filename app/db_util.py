@@ -8,7 +8,7 @@ connection_pool = mysql.connector.pooling.MySQLConnectionPool(
     **DB_CONFIG  
 )
 
-# Returns select query based on selected table name.
+# Returns select query based on table name.
 def get_select_query(keyword, table_name):
     if table_name == 'committee':
         return '''
@@ -16,6 +16,13 @@ def get_select_query(keyword, table_name):
             FROM committee
             INNER JOIN city ON committee.city_id = city.id
             WHERE CONCAT(committee.name, ', ', address, ', ', city.name, ', ', post_code) LIKE '%{}%'
+            LIMIT 10;
+        '''.format(keyword)
+    elif table_name == 'gmina':
+        return '''
+            SELECT id, CONCAT(type, ' ', name)
+            FROM gmina
+            WHERE name LIKE '%{}%'
             LIMIT 10;
         '''.format(keyword)
     else:
@@ -43,8 +50,14 @@ def get_matching_records(keyword, category):
 
                 result = cursor.fetchall()
 
-                #From array of tuples to array of dictionaries
+                # From array of tuples to array of dictionaries
                 result = [{'id': item[0], 'body': item[1]} for item in result]
+
+                # Removing gmina type prefix if querying from gmina table
+                if table_name == 'gmina':
+                    for item in result:
+                        if not item['body'].startswith('gmina'):
+                            item['body'] = item['body'].split(' ', 1)[-1]
 
     except mysql.connector.Error as ce:
         print(f'Database Error: {ce}')
@@ -55,7 +68,7 @@ def get_matching_records(keyword, category):
         raise ve
     return json.dumps(result, ensure_ascii=False)
 
-# Returns list with voting results for queried args
+# Returns list with voting results for queried args.
 def get_voting_results(id, category):
     results = []
 
@@ -64,6 +77,7 @@ def get_voting_results(id, category):
             with connection.cursor() as cursor:
                 column_name = map_category(category)
                 
+                # Łot
                 if column_name == 'committee':
                     column_name += '.id'
                 else:
@@ -101,17 +115,16 @@ def get_voting_results(id, category):
 
     return json.dumps(result, ensure_ascii=False)
 
-# Czy cos z tym mozna zrobic?
-def map_category(category):
-    if category == '1':
+def map_category(category_id):
+    if category_id == '1':
         return 'committee'
-    elif category == '2':
+    elif category_id == '2':
         return 'city'
-    elif category == '3':
+    elif category_id == '3':
         return 'gmina'
-    elif category == '4':
+    elif category_id == '4':
         return 'powiat'
-    elif category == '5':
+    elif category_id == '5':
         return 'wojewodztwo'
     else:
-        raise ValueError(f'Invalid category: {category}')
+        raise ValueError(f'Invalid category: {category_id}')

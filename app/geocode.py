@@ -17,6 +17,7 @@ def geocode_placename(placename):
     result = {}
 
     if data:
+        result['name'] = data[0]['display_name']
         result['lat'] = data[0]['lat']
         result['lon'] = data[0]['lon']
         result['bounds'] = data[0]['boundingbox']
@@ -24,7 +25,8 @@ def geocode_placename(placename):
     return json.dumps(result, ensure_ascii=True)
 
 '''
-    dla gminy tez jest slabizna czesto
+    dla gmin czesto no results
 
+    dla gmin sa dobre wyniki ale mapa, koordynaty zle, czesto pokazuje np. miasta zamiast gmin
 
 '''

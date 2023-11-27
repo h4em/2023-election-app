@@ -36,6 +36,15 @@ def get_location_details():
         if placename.startswith('ul. '):
             placename = placename[4:]
 
+    # jezeli gmina to i guess ze na backendzie musi byc quera inna
+    # jezeli jest gmina to query gmina + nazwa, jak miasto / dzielnica to samo placename
+
+    if category == '4':
+        placename = 'powiat ' + placename
+
+    if category == '5':
+        placename = 'województwo ' + placename
+
     results = geocode_placename(placename)
 
     return results

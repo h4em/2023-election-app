@@ -107,7 +107,6 @@ function makeHint(data, category, index) {
         getResults(data.id, category);
 
         getLocationCoordinates(data.body, category)
-        // updateMap(coordinates)
 
         updateResultsLabel(data.body, category);
 
@@ -123,7 +122,20 @@ function makeHint(data, category, index) {
 } 
 
 function updateResultsLabel(text, category) {
-    resultLabel.textContent = text;
+    const prefix = getPrefixForCategory(category);
+    
+    resultLabel.textContent = prefix + ' ' + text;
+}
+
+function getPrefixForCategory(category_id) {
+    switch (category_id) {
+        case '4':
+            return 'powiat'
+        case '5':
+            return 'województwo'
+        default:
+            return '';
+    }
 }
 
 /*
@@ -133,6 +145,8 @@ function updateResultsLabel(text, category) {
 async function getLocationCoordinates(placename, category) {
     const response = await fetch(`/location?placename=${placename}&category=${category}`);
     const data = await response.json();
+
+    console.log(data);
 
     updateMap(data);
 }

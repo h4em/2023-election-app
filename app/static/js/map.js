@@ -18,27 +18,32 @@ export function updateMap(data) {
     const lat = parseFloat(data.lat);
     const lon = parseFloat(data.lon);
 
+    placeMarker(lat, lon)
+
     const bounds = [
         [parseFloat(data.bounds[0]), parseFloat(data.bounds[2])],
         [parseFloat(data.bounds[1]), parseFloat(data.bounds[3])]
     ];
 
-    // Enable scroll wheel zooming after the animation is complete
-    map.once('zoomend', function() {
-        map.scrollWheelZoom.enable();
-        map.dragging.enable();
-    });  
-    
     if (map) {
         map.scrollWheelZoom.disable();
         map.dragging.disable();
 
-        L.marker([lat, lon]).addTo(map);
+        const zoom = map.getBoundsZoom(bounds);
 
-        map.flyToBounds(bounds, {
+        map.flyTo([lat, lon], zoom, {
             duration: 4
         });
+
+        map.once('zoomend', function() {
+            map.scrollWheelZoom.enable();
+            map.dragging.enable();
+        }); 
     }
+}
+
+function placeMarker(lat, lon) {
+    L.marker([lat, lon]).addTo(map);
 }
 
 function customizeMapControls() {
