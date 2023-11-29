@@ -22,6 +22,7 @@ CREATE TABLE Committee (
 CREATE TABLE Gmina (
     id int  NOT NULL,
     name varchar(64)  NOT NULL,
+    type varchar(16)  NOT NULL,
     CONSTRAINT Gmina_pk PRIMARY KEY (id)
 );
 

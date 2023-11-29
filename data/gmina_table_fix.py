@@ -1,42 +1,42 @@
+import pandas as pd
+from sqlalchemy import create_engine
+
 import sys
 sys.path.append('D:\\projects\\elec')
 
 from db_config import DB_CONFIG
-import mysql.connector
 
-connection_pool = mysql.connector.pooling.MySQLConnectionPool(
-    pool_name = "main_pool",
-    pool_size = 5,
-    **DB_CONFIG  
-)
+df = pd.read_csv('.\\raw_data\\final_committee_table.csv').applymap(lambda x: x.rstrip() if isinstance(x, str) else x)
 
-try:
-    with connection_pool.get_connection() as connection:
-        with connection.cursor() as cursor:
-            query = 'SELECT * FROM gmina;'
+gmina_df = pd.DataFrame({'id': range(1, len(df['gmina'].unique()) + 1), 'name': df['gmina'].unique()})
 
-            cursor.execute(query)
+# Adding 'type' column:
+def determine_type(name):
+    if name.startswith('m. '):
+        return 'miasto'
+    elif name.startswith('gm. '):
+        return 'gmina'
+    else:
+        return ''
 
-            rows = cursor.fetchall()
-            
-            for row in rows:
-                name = row[1]
-                name = name.strip()
-                name_parts = name.split(' ', 1)
+gmina_df['type'] = gmina_df['name'].apply(determine_type)
 
-                if len(name_parts) > 1:
-                    name = name_parts[1]
+# Removing the 'gm. ' or 'm. ' prefixes
+def remove_prefix(name):
+    if name.startswith('m. '):
+        return name[3:]
+    elif name.startswith('gm. '):
+        return name[4:]
+    else:
+        return name
 
-                update_query = "UPDATE gmina SET name = %s WHERE id = %s"
+gmina_df['name'] = gmina_df['name'].apply(remove_prefix)
 
-                cursor.execute(update_query, (name, row[0]))
+print(gmina_df)
 
-            connection.commit()
+connection_string = f"mysql+mysqlconnector://{DB_CONFIG['user']}:{DB_CONFIG['password']}@{DB_CONFIG['host']}:3306/{DB_CONFIG['database']}"
+db_engine = create_engine(connection_string)
 
-except mysql.connector.Error as ce:
-    print(f'Database Error: {ce}')
-    raise ce
+gmina_df.to_sql('gmina', con=db_engine, if_exists='replace', index=False)
 
-except ValueError as ve:
-    print(f'Value Error: {ve}')
-    raise ve
+db_engine.dispose()

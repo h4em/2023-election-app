@@ -47,6 +47,12 @@ function setSearchbarListeners() {
         }
     });
 
+    //jak traci focus to empty hints bar
+
+    searchbar.addEventListener('onblur', function() {
+        console.log('asd');
+    });
+
     //?
     //searchbar.addEventListener('submit', emptyHintsContainer);
 }

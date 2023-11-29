@@ -30,5 +30,4 @@ def geocode_placename(placename):
     dla gmin czesto no results
 
     dla gmin sa dobre wyniki ale mapa, koordynaty zle, czesto pokazuje np. miasta zamiast gmin
-
 '''

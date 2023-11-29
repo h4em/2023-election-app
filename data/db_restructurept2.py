@@ -4,7 +4,7 @@ from db_config import DB_CONFIG
 from data_parser import komitet_table_df, placowka_wyniki_df
 
 #Reading table from csv, removing trailing whitespaces from every column.
-df = pd.read_csv('db_restructure.csv').applymap(lambda x: x.rstrip() if isinstance(x, str) else x)
+df = pd.read_csv('final_committee_table.csv').applymap(lambda x: x.rstrip() if isinstance(x, str) else x)
 
 #Merging cities_df with df to change city names for their id's
 cities_df = pd.DataFrame({'id': range(1, len(df['city'].unique()) + 1), 'name': df['city'].unique()})
@@ -32,9 +32,6 @@ df.rename(columns={'id_x': 'id', 'name_x': 'name'}, inplace=True)
 
 komitet_table_df.rename(columns={'nazwa': 'name', 'skrot': 'shortname'}, inplace=True)
 placowka_wyniki_df.rename(columns={'placowka_id': 'committee_id', 'komitet_id': 'party_id', 'glosow': 'num_of_votes'}, inplace=True)
-
-connection_string = f"mysql+mysqlconnector://{DB_CONFIG['user']}:{DB_CONFIG['password']}@{DB_CONFIG['host']}:3306/{DB_CONFIG['database']}"
-db_engine = create_engine(connection_string)
 
 #Inserting the modified tables after dropping the existing ones in mysql, using SQLAlchemy
 connection_string = f"mysql+mysqlconnector://{DB_CONFIG['user']}:{DB_CONFIG['password']}@{DB_CONFIG['host']}:3306/{DB_CONFIG['database']}"
