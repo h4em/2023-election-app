@@ -11,12 +11,15 @@ function makeLegendItem(item) {
     const partyName = document.createElement('p');
     partyName.textContent = item.name;
 
-    // const percentageBar = makePercentageBar(item.num_of_votes, sumOfVotes)
-    // const partyColor = item.color;
-
-    //item.votes_percentage
+    const percentageBar = document.createElement('div');
+    percentageBar.classList.add('.progress-bar')
+    percentageBar.style.width = item.votes_percentage + '%';
+    percentageBar.style.backgroundColor = item.color;
     
-    legendItem.append(img, partyName);
+    const nameAndPercentageBarWrapper = document.createElement('div');
+    nameAndPercentageBarWrapper.append(partyName, percentageBar);
+
+    legendItem.append(img, nameAndPercentageBarWrapper);
 
     return legendItem;
 }

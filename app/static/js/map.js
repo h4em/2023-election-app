@@ -44,7 +44,7 @@ export function updateMap(data) {
 
 
         map.flyTo([lat, lon], zoom, {
-            duration: 4
+            duration: 3
         });
 
         map.once('zoomend', function() {

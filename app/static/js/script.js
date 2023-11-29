@@ -5,7 +5,7 @@ import { fillLegend } from './legend.js';
 const searchbar = document.querySelector('.searchbar');
 const categoryDropdown = document.querySelector('#category-dropdown');
 const hintContainer = document.querySelector('.search-hints');
-const resultLabel = document.querySelector('.result-label');
+const resultLabel = document.querySelector('.result-label-span');
 const yearSpan = document.querySelector('.year');
 
 let highlightedHintIndex = -1;

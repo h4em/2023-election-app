@@ -30,11 +30,14 @@ z tego powiatu.
 
 ==================================================
 
-
-mapowanie category
-
-czy zrobic oddzielna sciezke na to????
-
-klasy w JS
+JUTRO:
 
 stestowac dla kazdego data entry czy mapka hula? do tego api key pewnie trzeba
+
+naprawic mapke
+
+dodac procenty obok progress barów
+
+scalic jakos ladnie searchbar z dropdownem category, wystylowac
+
+pisu logo jest niezcentrowane
