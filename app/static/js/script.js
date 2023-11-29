@@ -146,10 +146,6 @@ function getPrefixForCategory(category_id) {
     }
 }
 
-/*
-    przy updacie mapy w zaleznosci od kategorii zoom level,
-    albo skorzystac z detailsow ktore przyjda z api.
-*/
 async function getLocationCoordinates(placename, category) {
     const response = await fetch(`/location?placename=${placename}&category=${category}`);
     const data = await response.json();
@@ -202,9 +198,8 @@ async function getResults(id, category) {
 */
 
 /*
-    Co niedziala:
-
-    - wyszukiwanie LIKE'iem jest slabe bardzo
+    DZISIAJ: skończyć robić caly submit, frontend hintsów?, timeouty?
+    jak nie ma geojson polygon to marker, jak sa to sam outline, ogarnac mape do końca.
 
     - caly submit trzeba zrobic
 

@@ -22,6 +22,14 @@ i wtedy wszyscy glosowali w zyrardowie i dla powiatu zyrardowskiego bylo 0 gloso
 zostaly usuniete.
 
 
+==================================================
+
+To jest priority bug do naprawienia. wyniki z miast 
+bedacych nazwami powiatow maja byc includowane w wynikach 
+z tego powiatu.
+
+==================================================
+
 
 mapowanie category
 

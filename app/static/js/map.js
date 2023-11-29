@@ -15,14 +15,16 @@ export function initMap() {
 export function updateMap(data) {
     const lat = parseFloat(data.lat);
     const lon = parseFloat(data.lon);
-
-    removeAllMarkers();
-    placeMarker(lat, lon)
-
     const bounds = [
         [parseFloat(data.bounds[0]), parseFloat(data.bounds[2])],
         [parseFloat(data.bounds[1]), parseFloat(data.bounds[3])]
     ];
+    const geojson = data.geojson;
+
+    removeAllMarkers();
+    
+    if(!geojson)
+        placeMarker(lat, lon)
 
     if (map) {
         map.scrollWheelZoom.disable();
