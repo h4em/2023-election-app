@@ -40,7 +40,7 @@ function setSearchbarListeners() {
     //Listen for arrowkeys
     searchbar.addEventListener('keydown', hintContainerArrowKeyNav);
 
-    //Prevents the caret from shifting place
+    //Prevents the caret from shifting place, NIE MOZNA chodzic po literach szczalkiem lewo prawo
     searchbar.addEventListener('keydown', function(event) {
         if(event.key.startsWith('Arrow')) {
             event.preventDefault();
@@ -108,7 +108,7 @@ function makeHint(data, category, index) {
     hint.dataset.id = data.id;
     hint.dataset.category = category;
     hint.textContent = data.body;
-
+    
     hint.addEventListener('click', () => {
         getResults(data.id, category);
 
@@ -135,6 +135,8 @@ function updateResultsLabel(text, category) {
 
 function getPrefixForCategory(category_id) {
     switch (category_id) {
+        case '3':
+            return 'gmina'
         case '4':
             return 'powiat'
         case '5':
@@ -151,8 +153,6 @@ function getPrefixForCategory(category_id) {
 async function getLocationCoordinates(placename, category) {
     const response = await fetch(`/location?placename=${placename}&category=${category}`);
     const data = await response.json();
-
-    console.log(data);
 
     updateMap(data);
 }

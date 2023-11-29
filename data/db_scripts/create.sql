@@ -12,8 +12,8 @@ CREATE TABLE Committee (
     address varchar(256)  NOT NULL,
     post_code varchar(6)  NOT NULL,
     city_id int  NOT NULL,
-    gmina_id int  NOT NULL,
-    powiat_id int  NOT NULL,
+    gmina_id int  NULL,
+    powiat_id int  NULL,
     wojewodztwo_id int  NOT NULL,
     CONSTRAINT Committee_pk PRIMARY KEY (id)
 );
@@ -22,7 +22,6 @@ CREATE TABLE Committee (
 CREATE TABLE Gmina (
     id int  NOT NULL,
     name varchar(64)  NOT NULL,
-    type varchar(16)  NOT NULL,
     CONSTRAINT Gmina_pk PRIMARY KEY (id)
 );
 
@@ -31,6 +30,7 @@ CREATE TABLE Party (
     id int  NOT NULL,
     name varchar(128)  NOT NULL,
     shortname varchar(16)  NOT NULL,
+    color varchar(32) NOT NULL,
     CONSTRAINT Party_pk PRIMARY KEY (id)
 );
 

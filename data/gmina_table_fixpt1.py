@@ -17,7 +17,7 @@ def determine_type(name):
     elif name.startswith('gm. '):
         return 'gmina'
     else:
-        return ''
+        return 'dzielnica'
 
 gmina_df['type'] = gmina_df['name'].apply(determine_type)
 
@@ -32,7 +32,11 @@ def remove_prefix(name):
 
 gmina_df['name'] = gmina_df['name'].apply(remove_prefix)
 
-print(gmina_df)
+# Removing records where type == 'miasto'
+gmina_df = gmina_df[gmina_df['type'] != 'miasto']
+
+# Dropping the type column
+gmina_df = gmina_df.drop('type', axis=1)
 
 connection_string = f"mysql+mysqlconnector://{DB_CONFIG['user']}:{DB_CONFIG['password']}@{DB_CONFIG['host']}:3306/{DB_CONFIG['database']}"
 db_engine = create_engine(connection_string)

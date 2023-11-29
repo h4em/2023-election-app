@@ -18,13 +18,6 @@ def get_select_query(keyword, table_name):
             WHERE CONCAT(committee.name, ', ', address, ', ', city.name, ', ', post_code) LIKE '%{}%'
             LIMIT 10;
         '''.format(keyword)
-    elif table_name == 'gmina':
-        return '''
-            SELECT id, CONCAT(type, ' ', name)
-            FROM gmina
-            WHERE name LIKE '%{}%'
-            LIMIT 10;
-        '''.format(keyword)
     else:
         return '''
             SELECT id, name 
@@ -50,14 +43,7 @@ def get_matching_records(keyword, category):
 
                 result = cursor.fetchall()
 
-                # From array of tuples to array of dictionaries
                 result = [{'id': item[0], 'body': item[1]} for item in result]
-
-                # Removing gmina type prefix if querying from gmina table
-                if table_name == 'gmina':
-                    for item in result:
-                        if not item['body'].startswith('gmina'):
-                            item['body'] = item['body'].split(' ', 1)[-1]
 
     except mysql.connector.Error as ce:
         print(f'Database Error: {ce}')

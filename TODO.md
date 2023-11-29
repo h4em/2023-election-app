@@ -1,4 +1,27 @@
-ogarnac result label
+teraz np masz powiat otwocki i w nim sa wyniki z powiatu otwockiego z pominieciem 
+otwocka.
+
+przez to ze orygnialnie w tabelce bylo:
+
+powiat otwock, i powiat otwocki !!!!!
+
+jako 2 rozne powiaty
+
+te z Otwock zostaly usuniete, i przeniesione do miasta,
+wiec te z otwocka maja null w powiecie.
+
+jakos mozna probowac to zbindowac ale to bedzie ciezkie bardzo
+
+czyli to jest case gdzie
+
+jest miasto na prawach powiatu, ale w sklad tego powiatu wchodza tez inne miasta.
+
+albo zyrardow i zyrardowski
+
+i wtedy wszyscy glosowali w zyrardowie i dla powiatu zyrardowskiego bylo 0 glosow bo wszystkie
+zostaly usuniete.
+
+
 
 mapowanie category
 
