@@ -26,17 +26,14 @@ def get_select_query(keyword, table_name):
             LIMIT 10;
         '''.format(table_name, keyword)
 
-'''
-    fajnie by bylo jakby ten search algo byl troche bardziej skomplikowany ale lepsze
-    bardziej trafne matche zwracal
-'''        
+# Returns matching records for the specified category and keyword.        
 def get_matching_records(keyword, category):
     result = []
 
     try:
         with connection_pool.get_connection() as connection:
             with connection.cursor() as cursor:
-                table_name = map_category(category)
+                table_name = map_table_name(category)
                 query = get_select_query(keyword, table_name)
 
                 cursor.execute(query)
@@ -61,13 +58,12 @@ def get_voting_results(id, category):
     try:
         with connection_pool.get_connection() as connection:
             with connection.cursor() as cursor:
-                column_name = map_category(category)
+                table_name = map_table_name(category)
                 
-                # Łot
-                if column_name == 'committee':
-                    column_name += '.id'
+                if table_name == 'committee':
+                    column_name = 'committee.id'
                 else:
-                    column_name += '_id'
+                    column_name = table_name + '_id'
 
                 query = '''
                     SELECT party.name, party.shortname, party.color, SUM(num_of_votes) AS votes
@@ -101,7 +97,7 @@ def get_voting_results(id, category):
 
     return json.dumps(result, ensure_ascii=False)
 
-def map_category(category_id):
+def map_table_name(category_id):
     if category_id == '1':
         return 'committee'
     elif category_id == '2':
@@ -113,4 +109,6 @@ def map_category(category_id):
     elif category_id == '5':
         return 'wojewodztwo'
     else:
-        raise ValueError(f'Invalid category: {category_id}')
+        raise ValueError(f'Invalid category_id: {category_id}')
+    
+# TODO: moze zrobic jakies lepsze wyszukiwanie niz prosty LIKE na kolumnie bazy.
