@@ -130,7 +130,7 @@ input:focus {
 
 /*to musi byc dynamiczne na podstawie wysokosci searchbaru*/
 .searchbar-wrapper img {
-    height: 22px;
+    height: 24px;
     width: auto;
     padding: 4px;
 }

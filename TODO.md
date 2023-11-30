@@ -32,10 +32,10 @@ z tego powiatu.
 
 JUTRO:
 
+pis logo odstaje
+
 stestowac dla kazdego data entry czy mapka hula? do tego api key pewnie trzeba
 
 naprawic mapke
 
 dodac procenty obok progress barów
-
-pisu logo jest niezcentrowane
