@@ -38,6 +38,4 @@ naprawic mapke
 
 dodac procenty obok progress barów
 
-scalic jakos ladnie searchbar z dropdownem category, wystylowac
-
 pisu logo jest niezcentrowane
