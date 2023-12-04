@@ -11,7 +11,7 @@ function makeLegendItem(data) {
     const partyName = document.createElement('p');
     partyName.textContent = data.name;
 
-    const nameAndPercentageBarWrapper = document.createElement('div');
+    const percentageBarWrapper = document.createElement('div');
 
     const percentage = document.createElement('p');
     percentage.textContent = data.votes_percentage + '%';
@@ -21,9 +21,9 @@ function makeLegendItem(data) {
     percentageBar.style.width = data.votes_percentage + '%';
     percentageBar.style.backgroundColor = data.color;
 
-    nameAndPercentageBarWrapper.append(partyName, percentageBar, percentage)
+    percentageBarWrapper.append(percentageBar, percentage)
     
-    legendItem.append(img, nameAndPercentageBarWrapper);
+    legendItem.append(img, partyName, percentageBarWrapper);
 
     return legendItem;
 }

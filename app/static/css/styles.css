@@ -179,9 +179,6 @@ input:focus {
     z-index: -1;
 }
 
-
-
-
 #map {
     height: 100%;
 }
@@ -224,10 +221,6 @@ input:focus {
     margin-left: 4px;
 }
 
-.legend-item p {
-    display: inline-block;
-    text-align: center;
-}
 
 .charts-div {
     display: flex;
@@ -245,6 +238,8 @@ input:focus {
     padding: 20px;
 }
 
+
+/*przez flexbox i flex start itemy sa aligned do gory*/
 .legend-item {
     outline: 1px solid blue;
     display: flex;
@@ -263,22 +258,30 @@ input:focus {
     padding: 4px;
 }
 
+/*percentage wrapper*/
 .legend-item > div {
     flex: 1;
     margin: 4px;
     max-width: calc(100% - 68px);
+    
     overflow: hidden;
     box-sizing: border-box;
+    display: block;
 }
 
-.legend-item > div p {
+/*party name*/
+.legend-item > p {
     font-size: 0.8rem;
-    margin: 18px 0px 0px 0px;
+    margin: 14px 0px 0px 0px;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
     max-width: 100%; 
+
+    display: block;
+    text-align: left;
 }
+
 
 /*percentage bar*/
 .legend-item > div > div {
@@ -288,8 +291,9 @@ input:focus {
 }
 
 /*percentage value*/
-.legend-item > div > p:last-child {
+.legend-item > div > p{
     margin-top: 4px;
+    font-size: 0.8rem;
 }
 
 footer {
