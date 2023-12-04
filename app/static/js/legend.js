@@ -1,24 +1,28 @@
 const legendContainer = document.querySelector('.legend-div');
 
-function makeLegendItem(item) {
+function makeLegendItem(data) {
     const legendItem = document.createElement('div');
     legendItem.classList.add('legend-item');
 
     const img = document.createElement('img');
-    img.setAttribute('src', item.party_img_uri);
+    img.setAttribute('src', data.party_img_uri);
     img.classList.add('party-img')
 
     const partyName = document.createElement('p');
-    partyName.textContent = item.name;
+    partyName.textContent = data.name;
+
+    const nameAndPercentageBarWrapper = document.createElement('div');
+
+    const percentage = document.createElement('p');
+    percentage.textContent = data.votes_percentage + '%';
 
     const percentageBar = document.createElement('div');
     percentageBar.classList.add('.progress-bar')
-    percentageBar.style.width = item.votes_percentage + '%';
-    percentageBar.style.backgroundColor = item.color;
-    
-    const nameAndPercentageBarWrapper = document.createElement('div');
-    nameAndPercentageBarWrapper.append(partyName, percentageBar);
+    percentageBar.style.width = data.votes_percentage + '%';
+    percentageBar.style.backgroundColor = data.color;
 
+    nameAndPercentageBarWrapper.append(partyName, percentageBar, percentage)
+    
     legendItem.append(img, nameAndPercentageBarWrapper);
 
     return legendItem;
