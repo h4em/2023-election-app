@@ -39,6 +39,7 @@ main > h1 {
     color: black;
 }
 
+/*baad no?*/
 p {
     text-align: justify;
 }
@@ -65,7 +66,11 @@ input, p, .searchbar::placeholder, .hint, .result-label, footer, select, option 
     position: relative;
     width: 80%;
     height: 100%;
-    outline: 1px solid rgb(85, 255, 0);
+
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.4);
+
+    border: none;
+    border-radius: 4px;
 
     display: flex;
     flex-direction: row;
@@ -74,14 +79,23 @@ input, p, .searchbar::placeholder, .hint, .result-label, footer, select, option 
     box-sizing: border-box;
 }
 
-select {
-    outline: none;
+/*custom select jest z bootstrapa bo nie mozna tego boxa z opcjami stylowac w pure htmlu*/
+#category-dropdown.custom-select {
     border-radius: 4px;
     height: 100%;
+    padding: 4px;
+    width: auto;
+    border: none;
+    position: relative; /* Set position to relative for absolute positioning of arrow */
 }
 
-select:focus {
-    outline: none;
+#category-dropdown.custom-select::after {
+    content: '\25BC'; /* Unicode character for down arrow */
+    position: absolute;
+    top: 50%; /* Position arrow vertically in the middle */
+    right: 4px; /* Keep the arrow 4 pixels away from the text */
+    transform: translateY(-50%); /* Adjust for vertical centering */
+    color: #007bff; /* Change arrow color */
 }
 
 option {
@@ -96,10 +110,8 @@ option {
 }
 
 input {
-    padding: 10px;
+    padding: 4px;
 
-    box-shadow: 0 0 2px rgba(0, 0, 0, 0.4);
-    
     white-space: nowrap; 
     overflow: hidden; 
     text-overflow: ellipsis;
@@ -124,6 +136,7 @@ input:focus {
 
     top: 100%;
 
+
     z-index: 1;
     box-sizing: border-box; 
 }
@@ -133,6 +146,7 @@ input:focus {
     height: 24px;
     width: auto;
     padding: 4px;
+    margin-right: 3px;
 }
 
 .hint {    
@@ -159,9 +173,14 @@ input:focus {
 
     padding: 6px;
     margin-top: 4px;
+}
 
+.map-wrapper * {
     z-index: -1;
 }
+
+
+
 
 #map {
     height: 100%;
