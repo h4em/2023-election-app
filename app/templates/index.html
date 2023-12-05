@@ -11,8 +11,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
+    <header>
+        <!--na mniejszych ekranach niech nie bedzie fixed, i home info hamburger menu-->
+        <div>
+            <div>
+                <a href="https://github.com/h4em" target="_blank">
+                    <img src="static/img/github-logo.png" alt="github">
+                </a>
+                <a href="https://www.linkedin.com/in/hubertmichalski/" target="_blank">
+                    <img src="static/img/linkedin-logo.png" alt="linkedin">
+                </a>
+            </div>
+            <div>
+                <p>Home</p>
+                <p>Info</p>
+                <p>App</p>
+            </div>
+        </div>
+    </header>
+    
     <main>
-        <h1>Title</h1>
+        <div class="home-div">
+            <p>2023 election app.</p>
+            <script>
+                const headerHeight = document.querySelector('header').offsetHeight;
+                document.querySelector('.home-div').style.height = `calc(100vh - ${headerHeight}px)`;
+            </script>
+        </div>
+
+
         <h2>About</h2>
         <p> 
             This is a solo CS student project I made on the side that let's you check the exact votes distribution of the 2023 Polish Parliamentary election.
@@ -25,7 +52,7 @@
         <p>
            Some things worth mentioning:
            <ul>
-                <li>Lookup for category 'Address' can sometimes produce unreliable results due to the original data source format. Choosing more broader range is recommended (categories 'City' and above).</li>
+                <li>Lookup for category 'Address' can sometimes produce unreliable results due to the original data source format. Choosing more broader range is recommended ('City' and above on the searchbar dropdown).</li>
                 <li>'Address' category can take both the place name e.g. 'Szkola Podstawowa nr. xxx' as well as street, city names and post codes.</li>
                 <li>Data from abroad/ships was excluded.</li>
            </ul> 
@@ -63,9 +90,10 @@
                     <div><canvas class="doughnut-chart"></canvas></div>
                 </div>
             </div>
+
         </div>        
     </main>
-    <footer>Hubert Michalski &copy <span class="year"></span>, <a href="https://github.com/h4em/2023-election-data-analysis" target="_blank">source code</a></footer>
+    <footer>&copy <span class="year"></span> Hubert Michalski, <a href="https://github.com/h4em/2023-election-data-analysis" target="_blank">source code</a></footer>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>

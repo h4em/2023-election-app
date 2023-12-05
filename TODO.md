@@ -1,3 +1,5 @@
+- ogarnac style uprzatnac
+
 UI przede wszystkim zrobic zeby wygladalo ze dziala zeby mozna bylo zrobic na githubie
 opis wrzucic description ladne.
 

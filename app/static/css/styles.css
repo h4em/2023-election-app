@@ -14,7 +14,50 @@ main {
     justify-content: flex-start;
 
     margin: 0 auto;
-    padding: 16px 32px 16px 32px;
+    padding: 0px 32px 16px 32px;
+}
+
+.home-div {
+    display: flex;
+    align-items: center;
+}
+
+.home-div p {
+    font-size: 2rem;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    color: black;
+}
+
+
+header {
+    height: 64px;
+    width: 100%;
+    
+    background-color: rgba(255, 255, 255); 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+    padding: 16px 16px 16px 16px;
+    z-index: 100;
+}
+
+header > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header p, header img {
+    display: inline-block;
+    margin: 0px 4px 0px 4px;
+}
+
+header p:last-child {
+    margin-right: 8px;
+}
+
+header img {
+    height: 32px;
+    width: auto;
 }
 
 .app-div {
@@ -42,12 +85,6 @@ body, main, .search-div, .charts-div, .map-wrapper, .results-div, .searchbar-wra
     box-sizing: border-box;
 }
 
-main > h1 {
-    font-family: 'Segoe UI', Arial, sans-serif;
-    font-size: 2em;
-    color: black;
-}
-
 /*kolor borderu, fixed padding?*/
 main > h2 {
     font-family: 'Segoe UI', Arial, sans-serif;
@@ -64,18 +101,22 @@ main > h2 {
 p, li {
     text-align: justify;
     font-weight: normal;
+    overflow-wrap: break-word;
 }
 
 li {
     font-weight: normal;
     margin-top: 4px;
-    overflow-wrap: break-word;
     line-height: 24px;
     text-align: left;
 }
 
+header p:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
 
-input, p, li, .searchbar::placeholder, .hint, .result-label, footer, select, option {
+input, p, li, .searchbar::placeholder, .hint, .result-label, footer, select, option, header p {
     font-family: 'Segoe UI', Arial, sans-serif;    
     font-size: 16px;
     color: black;
