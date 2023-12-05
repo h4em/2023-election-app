@@ -4,55 +4,68 @@
     <meta charset="UTF-8">
     <title>2023 election app</title>
     <link rel="stylesheet" type="text/css" href="../static/css/styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;700&display=swap">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-    <!--<link rel="stylesheet" href="https://fonts.cdnfonts.com/css/mona-sans">-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
     <main>
         <h1>Title</h1>
+        <h2>About</h2>
         <p> 
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
-            It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. 
-            It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+            This is a solo CS student project I made on the side that let's you check the exact votes distribution of the 2023 Polish Parliamentary election.
+            Made from the official governmental data available at <a href="https://wybory.gov.pl/sejmsenat2023" target="_blank">wybory.gov.pl/sejmsenat2023</a>.
+            I can't guarantee the results are 100% correct, but from the tests i ran (you can check them out at the <a href="https://github.com/h4em/2023-election-data-analysis" target="_blank">project's repo</a>)
+            i believe they're somewhat accurate.
         </p>
 
-        <div class="search-div">            
-            <div class="searchbar-wrapper">
-                <select id="category-dropdown" class="custom-select" name="category">
-                    <option value="1">Address</option>
-                    <option value="2">City</option>
-                    <option value="3">Gmina</option>
-                    <option value="4">Powiat</option>
-                    <option value="5">Wojewodztwo</option>
-                </select>
-                <div>
-                    <input type="text" class="searchbar" placeholder="Search...">
-                    <div class="search-hints"></div>
-                </div>
-                <img src="static/img/search-icon.png">
-            </div>            
-        </div>
-              
-        <div class="map-wrapper">
-            <div id="map"></div>
-        </div>
-
-        <p class="result-label">Results for: <span class="result-label-span"></span></p>
-
-        <div class="results-div">
-            <div class="legend-div"></div>
-            <div class="charts-div">
-                <div><canvas class="bar-chart"></canvas></div>
-                <div><canvas class="doughnut-chart"></canvas></div>
-            </div>
-        </div>
+        <h2>Notes</h2>
+        <p>
+           Some things worth mentioning:
+           <ul>
+                <li>Lookup for category 'Address' can sometimes produce unreliable results due to the original data source format. Choosing more broader range is recommended (categories 'City' and above).</li>
+                <li>'Address' category can take both the place name e.g. 'Szkola Podstawowa nr. xxx' as well as street, city names and post codes.</li>
+                <li>Data from abroad/ships was excluded.</li>
+           </ul> 
+        <p>
         
+        <h2>App</h2>
+        <div class="app-div">
+            <div class="search-div">            
+                <div class="searchbar-wrapper">
+                    <img src="static/img/search-icon.png">
+                    <div>
+                        <input type="text" class="searchbar" placeholder="Search...">
+                        <div class="search-hints"></div>
+                    </div>
+                    <select id="category-dropdown" class="custom-select" name="category">
+                        <option value="1">Address</option>
+                        <option value="2">City</option>
+                        <option value="3">Gmina</option>
+                        <option value="4">Powiat</option>
+                        <option value="5">Wojewodztwo</option>
+                    </select>
+                </div>            
+            </div>
+            
+            <p class="result-label">Results for: <span class="result-label-span"></span></p>
+
+            <div class="map-wrapper">
+                <div id="map"></div>
+            </div>
+        
+            <div class="results-div">
+                <div class="legend-div"></div>
+                <div class="charts-div">
+                    <div><canvas class="bar-chart"></canvas></div>
+                    <div><canvas class="doughnut-chart"></canvas></div>
+                </div>
+            </div>
+        </div>        
     </main>
-    <footer>Hubert Michalski © <span class="year"></span>, <a href="https://github.com/h4em/2023-election-data-analysis" target="_blank">source code</a></footer>
+    <footer>Hubert Michalski &copy <span class="year"></span>, <a href="https://github.com/h4em/2023-election-data-analysis" target="_blank">source code</a></footer>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
