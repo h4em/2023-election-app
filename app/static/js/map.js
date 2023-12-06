@@ -3,13 +3,11 @@
 let map;
 
 export function initMap() {
-    map = L.map('map').setView([52.232, 21.005], 12);
+    map = L.map('map').setView([52.233, 21.006], 12);
     
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '© OpenStreetMap contributors'
     }).addTo(map);
-
-    customizeMapControls();
 }
 
 export function updateMap(data) {
@@ -22,48 +20,28 @@ export function updateMap(data) {
     const geojson = data.geojson;
 
     removeAllMarkers();
+    removeGeoJSONLayers();
     
     if(!geojson)
         placeMarker(lat, lon)
 
-    if (map) {
-        map.scrollWheelZoom.disable();
-        map.dragging.disable();
-
-        const zoom = map.getBoundsZoom(bounds);
+    const zoom = map.getBoundsZoom(bounds);
     
-        clearGeoJSONLayers();
+    L.geoJSON(data.geojson, {
+        style: {
+            color: '#3388ff',
+            weight: 2,
+            fillOpacity: 0.1
+        }
+    }).addTo(map)
 
-        L.geoJSON(data.geojson, {
-            style: {
-                color: '#3388ff',
-                weight: 2,
-                fillOpacity: 0.1
-            }
-        }).addTo(map)
-
-
-        map.flyTo([lat, lon], zoom, {
-            duration: 3
-        });
-
-        map.once('zoomend', function() {
-            map.scrollWheelZoom.enable();
-            map.dragging.enable();
-        }); 
-    }
+    map.flyTo([lat, lon], zoom, {
+        duration: 3
+    });
 }
 
 function placeMarker(lat, lon) {
     L.marker([lat, lon]).addTo(map);
-}
-
-function customizeMapControls() {
-    // Disable +/- buttons
-    document.querySelector('.leaflet-control-zoom').style.display = 'none';
-    
-    // Style the contributors label 
-    document.querySelector('.leaflet-control-attribution').style.fontSize = '0.5rem';
 }
 
 function removeAllMarkers() {
@@ -74,16 +52,14 @@ function removeAllMarkers() {
     });
 }
 
-function clearGeoJSONLayers() {
+function removeGeoJSONLayers() {
     map.eachLayer(function (layer) {
         if (layer instanceof L.GeoJSON) {
-        map.removeLayer(layer);
+            map.removeLayer(layer);
         }
     });
 }
 
 /*
-    jezeli address to marker, else geojson
-
-
+    enable/disable drag and zoom while in flyTo animation
 */

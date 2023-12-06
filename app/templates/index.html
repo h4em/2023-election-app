@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <title>2023 election app</title>
     <link rel="stylesheet" type="text/css" href="../static/css/styles.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;700&display=swap">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
@@ -22,12 +21,12 @@
                     <img src="static/img/linkedin-logo.png" alt="linkedin">
                 </a>
             </div>
-            <div></div>
-            <img src="static/img/scroll-down.gif">
+            <div class="spacer"></div>
+            <img class="scroll-gif" src="static/img/scroll-down.gif">
         </div>
         
 
-        <h2>About</h2>
+        <h2 class="about-section">About</h2>
         <p> 
             This is a solo CS student project I made on the side that let's you check the exact votes distribution of the 2023 Polish Parliamentary election.
             Made from the official governmental data available at <a href="https://wybory.gov.pl/sejmsenat2023" target="_blank">wybory.gov.pl/sejmsenat2023</a>.
@@ -61,15 +60,13 @@
                         <option value="4">Powiat</option>
                         <option value="5">Wojewodztwo</option>
                     </select>
-                </div>            
+                </div>   
             </div>
-            
-            <p class="result-label">Results for: <span class="result-label-span"></span></p>
 
-            <div class="map-wrapper">
-                <div id="map"></div>
-            </div>
-        
+            <p class="result-label">Results for: <span class="result-label-span"></p>
+            
+            <div id="map"></div>
+            
             <div class="results-div">
                 <div class="legend-div"></div>
                 <div class="charts-div">
@@ -77,8 +74,8 @@
                     <div><canvas class="doughnut-chart"></canvas></div>
                 </div>
             </div>
-
-        </div>        
+        </div>    
+        <div></div>
     </main>
     <footer>&copy <span class="year"></span> Hubert Michalski</footer>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>

@@ -7,6 +7,8 @@ const categoryDropdown = document.querySelector('#category-dropdown');
 const hintContainer = document.querySelector('.search-hints');
 const resultLabel = document.querySelector('.result-label-span');
 const yearSpan = document.querySelector('.year');
+const scrollImg = document.querySelector('.scroll-gif');
+const aboutSection = document.querySelector('.about-section');
 
 let highlightedHintIndex = -1;
 
@@ -18,6 +20,17 @@ function init() {
     setYearInFooter();
 
     window.addEventListener('resize', updateSearchContainerWidth);
+
+    scrollImg.addEventListener('click', function() {
+        const aboutRect = aboutSection.getBoundingClientRect();
+
+        const y = aboutRect.top + window.scrollY; 
+        
+        window.scrollTo({
+            top: y - 24,
+            behavior: 'smooth'
+        });
+    });
 
     initCharts();
     initMap();

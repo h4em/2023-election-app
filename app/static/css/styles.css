@@ -17,8 +17,9 @@ input, p, li, .searchbar::placeholder, .hint, .result-label, footer, select, opt
 }
 
 p, li {
-    text-align: justify;
+    text-align: left;
     font-weight: normal;
+    word-break: normal;
     overflow-wrap: break-word;
 }
 
@@ -46,11 +47,6 @@ main {
     expand on this, im bardziej bedzie scustomowane tym
     lepiej bedzie wygladac, bardziej responsive
 */
-@media screen and (max-width: 1000px) {
-    main {
-        width: 100%;
-    }
-}
 
 .home-div {
     margin: 0 auto;
@@ -58,16 +54,19 @@ main {
 
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    text-align: left;
-  }
+    justify-content: flex-start;
+    align-items: left;    
+}
 
 /* title */
 .home-div p{
     font-size: 64px;
     font-family: 'Segoe UI', Arial, sans-serif;
     color: black;
+    text-align: left;
+    margin-top: 40vh;
     margin-bottom: 8px;
+    line-height: normal;
 }
 
 /* social imgs */
@@ -76,11 +75,31 @@ main {
     width: auto;
 }
 
+.home-div .spacer {
+    flex-grow: 1;
+}
+
 /* gif */
 .home-div div + img {
     height: 64px;
     width: 64px;
-    align-self: center;
+    margin-top: auto;
+    align-self: center; /* Center horizontally */
+}
+
+@media screen and (max-width: 1080px) {
+    main {
+        width: 100%;
+    }
+    
+    .home-div p { 
+        font-size: 38px;
+    }
+    
+    .home-div a img {
+        height: 28px;
+        width: auto;
+    }
 }
 
 /*kolor borderu, fixed padding?*/
@@ -90,6 +109,9 @@ main > h2 {
     color: black;
     border-bottom: 1.25px solid; /*kolor*/
     padding-bottom: 8px;
+
+    display: block;
+    box-sizing: border-box;
 
     margin-top: 24px;
     margin-bottom: 16px;
@@ -104,6 +126,7 @@ main > h2 {
     border: 1.25px solid black;
     border-radius: 6px;
     padding: 32px 32px 32px 32px;
+    margin-bottom: 16px;
 }
 
 .search-div {    
@@ -219,22 +242,50 @@ option {
     font-weight: bold;
 }
 
-.map-wrapper {
+#map {
+    height: 100%;
+    
     height: 300px;
     width: 100%;
 
     margin-top: 16px;
     margin-bottom: 16px;
-}
-
-.map-wrapper * {
-    z-index: -1;
-}
-
-#map {
-    height: 100%;
+    
     border: 1px solid black;
     border-radius: 6px;
+}
+
+.leaflet-container:focus {
+    outline: none;
+}
+
+.leaflet-control-zoom {
+    width: 16px;
+    height: 16px;
+    
+    background-color: #ffffff;
+    color: black; 
+    
+    font-size: 16px; 
+    font-family: Arial, Helvetica, sans-serif;
+
+    border: none;
+    border-radius: 6px; 
+    margin: 4px; 
+}
+
+.leaflet-control-zoom a:hover {
+    background-color: #e6e6e6;
+    text-decoration: none;
+}
+
+.leaflet-control-attribution {
+    font-size: 8px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.leaflet-control-zoom.leaflet-bar.leaflet-control {
+    border: none;
 }
 
 .results-div {
@@ -344,6 +395,14 @@ option {
 .legend-item > div > p{
     margin-top: 4px;
     font-size: 0.8rem;
+}
+
+/* bottom line */ 
+main > div:last-child {
+    margin: 0;
+    padding: 0;
+    border: none;
+    border-bottom: 1px solid black;
 }
 
 footer {
