@@ -1,5 +1,9 @@
 - ogarnac style uprzatnac
 
+- 2023 musi sie miescic, ogarnac media queries
+
+- moze back to top button
+
 UI przede wszystkim zrobic zeby wygladalo ze dziala zeby mozna bylo zrobic na githubie
 opis wrzucic description ladne.
 

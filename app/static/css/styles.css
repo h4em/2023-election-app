@@ -1,3 +1,4 @@
+/* global */
 body, .hint {
     padding: 0;
     margin: 0;
@@ -5,6 +6,30 @@ body, .hint {
     background-color: white;
 }
 
+body, main, .search-div, .charts-div, .map-wrapper, .results-div, .searchbar-wrapper{
+    box-sizing: border-box;
+}
+
+input, p, li, .searchbar::placeholder, .hint, .result-label, footer, select, option, header p {
+    font-family: 'Segoe UI', Arial, sans-serif;    
+    font-size: 16px;
+    color: black;
+}
+
+p, li {
+    text-align: justify;
+    font-weight: normal;
+    overflow-wrap: break-word;
+}
+
+li {
+    font-weight: normal;
+    margin-top: 4px;
+    line-height: 24px;
+    text-align: left;
+}
+
+/* main */
 main {
     width: 50%;
 
@@ -17,60 +42,6 @@ main {
     padding: 0px 32px 16px 32px;
 }
 
-.home-div {
-    display: flex;
-    align-items: center;
-}
-
-.home-div p {
-    font-size: 2rem;
-    font-family: 'Segoe UI', Arial, sans-serif;
-    color: black;
-}
-
-
-header {
-    height: 64px;
-    width: 100%;
-    
-    background-color: rgba(255, 255, 255); 
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-
-    padding: 16px 16px 16px 16px;
-    z-index: 100;
-}
-
-header > div {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-header p, header img {
-    display: inline-block;
-    margin: 0px 4px 0px 4px;
-}
-
-header p:last-child {
-    margin-right: 8px;
-}
-
-header img {
-    height: 32px;
-    width: auto;
-}
-
-.app-div {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-
-    border: 1.25px solid black;
-    border-radius: 6px;
-    padding: 32px 32px 32px 32px;
-}
-
 /*
     expand on this, im bardziej bedzie scustomowane tym
     lepiej bedzie wygladac, bardziej responsive
@@ -81,8 +52,35 @@ header img {
     }
 }
 
-body, main, .search-div, .charts-div, .map-wrapper, .results-div, .searchbar-wrapper{
-    box-sizing: border-box;
+.home-div {
+    margin: 0 auto;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+  }
+
+/* title */
+.home-div p{
+    font-size: 64px;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    color: black;
+    margin-bottom: 8px;
+}
+
+/* social imgs */
+.home-div a img {
+    height: 32px;
+    width: auto;
+}
+
+/* gif */
+.home-div div + img {
+    height: 64px;
+    width: 64px;
+    align-self: center;
 }
 
 /*kolor borderu, fixed padding?*/
@@ -97,29 +95,15 @@ main > h2 {
     margin-bottom: 16px;
 }
 
-/*baad no?*/
-p, li {
-    text-align: justify;
-    font-weight: normal;
-    overflow-wrap: break-word;
-}
+.app-div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
 
-li {
-    font-weight: normal;
-    margin-top: 4px;
-    line-height: 24px;
-    text-align: left;
-}
-
-header p:hover {
-    cursor: pointer;
-    text-decoration: underline;
-}
-
-input, p, li, .searchbar::placeholder, .hint, .result-label, footer, select, option, header p {
-    font-family: 'Segoe UI', Arial, sans-serif;    
-    font-size: 16px;
-    color: black;
+    border: 1.25px solid black;
+    border-radius: 6px;
+    padding: 32px 32px 32px 32px;
 }
 
 .search-div {    
@@ -150,6 +134,13 @@ input, p, li, .searchbar::placeholder, .hint, .result-label, footer, select, opt
     box-sizing: border-box;
 }
 
+/*to musi byc dynamiczne na podstawie wysokosci searchbaru ?*/
+.searchbar-wrapper img {
+    height: 28px;
+    width: auto;
+    padding: 6px 6px 6px 8px;
+}
+
 /*custom select jest z bootstrapa bo nie mozna tego boxa z opcjami stylowac w pure htmlu*/
 #category-dropdown.custom-select {
     border-radius: 4px;
@@ -169,17 +160,6 @@ input, p, li, .searchbar::placeholder, .hint, .result-label, footer, select, opt
     color: #007bff; /* Change arrow color */
 }
 
-option {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.searchbar-wrapper > div {
-   flex: 1;
-   box-sizing: border-box;
-}
-
 input {
     padding: 4px;
 
@@ -197,6 +177,17 @@ input:focus {
     outline: none;
 }
 
+option {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.searchbar-wrapper > div {
+   flex: 1;
+   box-sizing: border-box;
+}
+
 .search-hints {
     width: 100%;
 
@@ -210,13 +201,6 @@ input:focus {
 
     z-index: 1;
     box-sizing: border-box; 
-}
-
-/*to musi byc dynamiczne na podstawie wysokosci searchbaru ?*/
-.searchbar-wrapper img {
-    height: 28px;
-    width: auto;
-    padding: 6px 6px 6px 8px;
 }
 
 .hint {    
@@ -253,17 +237,17 @@ input:focus {
     border-radius: 6px;
 }
 
-.result-label {
+.results-div {
+    height: 100%;
     width: 100%;
-    
-    left: 0;
 
-    padding: 4px;
-    margin-top: 4px;
-    margin-bottom: 4px;
-    box-sizing: border-box;
+    outline: 1px solid purple;
 
-    outline: 1px solid blueviolet;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .results-div {
@@ -291,7 +275,6 @@ input:focus {
     margin-left: 4px;
 }
 
-
 .charts-div {
     display: flex;
 
@@ -300,14 +283,12 @@ input:focus {
     align-items: center;
 }
 
-
 .charts-div div {
     width: 300px;
     height: 300px;
 
     padding: 20px;
 }
-
 
 /*przez flexbox i flex start itemy sa aligned do gory*/
 .legend-item {
@@ -352,7 +333,6 @@ input:focus {
     text-align: left;
 }
 
-
 /*percentage bar*/
 .legend-item > div > div {
     transition: width 0.3s ease-in-out;
@@ -374,4 +354,5 @@ footer {
 /*
     > jeden w dol
     ' ' wszystkie w dol, regardless how deeply nested.
+    + elem1 + elem2 elem2 od razu po elem1
 */
