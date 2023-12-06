@@ -16,10 +16,7 @@ document.addEventListener('DOMContentLoaded', init);
 
 function init() {   
     setSearchbarListeners();
-    updateSearchContainerWidth();
     setYearInFooter();
-
-    window.addEventListener('resize', updateSearchContainerWidth);
 
     scrollImg.addEventListener('click', function() {
         const aboutRect = aboutSection.getBoundingClientRect();
@@ -68,12 +65,6 @@ function setSearchbarListeners() {
 
     //?
     //searchbar.addEventListener('submit', emptyHintsContainer);
-}
-
-//to mozna jakos ladnie CSSem zrobic
-function updateSearchContainerWidth() {
-    const searchbarWidth = searchbar.offsetWidth;
-    hintContainer.style.width = searchbarWidth + 'px'
 }
 
 function emptyHintsContainer() {
@@ -181,10 +172,11 @@ async function getHints() {
     emptyHintsContainer();
 
     if (data.length === 0) {
-        const newHint = makeHint('No results.', 0);
+        emptyHintsContainer();
+        const newHint = makeHint('No results.', 0, 0);
         hintContainer.append(newHint);
     } else {
-        data.forEach((item, index) => {
+        data.forEach(async (item, index) => {
             const newHint = makeHint(item, category, index);
             hintContainer.append(newHint);
         });

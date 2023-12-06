@@ -46,28 +46,25 @@
         
         <h2>App</h2>
         <div class="app-div">
-            <div class="search-div">            
-                <div class="searchbar-wrapper">
+            <div style="position: relative; width: 100%;">
+                <div class="search-div">            
                     <img src="static/img/search-icon.png">
-                    <div>
-                        <input type="text" class="searchbar" placeholder="Search...">
-                        <div class="search-hints"></div>
-                    </div>
-                    <select id="category-dropdown" class="custom-select" name="category">
+                    <input type="text" class="searchbar" placeholder="Search...">
+                    <select id="category-dropdown" class="form-select" name="category">
                         <option value="1">Address</option>
                         <option value="2">City</option>
                         <option value="3">Gmina</option>
                         <option value="4">Powiat</option>
                         <option value="5">Wojewodztwo</option>
                     </select>
-                </div>   
+                </div>
+                <div class="search-hints"></div>
             </div>
 
-            <p class="result-label">Results for: <span class="result-label-span"></p>
-            
             <div id="map"></div>
             
             <div class="results-div">
+            <p class="result-label">Results for: <span class="result-label-span"></p>                
                 <div class="legend-div"></div>
                 <div class="charts-div">
                     <div><canvas class="bar-chart"></canvas></div>

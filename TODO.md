@@ -1,8 +1,6 @@
-- ogarnac style uprzatnac
+- moze back to top button na mobileu
 
-- 2023 musi sie miescic, ogarnac media queries
-
-- moze back to top button
+- light / dark theme
 
 UI przede wszystkim zrobic zeby wygladalo ze dziala zeby mozna bylo zrobic na githubie
 opis wrzucic description ladne.
