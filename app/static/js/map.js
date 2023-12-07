@@ -29,7 +29,7 @@ export function updateMap(data) {
     
     L.geoJSON(data.geojson, {
         style: {
-            color: '#3388ff',
+            color: '#007bff',
             weight: 2,
             fillOpacity: 0.1
         }

@@ -21,9 +21,9 @@ function makeLegendItem(data) {
     percentageBar.style.width = data.votes_percentage + '%';
     percentageBar.style.backgroundColor = data.color;
 
-    percentageBarWrapper.append(percentageBar, percentage)
+    percentageBarWrapper.append(partyName, percentageBar, percentage)
     
-    legendItem.append(img, partyName, percentageBarWrapper);
+    legendItem.append(img, percentageBarWrapper);
 
     return legendItem;
 }
