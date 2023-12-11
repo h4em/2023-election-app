@@ -11,6 +11,7 @@ const scrollImg = document.querySelector('.scroll-gif');
 const aboutSection = document.querySelector('.about-section');
 
 let highlightedHintIndex = -1;
+let hasSearched = false;
 
 document.addEventListener('DOMContentLoaded', init);
 
@@ -191,6 +192,18 @@ async function getHints() {
 async function getResults(id, category) {
     const response = await fetch(`/results?id=${id}&category=${category}`);
     const data = await response.json();
+
+    if(!hasSearched) {
+        let appDivLabel = $("h2:contains('App')");
+        let marginOffset = parseInt(appDivLabel.css('margin-top')) || 0;
+        
+        $('html, body').animate({
+            scrollTop: appDivLabel.offset().top - marginOffset
+        }, 1000);
+        
+        $(".results-div").slideDown(1000);
+        hasSearched = true;
+    }
 
     fillLegend(data);
     setChartData(data);

@@ -282,6 +282,8 @@ option {
     height: 100%;
     width: 100%;
 
+    display: none;
+
     border: 1.25px solid black;
     border-radius: 6px;
 }
