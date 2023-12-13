@@ -8,6 +8,7 @@ https://github.com/h4em/2023-election-data-analysis/assets/72524655/c69d7ce7-919
 This repo showcases a simple web-app project I've made on the side. It's all about visualising the 2023 Parliamentary election data available @[wybory.gov.pl/sejmsenat2023/](https://wybory.gov.pl/sejmsenat2023/pl/dane_w_arkuszach).
 
 ## Data integrity
+It would be a damn shame if lookup was to produce false results, so i ran some tests. I can't guarantee they're 100% correct, but for the majority of cases the data should check out.
 
 ## Features 
 
