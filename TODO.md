@@ -1,14 +1,8 @@
+- responsive, results-div musi sie zmieniac layout flexu jak maly ekran, ogolnie UI results labelu nie jest skonczone.
+- chociaz troche wieksze niech te progress bary beda nie 1:1 przelozenie bo to nie widac nic
+- zmienic z querySelectorow na jQuery?
 - moze back to top button na mobileu
-
 - light / dark theme
-
-UI przede wszystkim zrobic zeby wygladalo ze dziala zeby mozna bylo zrobic na githubie
-opis wrzucic description ladne.
-
-- tytulowa strona 
-- header (home / info / app), z lewej github i linked odnosniki 
-- light / dark theme 
-- zeby sie rozwijal mapka z resultsami jak jest initial lookup
 
 ==================================================
 teraz np masz powiat otwocki i w nim sa wyniki z powiatu otwockiego z pominieciem 
@@ -34,7 +28,6 @@ albo zyrardow i zyrardowski
 i wtedy wszyscy glosowali w zyrardowie i dla powiatu zyrardowskiego bylo 0 glosow bo wszystkie
 zostaly usuniete.
 
-
 ==================================================
 
 To jest priority bug do naprawienia. wyniki z miast 
@@ -44,11 +37,4 @@ z tego powiatu.
 ==================================================
 
 JUTRO:
-
-pis logo odstaje
-
 stestowac dla kazdego data entry czy mapka hula? do tego api key pewnie trzeba
-
-naprawic mapke
-
-dodac procenty obok progress barów

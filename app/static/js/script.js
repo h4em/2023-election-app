@@ -226,7 +226,6 @@ async function getResults(id, category) {
     - zeby hintsy nie rozszerzaly containera tylko przykrywaly to co pod nim
     - zeby mapka pokazywala destynacje po submicie
 
-    - no i ta legenda dla chartsow caly modul, zeby sie spod chartsow wysuwala
     - timeout to co gracjan mowil na hintowaniu.
 
     - no i jakies takie pierdoly typu zapisywanie i wyswietlanie tego dla czego sa wyniki
