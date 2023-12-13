@@ -26,6 +26,10 @@ This repo showcases a simple web-app project I've made on the side. It's all abo
   style="margin-right: 16px;">
   <img src="https://user-images.githubusercontent.com/25181517/183896128-ec99105a-ec1a-4d85-b08b-1aa1620b2046.png" alt="MySQL" width="48" height="48" style="margin-right: 16px;">
   <img src="https://user-images.githubusercontent.com/25181517/117207330-263ba280-adf4-11eb-9b97-0ac5b40bc3be.png" alt="Docker" width="48" height="48">
+  <img src="res\leaflet.png" alt="leaflet" width="48" height="48" 
+  style="margin-right: 16px;">
+  <img src="res\chartjs.png" alt="chartjs" width="48" height="48" 
+  style="margin-right: 16px;">
 </p>
 <!-- <p>
     image source: https://github.com/marwin1991/profile-technology-icons
@@ -33,3 +37,5 @@ This repo showcases a simple web-app project I've made on the side. It's all abo
 </p> -->
 
 ## Notes
+Some things worth mentioning:
+- Data from **abroad** / **ships** was ***excluded***.
