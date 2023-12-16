@@ -1,3 +1,5 @@
+/* global Chart */
+
 const wrapper = document.querySelector('.charts-div');
 const barChartCanvas = wrapper.querySelector('.bar-chart');
 const doughnutChartCanvas = wrapper.querySelector('.doughnut-chart');

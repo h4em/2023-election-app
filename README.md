@@ -7,22 +7,11 @@ https://github.com/h4em/2023-election-data-analysis/assets/72524655/c69d7ce7-919
 ## About 
 This repo showcases a simple web-app project I've made on the side. It's all about visualising the 2023 Parliamentary election data available @[wybory.gov.pl/sejmsenat2023/](https://wybory.gov.pl/sejmsenat2023/pl/dane_w_arkuszach).
 
-## Data integrity
-It would be a damn shame if lookup was to produce false results, so i ran some tests. I can't guarantee they're 100% correct, but for the majority of cases the data should check out.
-
-<p align="center">
-  <img src="res/res-comp-wwa.png" alt="wwa" height = "512px">
-  <img src="res/res-comp-sowin.png" alt="sowin" height = "512px">
-
-</p>
-
-
-## Entity relationship diagram
-<p align="center">
-  <img src="res/entity-relationship-diagram.png" alt="erd" height = "512px">
-</p>
-
 ## Features 
+<!-- <p>
+    image source: https://github.com/marwin1991/profile-technology-icons
+    https://simpleicons.org/?q=connector
+</p> -->
 
 ## Tech used
 <p align="center">
@@ -45,10 +34,18 @@ It would be a damn shame if lookup was to produce false results, so i ran some t
   <img src="https://user-images.githubusercontent.com/25181517/183896128-ec99105a-ec1a-4d85-b08b-1aa1620b2046.png" alt="MySQL" width="48" height="48" style="margin-right: 16px;">
   <img src="https://user-images.githubusercontent.com/25181517/117207330-263ba280-adf4-11eb-9b97-0ac5b40bc3be.png" alt="Docker" width="48" height="48">  
 </p>
-<!-- <p>
-    image source: https://github.com/marwin1991/profile-technology-icons
-    https://simpleicons.org/?q=connector
-</p> -->
+
+## Data integrity
+It would be a damn shame if lookup was to produce false results, so i ran some tests. I can't guarantee they're 100% correct, but for the majority of cases the data should check out.
+<p align="center">
+  <img src="res/res-comp-wwa.png" alt="wwa" height="512px">
+  <img src="res/res-comp-sowin.png" alt="sowin" height="512px">
+</p>
+
+## Entity relationship diagram
+<p align="center">
+  <img src="res/entity-relationship-diagram.png" alt="erd" height="512px">
+</p>
 
 ## Notes
 Some things worth mentioning:

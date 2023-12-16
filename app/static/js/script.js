@@ -3,32 +3,25 @@ import { initMap, updateMap } from './map.js';
 import { fillLegend } from './legend.js';
 
 const searchbar = document.querySelector('.searchbar');
-const categoryDropdown = document.querySelector('#category-dropdown');
+const categoryDropdown = document.querySelector('.form-select');
 const hintContainer = document.querySelector('.search-hints');
-const resultLabel = document.querySelector('.result-label-span');
-const yearSpan = document.querySelector('.year');
-const scrollImg = document.querySelector('.scroll-gif');
-const aboutSection = document.querySelector('.about-section');
 
+//Searchbar / hint click flag for emptying hint container
+let isClickEventPending = false;
+
+//Global index for indicating which hint should be highlighted
 let highlightedHintIndex = -1;
+
+//First search occurence flag
 let hasSearched = false;
 
 document.addEventListener('DOMContentLoaded', init);
 
 function init() {   
     setSearchbarListeners();
+    setCategoryDropdownListener();
     setYearInFooter();
-
-    scrollImg.addEventListener('click', function() {
-        const aboutRect = aboutSection.getBoundingClientRect();
-
-        const y = aboutRect.top + window.scrollY; 
-        
-        window.scrollTo({
-            top: y - 24,
-            behavior: 'smooth'
-        });
-    });
+    setArrowGifPageScroll();
 
     initCharts();
     initMap();
@@ -38,72 +31,87 @@ function setYearInFooter() {
     const currentDate = new Date();
     const currentYear = currentDate.getFullYear();
 
-    yearSpan.textContent = currentYear;
+    const yearSpan = $('footer span');
+    
+    yearSpan.text(currentYear);
+}
+
+function setArrowGifPageScroll() {
+    $('.scroll-gif').on('click', function() {
+        const aboutHeading = $("h2:contains('About')");    
+        const y = aboutHeading.offset().top - 24;
+    
+        $('html, body').animate({
+            scrollTop: y
+        }, 1000);
+    });
+}
+
+function setCategoryDropdownListener() {
+    $('.form-select').on('change', function() {
+        emptyHintsContainer();
+        emptySearchbar();
+        searchbar.focus();
+    });
 }
 
 function setSearchbarListeners() {
-    //Listen for input
+    //Update hints on input
     searchbar.addEventListener('input', getHints);
     
     //Resets the highlighted hint when input changes
     searchbar.addEventListener('input', resetHiglightedHintIndex)
 
     //Listen for arrowkeys
-    searchbar.addEventListener('keydown', hintContainerArrowKeyNav);
+    searchbar.addEventListener('keydown', hintContainerKeyControls);
 
-    //Prevents the caret from shifting place, NIE MOZNA chodzic po literach szczalkiem lewo prawo
+    //Prevents the caret from shifting place when using arrow keys to nav hint container
     searchbar.addEventListener('keydown', function(event) {
-        if(event.key.startsWith('Arrow')) {
+        if(event.key == 'ArrowUp' || event.key == 'ArrowDown') {
             event.preventDefault();
         }
     });
 
-    //jak traci focus to empty hints bar
-
-    searchbar.addEventListener('onblur', function() {
-        console.log('asd');
+    //Emptying the hints container when search bar looses focus.
+    searchbar.addEventListener('blur', function() {
+        setTimeout(() => {
+            if (!isClickEventPending) {
+                emptyHintsContainer();
+            }
+        }, 100);
     });
 
-    //?
-    //searchbar.addEventListener('submit', emptyHintsContainer);
+    //Resetting the pending flag when searchbar regains focus.
+    searchbar.addEventListener('focus', function () {
+        isClickEventPending = false;
+    });
 }
 
-function emptyHintsContainer() {
-    hintContainer.innerHTML = '';
-}
-
-function emptySearchbar() {
-    searchbar.value = '';
-}
-
-//z tym resetowaniem indexu moga problemu jakies byc, jest strasznie duzo przypadkow.
-function resetHiglightedHintIndex() {
-    highlightedHintIndex = -1;
-}
-
-function hintContainerArrowKeyNav(event) {
+function hintContainerKeyControls(event) {
     const hints = hintContainer.querySelectorAll('.hint');
 
     if (event.key === 'ArrowUp' && highlightedHintIndex > 0) {
-        updateHintHiglight(--highlightedHintIndex);
+        updateHintHighlight(--highlightedHintIndex);
     } else if (event.key === 'ArrowDown' && highlightedHintIndex < hints.length - 1) {
-        updateHintHiglight(++highlightedHintIndex);
+        updateHintHighlight(++highlightedHintIndex);
+    } else if (event.key === 'Enter') {
+        if(highlightedHintIndex != -1) {
+            const higlightedHint = hints[highlightedHintIndex];
+            getResults(higlightedHint);
+        }
     }
 }
 
-function updateHintHiglight(index) {
-    const hints = hintContainer.querySelectorAll('.hint');
+function updateHintHighlight(index) {
+    const hints = Array.from(hintContainer.querySelectorAll('.hint'));
+    
     highlightedHintIndex = index;
 
-    hints.forEach((item, index) => {
-        if(index !== highlightedHintIndex) {
-            if(item.classList.contains('highlight')) {
-                item.classList.remove('highlight')
-            }
-        }
-    });
+    // Remove 'highlight' class from all hints
+    hints.forEach((item) => item.classList.remove('highlight'));
     
-    hints[highlightedHintIndex].classList.add('highlight');
+    // Add 'highlight' class to the selected hint
+    hints[index].classList.add('highlight');
 }
 
 function makeHint(data, category, index) {
@@ -115,27 +123,21 @@ function makeHint(data, category, index) {
     hint.textContent = data.body;
     
     hint.addEventListener('click', () => {
-        getResults(data.id, category);
-
-        getLocationCoordinates(data.body, category)
-
-        updateResultsLabel(data.body, category);
-
-        emptyHintsContainer();
-        emptySearchbar();
+        isClickEventPending = true;
+        getResults(hint);
     });
 
     hint.addEventListener('mouseover', () => {
-        updateHintHiglight(index);
+        updateHintHighlight(index);
     });
-
+    
     return hint;
 } 
 
 function updateResultsLabel(text, category) {
     const prefix = getPrefixForCategory(category);
     
-    resultLabel.textContent = prefix + ' ' + text;
+    $('.result-label-span').text(prefix + ' ' + text);
 }
 
 function getPrefixForCategory(category_id) {
@@ -184,12 +186,18 @@ async function getHints() {
     }
 }
 
-/*
-    to kiedy i jak mozna request zsubmitowac jest bardzo wazne.
-    jakos to zabezpieczyc zeby mozna bylo squerowac resultsy tylko
-    dla czegos co istnieje w bazie!
-*/
-async function getResults(id, category) {
+async function getResults(hint) {
+    const id = hint.dataset.id;
+    const category = hint.dataset.category;
+    const body = hint.textContent;
+
+    getLocationCoordinates(body, category)
+
+    updateResultsLabel(body, category);
+
+    emptyHintsContainer();
+    emptySearchbar();
+    
     const response = await fetch(`/results?id=${id}&category=${category}`);
     const data = await response.json();
 
@@ -209,25 +217,19 @@ async function getResults(id, category) {
     setChartData(data);
 }
 
+function emptyHintsContainer() {
+    hintContainer.innerHTML = '';
+}
+
+function emptySearchbar() {
+    searchbar.value = '';
+}
+
+function resetHiglightedHintIndex() {
+    highlightedHintIndex = -1;
+}
+
 /*
-    jak sie zmienia kategorie niech sie czysci searchbar i hint container
-
-    timeouty na get res
-*/
-
-/*
-    DZISIAJ: skończyć robić caly submit, frontend hintsów?, timeouty?
-    jak nie ma geojson polygon to marker, jak sa to sam outline, ogarnac mape do końca.
-
-    - caly submit trzeba zrobic
-
-    - SUBMIT MUSI BYC ZABEZPIECZONY ze mozna squerowac tylko item z podpowiedzi (istniejacy.)
-    - przy resetowaniu indexu moga byc jakies bugi
-    - zeby hintsy nie rozszerzaly containera tylko przykrywaly to co pod nim
-    - zeby mapka pokazywala destynacje po submicie
-
-    - timeout to co gracjan mowil na hintowaniu.
-
-    - no i jakies takie pierdoly typu zapisywanie i wyswietlanie tego dla czego sa wyniki
-    - moze zeby to co highlighted bylo w searchbarze ale to tez rzeczy psuje
+    $(selector): This is the basic syntax of using jQuery to select elements in the DOM. 
+    The selector can be a tag name, class, ID, or any valid CSS selector.
 */
