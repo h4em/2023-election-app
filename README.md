@@ -10,6 +10,18 @@ This repo showcases a simple web-app project I've made on the side. It's all abo
 ## Data integrity
 It would be a damn shame if lookup was to produce false results, so i ran some tests. I can't guarantee they're 100% correct, but for the majority of cases the data should check out.
 
+<p align="center">
+  <img src="res/res-comp-wwa.png" alt="wwa" height = "512px">
+  <img src="res/res-comp-sowin.png" alt="sowin" height = "512px">
+
+</p>
+
+
+## Entity relationship diagram
+<p align="center">
+  <img src="res/entity-relationship-diagram.png" alt="erd" height = "512px">
+</p>
+
 ## Features 
 
 ## Tech used
