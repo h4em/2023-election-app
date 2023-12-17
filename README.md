@@ -27,20 +27,28 @@ This repo showcases a simple web-app project I've made on the side. It's all abo
   <img src="https://user-images.githubusercontent.com/25181517/183896128-ec99105a-ec1a-4d85-b08b-1aa1620b2046.png" alt="MySQL" width="48" height="48" style="margin-right: 16px;">
 </p>
 
-## How it's made
-- I downloaded the original .csv files and parsed them to make a relational database. Used Pandas and MySQL, [see the ERD here](res/entity-relationship-diagram.png). 
-- [/data/](/data/) directory is where i do the parsing / database insertions with SQLAlchemy.
-- Made a Flask server with endpoints that enable querying the database for places and their corresponding voting results, again, used SQLAlchemy and AJAX for this.
-- Used [Nominatim API](https://nominatim.org/) for fetching the place location and GeoJSON data, which is then represented on a [Leaflet](https://leafletjs.com/) map.
-- Used [Chart.js](https://www.chartjs.org/) for charts.
-
 <!-- <p>
-    image source: https://github.com/marwin1991/profile-technology-icons
+    img sources
+    https://github.com/marwin1991/profile-technology-icons
     https://simpleicons.org/?q=connector
 </p> -->
 
+## How it works
+- The user searches for a place name via the searchbar with categories to choose from: 'Address', 'City', 'Gmina', 'Powiat', 'Wojewodztwo' and gets nice charts in return. 
+- The place location is visualised on a map. 
+- Note that lookup for category 'Address' provide results for the **exact building** in which the voting took place, so for e.g 'Szkola Podstawowa xxx' ([see the 2nd screenshot from the Data integrity section](res/res-comp-sowin.png)). 
+- Data from **abroad** / **ships** was ***excluded***.
+
+## How it's made
+- I downloaded the original .csv files and parsed them to make a relational database. Used Pandas and MySQL, [see the ERD here](res/entity-relationship-diagram.png). 
+- [/data/](/data/) directory is where i do the parsing / database insertions with SQLAlchemy.
+- Made a Flask server with endpoints that enable database querying for places and their corresponding voting results, again, used SQLAlchemy and AJAX for this.
+- Used [Nominatim API](https://nominatim.org/) for fetching the place location and GeoJSON data, which is then represented on a [Leaflet](https://leafletjs.com/) map.
+- Used [Chart.js](https://www.chartjs.org/) for charts.
+- Made it somewhat responsive with CSS Flexbox.
+
 ## Data integrity
-It would be a damn shame if lookup was to produce false results, so i ran some tests. I can't guarantee they're 100% correct, but for the majority of cases the data should check out.
+It would be a damn shame if lookup was to produce false results, so i ran some tests, and for the majority of cases the data should check out.
 <p align="center">
   <img src="res/res-comp-wwa.png" alt="wwa" height="512px">
   <img src="res/res-comp-sowin.png" alt="sowin" height="512px">
