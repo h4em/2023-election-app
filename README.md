@@ -7,7 +7,9 @@ https://github.com/h4em/2023-election-data-analysis/assets/72524655/c69d7ce7-919
 ## About 
 This repo showcases a simple web-app project I've made on the side. It's all about visualising the 2023 Parliamentary election data available @[wybory.gov.pl/sejmsenat2023/](https://wybory.gov.pl/sejmsenat2023/pl/dane_w_arkuszach).
 
-## Features 
+## How it works
+The 
+
 <!-- <p>
     image source: https://github.com/marwin1991/profile-technology-icons
     https://simpleicons.org/?q=connector
@@ -39,12 +41,3 @@ It would be a damn shame if lookup was to produce false results, so i ran some t
   <img src="res/res-comp-wwa.png" alt="wwa" height="512px">
   <img src="res/res-comp-sowin.png" alt="sowin" height="512px">
 </p>
-
-## Entity relationship diagram
-<p align="center">
-  <img src="res/entity-relationship-diagram.png" alt="erd" height="512px">
-</p>
-
-## Notes
-Some things worth mentioning:
-- Data from **abroad** / **ships** was ***excluded***.

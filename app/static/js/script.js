@@ -228,8 +228,3 @@ function emptySearchbar() {
 function resetHiglightedHintIndex() {
     highlightedHintIndex = -1;
 }
-
-/*
-    $(selector): This is the basic syntax of using jQuery to select elements in the DOM. 
-    The selector can be a tag name, class, ID, or any valid CSS selector.
-*/
