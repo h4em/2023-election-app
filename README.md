@@ -37,7 +37,7 @@ This repo showcases a simple web-app project I've made on the side. It's all abo
 - The user searches for a place name via the searchbar with categories to choose from: 'Address', 'City', 'Gmina', 'Powiat', 'Wojewodztwo' and gets nice charts in return. 
 - The place location is visualised on a map. 
 - Note that lookup for category 'Address' provide results for the **exact building** in which the voting took place, so for e.g 'Szkola Podstawowa xxx' ([see the 2nd screenshot from the Data integrity section](res/res-comp-sowin.png)). 
-- Data from **abroad** / **ships** was ***excluded***.
+- Data from **abroad** / **ships** was **excluded**.
 
 ## How it's made
 - I downloaded the original .csv files and parsed them to make a relational database. Used Pandas and MySQL, [see the ERD here](res/entity-relationship-diagram.png). 
@@ -48,7 +48,7 @@ This repo showcases a simple web-app project I've made on the side. It's all abo
 - Made it somewhat responsive with CSS Flexbox.
 
 ## Data integrity
-It would be a damn shame if lookup was to produce false results, so i ran some tests, and for the majority of cases the data should check out.
+Here are some screenshots comparing my results with the official ones. For majority of cases they should check out.
 <p align="center">
   <img src="res/res-comp-wwa.png" alt="wwa" height="512px">
   <img src="res/res-comp-sowin.png" alt="sowin" height="512px">
