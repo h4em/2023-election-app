@@ -1,12 +1,12 @@
-/* global */
-body, .search-hints, .search-div {
+/* GLOBAL */
+body, .search-hints, .hint {
     padding: 0;
     margin: 0;
 
     background-color: white;
 }
 
-body, main, div{
+body, main, div, h2 {
     box-sizing: border-box;
 }
 
@@ -14,6 +14,10 @@ input, p, li, .searchbar::placeholder, .hint > p, .result-label, footer, select,
     font-family: 'Segoe UI', Arial, sans-serif;    
     font-size: 16px;
     color: black;
+}
+
+.app-div, .search-div, .search-hints, #map, .results-div {
+    border: 1.25px solid black;
 }
 
 p, li {
@@ -24,13 +28,19 @@ p, li {
 }
 
 li {
-    font-weight: normal;
     margin-top: 4px;
     line-height: 24px;
-    text-align: left;
 }
 
-/* main */
+main > h2 {
+    display: block;
+    font-size: 24px;
+    border-bottom: 1.25px solid black;
+    padding-bottom: 8px;
+    margin-top: 24px;
+    margin-bottom: 16px;
+}
+
 main {
     width: 50%;
 
@@ -43,11 +53,7 @@ main {
     padding: 0px 32px 16px 32px;
 }
 
-/*
-    expand on this, im bardziej bedzie scustomowane tym
-    lepiej bedzie wygladac, bardziej responsive
-*/
-
+/* HOME DIV */
 .home-div {
     margin: 0 auto;
     height: 100vh;
@@ -75,18 +81,19 @@ main {
     width: auto;
 }
 
-.home-div .spacer {
+.spacer {
     flex-grow: 1;
 }
 
-/* gif */
+/* scroll-down gif */
 .home-div div + img {
     height: 64px;
     width: 64px;
     margin-top: auto;
-    align-self: center; /* Center horizontally */
+    align-self: center; 
 }
 
+/* MEDIA */
 @media screen and (max-width: 1080px) {
     main {
         width: 100%;
@@ -102,28 +109,13 @@ main {
     }
 }
 
-/*kolor borderu, fixed padding?*/
-main > h2 {
-    font-family: 'Segoe UI', Arial, sans-serif;
-    font-size: 24px;
-    color: black;
-    border-bottom: 1.25px solid; /*kolor*/
-    padding-bottom: 8px;
-
-    display: block;
-    box-sizing: border-box;
-
-    margin-top: 24px;
-    margin-bottom: 16px;
-}
-
+/* APP DIV */
 .app-div {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
 
-    border: 1.25px solid black;
     border-radius: 6px;
     padding: 32px 32px 32px 32px;
     margin-bottom: 16px;
@@ -131,20 +123,17 @@ main > h2 {
 
 .search-div {    
     position: relative;
-
     height: 32px;
     width: 100%;
-
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: row;
 
-    border: 1.25px solid black;
+    background-color: white;
     border-radius: 6px;
-
     padding: 4px 8px 4px 8px;
-    
+
     z-index: 2;
 }
 
@@ -177,21 +166,19 @@ option {
     text-overflow: ellipsis;
 }
 
+/* HINTS */
 .search-hints {
     position: absolute;
-
+    z-index: 1;
     top: 100%;
-
     width: 100%;
 
-    margin-top: -18px;
-    padding-top: 16px;
-    
     border: 1.25px solid black;
     border-radius: 6px;
     border-top: none;
 
-    z-index: 1;
+    margin-top: -18px;
+    padding-top: 16px;
 }
 
 .hint {    
@@ -209,7 +196,6 @@ option {
     font-weight: 600;    
 }
 
-/* category dropdown, bootstrap asset btw, mozna to zrobic na divach zeby bylo custom, p, buttonsy*/
 .form-select {
     height: 100%;
     width: auto;
@@ -224,6 +210,7 @@ option {
     outline: none;
 }
 
+/* LEAFLET */
 #map {
     height: 100%;
     
@@ -233,7 +220,6 @@ option {
     margin-top: 16px;
     margin-bottom: 16px;
     
-    border: 1.25px solid black;
     border-radius: 6px;
 }
 
@@ -278,13 +264,13 @@ option {
     z-index: 0 !important;
 }
 
+/* RESULTS DIV */
 .results-div {
     height: 100%;
     width: 100%;
 
     display: none;
 
-    border: 1.25px solid black;
     border-radius: 6px;
 }
 
@@ -301,7 +287,6 @@ option {
 .results-label {
     padding: 16px 16px 16px 16px;
     margin: 0;
-
     border-bottom: 1.25px solid black;
 }
 
@@ -309,12 +294,12 @@ option {
     display: flex;
     flex: 1;
 
-    /*suabe*/
     max-width: 50%;
 
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-bottom: 32px;
 }
 
 .charts-div {
@@ -331,10 +316,10 @@ option {
     width: 300px;
     height: 300px;
 
-    padding: 16px;
+    margin: 16px;
 }
 
-/*przez flexbox i flex start itemy sa aligned do gory*/
+/* LEGEND ITEM */
 .legend-item {
     width: 100%;
 
@@ -348,6 +333,7 @@ option {
     text-overflow: ellipsis;
 }
 
+/* party logo */
 .legend-item img {
     width: 64px;
     height: 64px;
@@ -370,13 +356,9 @@ option {
 /*party name*/
 .legend-item > div > p:first-child{
     font-size: 14px;
-
     display: block;
-
     margin: 0;
-
     text-align: left;
-    
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
@@ -397,8 +379,7 @@ option {
     margin-left: 4px;
 }
 
-
-/*bottom line*/
+/*line above footer*/
 main > div:last-child {
     margin: 0;
     padding: 0;
@@ -410,9 +391,3 @@ footer {
     text-align: center;
     margin-bottom: 16px;
 }
-
-/*
-    > jeden w dol
-    ' ' wszystkie w dol, regardless how deeply nested.
-    + elem1 + elem2 elem2 od razu po elem1
-*/
