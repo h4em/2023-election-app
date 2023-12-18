@@ -1,38 +1,37 @@
-import sys
-sys.path.append('D:\\projects\\elec')
-
+from sqlalchemy import create_engine, Column, Integer, String
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import sessionmaker
 from db_config import DB_CONFIG
-import mysql.connector
 
-connection_pool = mysql.connector.pooling.MySQLConnectionPool(
-    pool_name = "main_pool",
-    pool_size = 5,
-    **DB_CONFIG  
-)
+DB_URL = f"mysql+mysqlconnector://{DB_CONFIG['user']}:{DB_CONFIG['password']}@{DB_CONFIG['host']}/{DB_CONFIG['database']}"
 
-try:
-    with connection_pool.get_connection() as connection:
-        with connection.cursor() as cursor:
-            query = 'SELECT * FROM committee;'
+engine = create_engine(DB_URL)
+Base = declarative_base()
 
-            cursor.execute(query)
+class Committee(Base):
+    __tablename__ = 'committee'
 
-            rows = cursor.fetchall()
-            
-            for row in rows:
-                address = row[2]
-                address = address.strip()
+    id = Column(Integer, primary_key=True)
+    name = Column(String(256), nullable=False)
+    address = Column(String(256), nullable=False)
+    post_code = Column(String(6), nullable=False)
+    city_id = Column(Integer, nullable=False)
+    gmina_id = Column(Integer)
+    powiat_id = Column(Integer)
+    wojewodztwo_id = Column(Integer, nullable=False)
 
-                update_query = "UPDATE committee SET address = %s WHERE id = %s"
+Base.metadata.create_all(engine)
 
-                cursor.execute(update_query, (address, row[0]))
+Session = sessionmaker(bind=engine)
 
-            connection.commit()
+with Session() as session:
+    try:
+        committees = session.query(Committee).all()
 
-except mysql.connector.Error as ce:
-    print(f'Database Error: {ce}')
-    raise ce
+        for committee in committees:
+            committee.address = committee.address.strip()
 
-except ValueError as ve:
-    print(f'Value Error: {ve}')
-    raise ve
+        session.commit()
+
+    except Exception as e:
+        print(f'Error: {e}')
