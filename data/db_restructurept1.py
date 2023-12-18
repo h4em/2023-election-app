@@ -1,6 +1,6 @@
-import mysql.connector
 import pandas as pd
 from db_config import DB_CONFIG
+import mysql.connector
 
 #Reading placowka table to then parse it
 df = None

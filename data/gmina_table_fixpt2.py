@@ -1,6 +1,3 @@
-import sys
-sys.path.append('D:\\projects\\elec')
-
 from db_config import DB_CONFIG
 import mysql.connector
 
@@ -34,5 +31,3 @@ try:
 except mysql.connector.Error as ce:
     print(f'Database Error: {ce}')
     raise ce
-
-# After this i drop the type column from gmina table.

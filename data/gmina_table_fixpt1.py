@@ -1,9 +1,5 @@
 import pandas as pd
 from sqlalchemy import create_engine
-
-import sys
-sys.path.append('D:\\projects\\elec')
-
 from db_config import DB_CONFIG
 
 df = pd.read_csv('.\\raw_data\\final_committee_table.csv').applymap(lambda x: x.rstrip() if isinstance(x, str) else x)
