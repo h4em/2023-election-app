@@ -55,5 +55,5 @@ Here are some screenshots comparing my results with the official ones. For major
 </p>
 <p align="center">
   <img src="res/res-comp-lomianki.png" alt="lomianki" height="512px">
-  <img src="res/res-comp-plock.png" alt="plock" height="512px">
+  <img src="res/res-comp-plock.png" alt="plock" height="448px">
 </p>
