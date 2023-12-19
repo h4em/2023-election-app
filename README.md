@@ -1,8 +1,10 @@
 ﻿# 2023-election-app
 
 > Full-stack web app that visualizes the votes distribution of the 2023 Polish parliamentary election.
+> 
+https://github.com/h4em/2023-election-app/assets/72524655/f1e38003-9a9a-4eb4-82c1-d0586c17eac8
 
-https://github.com/h4em/2023-election-app/assets/72524655/8d36bc85-3008-4944-96e7-fb5392935c82
+https://github.com/h4em/2023-election-app/assets/72524655/553669c8-a649-4309-bdbe-0e4353b90fde
 
 ## About 
 This repo showcases a simple web-app project I've made on the side. It's all about visualising the 2023 Parliamentary election data available @[wybory.gov.pl/sejmsenat2023/](https://wybory.gov.pl/sejmsenat2023/pl/dane_w_arkuszach).
