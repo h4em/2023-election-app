@@ -5,7 +5,9 @@
 
 https://github.com/h4em/2023-election-app/assets/72524655/f1e38003-9a9a-4eb4-82c1-d0586c17eac8
 
-<a name="mobile-preview">https://github.com/h4em/2023-election-app/assets/72524655/553669c8-a649-4309-bdbe-0e4353b90fde</a>
+<a name="mobile-preview></a>
+
+https://github.com/h4em/2023-election-app/assets/72524655/553669c8-a649-4309-bdbe-0e4353b90fde
 
 ## About 
 This repo showcases a simple web-app project I've made on the side. It's all about visualising the 2023 Parliamentary election data available @[wybory.gov.pl/sejmsenat2023/](https://wybory.gov.pl/sejmsenat2023/pl/dane_w_arkuszach).
@@ -45,8 +47,8 @@ This repo showcases a simple web-app project I've made on the side. It's all abo
 ## How it's made
 - I downloaded the original .csv files and parsed them to make a relational database. Used Pandas and MySQL, [see the ERD here](res/entity-relationship-diagram.png). 
 - [/data/](/data/) directory is where i do the parsing / database insertions with SQLAlchemy.
-- Made a Flask server with endpoints that enable database querying for places and their corresponding voting results, again, used SQLAlchemy and AJAX for this.
-- Used [Nominatim API](https://nominatim.org/) for fetching the place location and GeoJSON data, which is then represented on a [Leaflet](https://leafletjs.com/) map.
+- Made a Flask server with endpoints that enable looking up places and their corresponding voting results, again, used SQLAlchemy and AJAX for this.
+- Used [Nominatim API](https://nominatim.org/) for place location and GeoJSON data fetching, which is then represented on a [Leaflet](https://leafletjs.com/) map.
 - Used [Chart.js](https://www.chartjs.org/) for charts.
 - Made it somewhat responsive with CSS Flexbox.
 
