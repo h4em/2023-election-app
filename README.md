@@ -58,7 +58,6 @@ Here are some screenshots comparing my results with the official ones. For major
   <img src="res/res-comp-wwa.png" alt="wwa" height="512px">
   <img src="res/res-comp-sowin.png" alt="sowin" height="512px">
 </p>
-<br>
 <p align="center">
   <img src="res/res-comp-lomianki.png" alt="lomianki" height="512px">
   <img src="res/res-comp-plock.png" alt="plock" height="512px">
