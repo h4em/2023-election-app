@@ -5,7 +5,7 @@
 
 https://github.com/h4em/2023-election-app/assets/72524655/f1e38003-9a9a-4eb4-82c1-d0586c17eac8
 
-<a name="mobile-preview></a>
+<a name="mobile-preview"></a>
 
 https://github.com/h4em/2023-election-app/assets/72524655/553669c8-a649-4309-bdbe-0e4353b90fde
 
