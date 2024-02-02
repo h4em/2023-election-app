@@ -1,11 +1,11 @@
 ﻿# 2023-election-app
 
+
 > Full-stack web app that visualizes the votes distribution of the 2023 Polish parliamentary election.
-> 
+
 https://github.com/h4em/2023-election-app/assets/72524655/f1e38003-9a9a-4eb4-82c1-d0586c17eac8
 
-<a name="mobile-preview"></a>
-https://github.com/h4em/2023-election-app/assets/72524655/553669c8-a649-4309-bdbe-0e4353b90fde
+<a name="mobile-preview">https://github.com/h4em/2023-election-app/assets/72524655/553669c8-a649-4309-bdbe-0e4353b90fde</a>
 
 ## About 
 This repo showcases a simple web-app project I've made on the side. It's all about visualising the 2023 Parliamentary election data available @[wybory.gov.pl/sejmsenat2023/](https://wybory.gov.pl/sejmsenat2023/pl/dane_w_arkuszach).
@@ -39,7 +39,7 @@ This repo showcases a simple web-app project I've made on the side. It's all abo
 ## How it works
 - The user searches for a place name via the searchbar with categories to choose from: 'Address', 'City', 'Gmina', 'Powiat', 'Wojewodztwo' and gets nice charts in return. 
 - The place location is visualised on a map. 
-- Note that lookup for category 'Address' provide results for the **exact building** in which the voting took place, so for e.g 'Szkola Podstawowa xxx' ([see here](res/res-comp-sowin.png)). 
+- Note that lookup for category 'Address' provide results for the **exact building** in which the voting took place, so for e.g 'Szkola Podstawowa xxx' ([see here](#mobile-preview)). 
 - Data from **abroad** / **ships** was **excluded**.
 
 ## How it's made
